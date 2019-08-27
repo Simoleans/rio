@@ -11,15 +11,15 @@
       <script src="{{asset('js/webcam.js')}}" type="text/javascript"></script>
     <!-- BEGIN VENDOR JS-->
     <script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
-    <!-- BEGIN PAGE VENDOR JS-->
-    <script src="{{asset('app-assets/vendors/js/chartist.min.js')}}" type="text/javascript"></script>
-    <!-- END PAGE VENDOR JS-->
+    
     <!-- BEGIN APEX JS-->
     <script src="{{asset('app-assets/js/app-sidebar.js')}}" type="text/javascript"></script>
     <script src="{{asset('app-assets/js/notification-sidebar.js')}}" type="text/javascript"></script>
     <script src="{{asset('app-assets/js/customizer.js')}}" type="text/javascript"></script>
     <!-- END APEX JS-->
     <!-- BEGIN PAGE LEVEL JS-->
-    <script src="{{asset('app-assets/js/dashboard2.js')}}" type="text/javascript"></script>
+
     <script src="{{asset('app-assets/vendors/js/datatable/datatables.min.js')}}" type="text/javascript"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+
     <!-- END PAGE LEVEL JS-->

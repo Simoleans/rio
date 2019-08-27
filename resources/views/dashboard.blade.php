@@ -149,60 +149,6 @@
               </div>
             </div>
             <div class="row match-height">
-              <div class="col-lg-4 col-md-12">
-                <div class="card">
-                  <div class="card-header text-center pb-0">
-                    <span class="font-medium-2 primary">Steps</span>
-                    <h3 class="font-large-2 mt-1">3261</h3>
-                  </div>
-                  <div class="card-content">
-                    <div id="donut-chart1" class="height-250 donut1">
-                    </div>
-                    <div class="card-body text-center">
-                      <span class="font-large-1 d-block mb-1">5000</span>
-                      <span class="primary font-medium-1">Steps Today's Target</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-4 col-md-12">
-                <div class="card">
-                  <div class="card-header text-center pb-0">
-                    <span class="font-medium-2 warning">Distance</span>
-                    <h3 class="font-large-2 mt-1">7.6
-                      <span class="font-medium-1 grey darken-1 text-bold-400">miles</span>
-                    </h3>
-                  </div>
-                  <div class="card-content">
-                    <div id="donut-chart2" class="height-250 donut2">
-                    </div>
-                    <div class="card-body text-center">
-                      <span class="font-large-1 d-block mb-1">10</span>
-                      <span class="warning font-medium-1">Miles Today's Target</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-4 col-md-12">
-                <div class="card">
-                  <div class="card-header text-center pb-0">
-                    <span class="font-medium-2 danger">Calories</span>
-                    <h3 class="font-large-2 mt-1">4,025
-                      <span class="font-medium-1 grey darken-1 text-bold-400">kcal</span>
-                    </h3>
-                  </div>
-                  <div class="card-content">
-                    <div id="donut-chart3" class="height-250 donut3">
-                    </div>
-                    <div class="card-body text-center">
-                      <span class="font-large-1 d-block mb-1">5000</span>
-                      <span class="danger font-medium-1">kcla Today's Target</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="row match-height">
               <div class="col-xl-6 col-lg-12 col-sm-12">
                 <div class="card">
                   <div class="card-content">
