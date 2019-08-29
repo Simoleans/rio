@@ -68,27 +68,27 @@
             <h2>Paso 2: Datos Propietario</h2>
              <div class="form-group">
               <label for="rut">RUT</label>
-              <input type="text" class="form-control" id="rut" name="rut" placeholder="RUT">
+              <input type="text" class="form-control required" id="rut" name="rut" placeholder="RUT">
             </div>
              <div class="form-group">
               <label for="r_social">Razón Social</label>
-              <input type="text" class="form-control" id="r_social" name="r_social" placeholder="Razón Social">
+              <input type="text" class="form-control required" id="r_social" name="r_social" placeholder="Razón Social">
             </div>
              <div class="form-group">
               <label for="direccion">Dirección</label>
-              <input type="text" class="form-control" id="direccion" name="direccion" placeholder="Dirección">
+              <input type="text" class="form-control required" id="direccion" name="direccion" placeholder="Dirección">
             </div>
              <div class="form-group">
               <label for="comuna">Comuna</label>
-              <input type="text" class="form-control red" id="comuna" name="comuna" placeholder="Nro Serie">
+              <input type="text" class="form-control required red" id="comuna" name="comuna" placeholder="Nro Serie">
             </div>
              <div class="form-group">
               <label for="region">Región</label>
-              <input type="text" class="form-control" id="region" name="region" placeholder="Región">
+              <input type="text" class="form-control required" id="region" name="region" placeholder="Región">
             </div>
             <div class="form-group">
               <label for="hombre">CSG</label>
-              <input type="text" class="form-control" id="hombre" name="hombre" placeholder="Hombre">
+              <input type="text" class="form-control required" id="hombre" name="hombre" placeholder="Hombre">
             </div>
             <input type="button" name="previous" class="previous btn btn-warning" value="Anterior" />
             <input type="button" name="next" class="next btn btn-info" value="Siguiente" />
@@ -367,12 +367,15 @@
     next_step = $(this).parent().next();
     var counter = 0;
     var input = '';
-    $(".required").each(function() {
+    $(current_step.find('input.required')).each(function() {
         if ($(this).val() === "") {
             $(this).css('border', '1px solid red');
             counter++;
         }
     });
+
+console.log(counter)
+   
     if(counter > 0){
         Swal.fire({
           type: 'error',
