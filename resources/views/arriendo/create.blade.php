@@ -28,16 +28,17 @@
         <div class="progress">
     <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
   </div>
-        <form id="regiration_form" novalidate action="action.php"  method="post">
-          <input type="hidden"  name="image_frente" id="image_frente">
-          <input type="hidden"  name="image_izquierdo" id="image_izquierdo">
-          <input type="hidden"  name="image_trasero" id="image_trasero">
-          <input type="hidden"  name="image_derecho" id="image_derecho">
-          <input type="hidden"  name="image_tunel" id="image_tunel">
-          <input type="hidden"  name="image_comandos" id="image_comandos">
-          <input type="hidden"  name="image_horometro" id="image_horometro">
+        <form id="regiration_form" novalidate action="{{route('arriendo.store')}}"  method="POST">
+          @csrf
+          <input type="hidden"  name="image[]" id="image_frente">
+          <input type="hidden"  name="image[]" id="image_izquierdo">
+          <input type="hidden"  name="image[]" id="image_trasero">
+          <input type="hidden"  name="image[]" id="image_derecho">
+          <input type="hidden"  name="image[]" id="image_tunel">
+          <input type="hidden"  name="image[]" id="image_comandos">
+          <input type="hidden"  name="image[]" id="image_horometro">
           <fieldset>
-            <h2>Paso 1: Datos Maquina</h2>
+            <h2>Paso 1: Datos Maquina</h2>  
             <div class="form-group">
               <label for="marca">Marca</label>
               <input type="text" class="form-control required" id="marca" name="marca" placeholder="Marca">
@@ -93,181 +94,11 @@
             <input type="button" name="previous" class="previous btn btn-warning" value="Anterior" />
             <input type="button" name="next" class="next btn btn-info" value="Siguiente" />
           </fieldset>
-          <fieldset>
-            <h2>Paso 3: Foto (Frente)</h2>
-             <div class="row">
-               <div class="col-6 offset-3">
-                 <div id="my_camera1"></div>
-               </div>
-             </div>
-             <div class="row">
-               <div class="col-5 offset-5">
-                 <br>
-                 <button type="button" class="btn btn-danger"  onClick="take_snapshot('my_camera1','image1','results1','image_frente')"><i class="ft-camera"></i></button>
-               </div>
-             </div>
-               <br>
-              <div class="row">
-               <div class="col-6 offset-3">
-                 <div id="results1" ></div>
-               </div>
-             </div>
-             <br>
-            <input type="button" name="previous" class="previous btn btn-warning" value="Anterior" />
-             <input type="button" name="next" class="next btn btn-info" value="Siguiente" />
-          </fieldset>
-          <fieldset>
-            <h2>Paso 4: Foto (Izquierda)</h2>
-             <div class="row">
-               <div class="col-6 offset-3">
-                 <div id="my_camera2"></div>
-               </div>
-             </div>
-             <div class="row">
-               <div class="col-5 offset-5">
-                 <br>
-                 <button type="button" class="btn btn-danger"  onClick="take_snapshot('my_camera2','image2','results2','image_izquierdo')"><i class="ft-camera"></i></button>
-               </div>
-             </div>
-               <br>
-              <div class="row">
-               <div class="col-6 offset-3">
-                 <div id="results2" ></div>
-               </div>
-             </div>
-             <br>
-             <input type="button" name="previous" class="previous btn btn-warning" value="Anterior" />
-             <input type="button" name="next" class="next btn btn-info" value="Siguiente" />
-          </fieldset>
-           <fieldset>
-            <h2>Paso 5: Foto (Trasero)</h2>
-              <div class="row">
-               <div class="col-6 offset-3">
-                 <div id="my_camera3"></div>
-               </div>
-             </div>
-             <div class="row">
-               <div class="col-5 offset-5">
-                 <br>
-                 <button type="button" class="btn btn-danger"  onClick="take_snapshot('my_camera3','image3','results3','image_trasero')"><i class="ft-camera"></i></button>
-               </div>
-             </div>
-               <br>
-              <div class="row">
-               <div class="col-6 offset-3">
-                 <div id="results3" ></div>
-               </div>
-             </div>
-             <br>
-            <input type="button" name="previous" class="previous btn btn-warning" value="Anterior" />
-             <input type="button" name="next" class="next btn btn-info" value="Siguiente" />
-          </fieldset>
-           <fieldset>
-            <h2>Paso 6: Foto (Derecho)</h2>
-              <div class="row">
-               <div class="col-6 offset-3">
-                 <div id="my_camera4"></div>
-               </div>
-             </div>
-             <div class="row">
-               <div class="col-5 offset-5">
-                 <br>
-                 <button type="button" class="btn btn-danger"  onClick="take_snapshot('my_camera4','image4','results4','image_derecho')"><i class="ft-camera"></i></button>
-               </div>
-             </div>
-               <br>
-              <div class="row">
-               <div class="col-6 offset-3">
-                 <div id="results4" ></div>
-               </div>
-             </div>
-             <br>
-            <input type="button" name="previous" class="previous btn btn-warning" value="Anterior" />
-             <input type="button" name="next" class="next btn btn-info" value="Siguiente" />
-          </fieldset>
-           <fieldset>
-            <h2>Paso 7: Foto (Túnel)</h2>
-              <div class="row">
-               <div class="col-6 offset-3">
-                 <div id="my_camera5"></div>
-               </div>
-             </div>
-             <div class="row">
-               <div class="col-5 offset-5">
-                 <br>
-                 <button type="button" class="btn btn-danger"  onClick="take_snapshot('my_camera5','image5','results5','image_tunel')"><i class="ft-camera"></i></button>
-               </div>
-             </div>
-               <br>
-              <div class="row">
-               <div class="col-6 offset-3">
-                 <div id="results5" ></div>
-               </div>
-             </div>
-             <br>
-            <input type="button" name="previous" class="previous btn btn-warning" value="Anterior" />
-             <input type="button" name="next" class="next btn btn-info" value="Siguiente" />
-          </fieldset>
-           <fieldset>
-            <h2>Paso 8: Foto (Comandos)</h2>
-              <div class="row">
-               <div class="col-6 offset-3">
-                 <div id="my_camera6"></div>
-               </div>
-             </div>
-             <div class="row">
-               <div class="col-5 offset-5">
-                 <br>
-                 <button type="button" class="btn btn-danger"  onClick="take_snapshot('my_camera6','image6','results6','image_comandos')"><i class="ft-camera"></i></button>
-               </div>
-             </div>
-               <br>
-              <div class="row">
-               <div class="col-6 offset-3">
-                 <div id="results6" ></div>
-               </div>
-             </div>
-             <br>
-            <input type="button" name="previous" class="previous btn btn-warning" value="Anterior" />
-             <input type="button" name="next" class="next btn btn-info" value="Siguiente" />
-          </fieldset>
-           <fieldset>
-            <h2>Paso 9: Foto (Horómetro)</h2>
-              <div class="row">
-               <div class="col-6 offset-3">
-                 <div id="my_camera7"></div>
-               </div>
-             </div>
-             <div class="row">
-               <div class="col-5 offset-5">
-                 <br>
-                 <button type="button" class="btn btn-danger"  onClick="take_snapshot('my_camera7','image7','results7','image_horometro')"><i class="ft-camera"></i></button>
-               </div>
-             </div>
-               <br>
-              <div class="row">
-               <div class="col-6 offset-3">
-                 <div id="results7" ></div>
-               </div>
-             </div>
-             <br>
-            <input type="button" name="previous" class="previous btn btn-warning" value="Anterior" />
-             <input type="button" name="next" class="next btn btn-info" value="Siguiente" />
-          </fieldset>
+         
+          @include('partials.forms.camaras')
+          @include('partials.forms.combustible')
+          @include('partials.forms.hidraulico')
 
-          <fieldset>
-            <h2>Paso 10: Checklist</h2>
-            <div class="form-group">
-              <label for="mob">Check</label>
-              <input type="text" class="form-control" id="mob" placeholder="Check">
-            </div>
-            <div class="form-group">
-              <label for="address">Observacion</label>
-              <textarea  class="form-control" name="address" placeholder="Observacion"></textarea>
-            </div>
-            <input type="button" name="previous" class="previous btn btn-warning" value="Anterior" />
-            <input type="submit" name="submit" class="submit btn btn-success" value="Submit" />
-          </fieldset>
         </form>
       </div>
     </div>
@@ -281,7 +112,7 @@
   
  function take_snapshot(id,image,preview,img_data) {
 
-  //console.log(id,image);
+  // console.log(id,image,preview,img_data);
        
        // take snapshot and get image data
        Webcam.snap( function(data_uri) {
@@ -289,13 +120,26 @@
         document.getElementById(preview).innerHTML = 
         '<img id="'+image+'" src="'+data_uri+'"/>';
 
-        $("#"+img_data).val(data_uri);
+      
 
          var base64image = document.getElementById(image).src;
 
-         console.log(base64image);
+         //console.log(base64image);
+         html2canvas([document.getElementById(preview)], {
+          onrendered: function (canvas) {
+            var canvas_img_data = canvas.toDataURL('image/png');
+            var img64 = canvas_img_data.replace(/^data:image\/(png|jpg);base64,/, "");
+
+            // $("#firma").val(img_data);
+              $("#"+img_data).val(img64);
+              console.log(img_data)
+               
+          }
+        });// fin html2canvas
         });
      }
+
+     
 
      Webcam.set({
       width: 320,
@@ -304,9 +148,6 @@
       jpeg_quality: 90
      });
      Webcam.attach('#my_camera1');
-
-
-
 
 
      Webcam.set({
@@ -367,14 +208,14 @@
     next_step = $(this).parent().next();
     var counter = 0;
     var input = '';
-    $(current_step.find('input.required')).each(function() {
-        if ($(this).val() === "") {
-            $(this).css('border', '1px solid red');
-            counter++;
-        }
-    });
+    // $(current_step.find('input.required')).each(function() {
+    //     if ($(this).val() === "") {
+    //         $(this).css('border', '1px solid red');
+    //         counter++;
+    //     }
+    // });
 
-console.log(counter)
+//console.log(counter)
    
     if(counter > 0){
         Swal.fire({
