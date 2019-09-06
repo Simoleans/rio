@@ -10,11 +10,11 @@
                     <div class="card-content">
                       <div class="card-body">
                         <div class="custom-radio custom-control-inline ml-3">
-                          <input type="radio" id="combustible_tanque" name="combustible_tanque" class="custom-control-input" value="1">
+                          <input type="radio" id="combustible_tanque" name="combustible_tanque" class="custom-control-input" checked="checked" value="1">
                           <label class="custom-control-label" for="combustible_tanque">Bien</label>
                         </div>
                         <div class="custom-radio custom-control-inline ml-3">
-                          <input type="radio"  id="combustible_tanque1" name="combustible_tanque" class="custom-control-input" value="0" >
+                          <input type="radio"  id="combustible_tanque1" name="combustible_tanque" class="custom-control-input" checked="checked" value="0" >
                           <label class="custom-control-label" for="combustible_tanque1">Defectuoso</label>
                         </div>
                         <hr>
@@ -35,11 +35,11 @@
                      <div class="card-content">
                       <div class="card-body">
                         <div class="custom-radio custom-control-inline ml-3">
-                          <input type="radio"  name="combustible_medidor_nivel" id="combustible_medidor_nivel" class="custom-control-input" value="1">
+                          <input type="radio"  name="combustible_medidor_nivel" id="combustible_medidor_nivel" class="custom-control-input" checked="checked" value="1">
                           <label class="custom-control-label" for="combustible_medidor_nivel">Bien</label>
                         </div>
                         <div class="custom-radio custom-control-inline ml-3">
-                          <input type="radio" name="combustible_medidor_nivel" id="combustible_medidor_nivel1" class="custom-control-input" value="0" >
+                          <input type="radio" name="combustible_medidor_nivel" id="combustible_medidor_nivel1" class="custom-control-input" checked="checked" value="0" >
                           <label class="custom-control-label" for="combustible_medidor_nivel1">Defectuoso</label>
                         </div>
                          <hr>
@@ -60,11 +60,11 @@
                     <div class="card-content">
                       <div class="card-body">
                         <div class="custom-radio custom-control-inline ml-3">
-                          <input type="radio"  name="combustible_tapon" id="combustible_tapon" class="custom-control-input" value="1">
+                          <input type="radio"  name="combustible_tapon" id="combustible_tapon" class="custom-control-input" checked="checked" value="1">
                           <label class="custom-control-label" for="combustible_tapon">Bien</label>
                         </div>
                         <div class="custom-radio custom-control-inline ml-3">
-                          <input type="radio" name="combustible_tapon" id="combustible_tapon1" class="custom-control-input" value="0" >
+                          <input type="radio" name="combustible_tapon" id="combustible_tapon1" class="custom-control-input" checked="checked" value="0" >
                           <label class="custom-control-label" for="combustible_tapon1">Defectuoso</label>
                         </div>
                          <hr>
@@ -85,11 +85,11 @@
                      <div class="card-content">
                       <div class="card-body">
                         <div class="custom-radio custom-control-inline ml-3">
-                          <input type="radio"  name="combustible_fugas" id="combustible_fugas" class="custom-control-input" value="1">
+                          <input type="radio"  name="combustible_fugas" id="combustible_fugas" class="custom-control-input" checked="checked" value="1">
                           <label class="custom-control-label" for="combustible_fugas">Bien</label>
                         </div>
                         <div class="custom-radio custom-control-inline ml-3">
-                          <input type="radio" name="combustible_fugas" id="combustible_fugas1" class="custom-control-input" value="0" >
+                          <input type="radio" name="combustible_fugas" id="combustible_fugas1" class="custom-control-input" checked="checked" value="0" >
                           <label class="custom-control-label" for="combustible_fugas1">Defectuoso</label>
                         </div>
                          <hr>
@@ -110,11 +110,11 @@
                      <div class="card-content">
                       <div class="card-body">
                         <div class="custom-radio custom-control-inline ml-3">
-                          <input type="radio"  name="combustible_cebador" id="combustible_cebador" class="custom-control-input" value="1">
+                          <input type="radio"  name="combustible_cebador" id="combustible_cebador" class="custom-control-input" checked="checked" value="1">
                           <label class="custom-control-label" for="combustible_cebador">Bien</label>
                         </div>
                         <div class="custom-radio custom-control-inline ml-3">
-                          <input type="radio" name="combustible_cebador" id="combustible_cebador1" class="custom-control-input" value="0" >
+                          <input type="radio" name="combustible_cebador" id="combustible_cebador1" class="custom-control-input" checked="checked" value="0" >
                           <label class="custom-control-label" for="combustible_cebador1">Defectuoso</label>
                         </div>
                          <hr>
@@ -135,11 +135,11 @@
                      <div class="card-content">
                       <div class="card-body">
                         <div class="custom-radio custom-control-inline ml-3">
-                          <input type="radio"  name="combustible_filtro_primario" id="combustible_filtro_primario" class="custom-control-input" value="1">
+                          <input type="radio"  name="combustible_filtro_primario" id="combustible_filtro_primario" class="custom-control-input" checked="checked" value="1">
                           <label class="custom-control-label" for="combustible_filtro_primario" >Bien</label>
                         </div>
                         <div class="custom-radio custom-control-inline ml-3">
-                          <input type="radio" name="combustible_filtro_primario" id="combustible_filtro_primario1" class="custom-control-input" value="0" >
+                          <input type="radio" name="combustible_filtro_primario" id="combustible_filtro_primario1" class="custom-control-input" checked="checked" value="0" >
                           <label class="custom-control-label" for="combustible_filtro_primario1" >Defectuoso</label>
                         </div>
                         <hr>
@@ -161,11 +161,11 @@
                      <div class="card-content">
                       <div class="card-body">
                         <div class="custom-radio custom-control-inline ml-3">
-                          <input type="radio"  name="combustible_filtro_secundario" id="combustible_filtro_secundario" class="custom-control-input" value="1">
+                          <input type="radio"  name="combustible_filtro_secundario" id="combustible_filtro_secundario" class="custom-control-input" checked="checked" value="1">
                           <label class="custom-control-label" for="combustible_filtro_secundario">Bien</label>
                         </div>
                         <div class="custom-radio custom-control-inline ml-3">
-                          <input type="radio" name="combustible_filtro_secundario" id="combustible_filtro_secundario1" class="custom-control-input" value="0" >
+                          <input type="radio" name="combustible_filtro_secundario" id="combustible_filtro_secundario1" class="custom-control-input" checked="checked" value="0" >
                           <label class="custom-control-label" for="combustible_filtro_secundario1">Defectuoso</label>
                         </div>
                          <hr>

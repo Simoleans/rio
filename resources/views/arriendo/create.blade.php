@@ -12,12 +12,12 @@
   }
 
   video {
-  width: 100%;
-  max-height: 100%;
+  width: 100% !important;
+  max-height: 100% !important;
 }
-  </style>
+</style>
 
-<div class="col-md-8 offset-2">
+<div class="col-md-12">
   <div class="card">
     <div class="card-header">
       <h4 class="card-title" id="basic-layout-form">Nuevo Arriendo</h4>
@@ -49,11 +49,11 @@
             </div>
              <div class="form-group">
               <label for="año">Año</label>
-              <input type="text" class="form-control required" id="año" name="año" placeholder="Año">
+              <input type="text" class="form-control required" id="ano" name="ano" placeholder="Año">
             </div>
              <div class="form-group">
               <label for="serie">Nro Serie</label>
-              <input type="text" class="form-control required red" id="serie" name="serie" placeholder="Nro Serie">
+              <input type="text" class="form-control required red" id="serie" name="series" placeholder="Nro Serie">
             </div>
              <div class="form-group">
               <label for="horas">Horas</label>
@@ -89,7 +89,7 @@
             </div>
             <div class="form-group">
               <label for="hombre">CSG</label>
-              <input type="text" class="form-control required" id="hombre" name="hombre" placeholder="Hombre">
+              <input type="text" class="form-control required" id="hombre" name="hombre" placeholder="CSG">
             </div>
             <input type="button" name="previous" class="previous btn btn-warning" value="Anterior" />
             <input type="button" name="next" class="next btn btn-info" value="Siguiente" />
@@ -98,6 +98,7 @@
           @include('partials.forms.camaras')
           @include('partials.forms.combustible')
           @include('partials.forms.hidraulico')
+          @include('partials.forms.motor')
 
         </form>
       </div>
@@ -208,6 +209,7 @@
     next_step = $(this).parent().next();
     var counter = 0;
     var input = '';
+    //validacion de required
     // $(current_step.find('input.required')).each(function() {
     //     if ($(this).val() === "") {
     //         $(this).css('border', '1px solid red');
@@ -228,7 +230,8 @@
       next_step.show();
       current_step.hide();
       setProgressBar(++current);
-    }  
+    }
+    //fin validacion  
     
   });
   $(".previous").click(function(){

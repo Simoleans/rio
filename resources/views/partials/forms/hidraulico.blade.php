@@ -10,11 +10,11 @@
                     <div class="card-content">
                       <div class="card-body">
                         <div class="custom-radio custom-control-inline ml-3">
-                          <input type="radio" id="hidraulico_bombas" name="hidraulico_bombas" class="custom-control-input" value="1">
+                          <input type="radio" id="hidraulico_bombas" name="hidraulico_bombas" class="custom-control-input" checked="checked" value="1">
                           <label class="custom-control-label" for="hidraulico_bombas">Bien</label>
                         </div>
                         <div class="custom-radio custom-control-inline ml-3">
-                          <input type="radio" id="hidraulico_bombas1" name="hidraulico_bombas" class="custom-control-input" value="0" >
+                          <input type="radio" id="hidraulico_bombas1" name="hidraulico_bombas" class="custom-control-input" checked="checked" value="0" >
                           <label class="custom-control-label" for="hidraulico_bombas1">Defectuoso</label>
                         </div>
                         <hr>
@@ -35,11 +35,11 @@
                      <div class="card-content">
                       <div class="card-body">
                         <div class="custom-radio custom-control-inline ml-3">
-                          <input type="radio" id="hidraulico_tanque" name="hidraulico_tanque" class="custom-control-input" value="1">
+                          <input type="radio" id="hidraulico_tanque" name="hidraulico_tanque" class="custom-control-input" checked="checked" value="1">
                           <label class="custom-control-label" for="hidraulico_tanque">Bien</label>
                         </div>
                         <div class="custom-radio custom-control-inline ml-3">
-                          <input type="radio" id="hidraulico_tanque1" name="hidraulico_tanque" class="custom-control-input" value="0" >
+                          <input type="radio" id="hidraulico_tanque1" name="hidraulico_tanque" class="custom-control-input" checked="checked" value="0" >
                           <label class="custom-control-label" for="hidraulico_tanque1">Defectuoso</label>
                         </div>
                          <hr>
@@ -60,17 +60,17 @@
                     <div class="card-content">
                       <div class="card-body">
                         <div class="custom-radio custom-control-inline ml-3">
-                          <input type="radio" id="hidraulico_nivel" name="hidraulico_nivel" class="custom-control-input" value="1">
+                          <input type="radio" id="hidraulico_nivel" name="hidraulico_nivel" class="custom-control-input" checked="checked" value="1">
                           <label class="custom-control-label" for="hidraulico_nivel">Bien</label>
                         </div>
                         <div class="custom-radio custom-control-inline ml-3">
-                          <input type="radio" id="hidraulico_nivel1" name="hidraulico_nivel" class="custom-control-input" value="0" >
+                          <input type="radio" id="hidraulico_nivel1" name="hidraulico_nivel" class="custom-control-input" checked="checked" value="0" >
                           <label class="custom-control-label" for="hidraulico_nivel1">Defectuoso</label>
                         </div>
                          <hr>
                         <br>
                         <small>Observacion</small>
-                        <textarea class="form-control"></textarea>
+                        <textarea class="form-control" name="hidraulico_ob_nivel"></textarea>
                       </div>
                     </div>
                   </div>
@@ -85,11 +85,11 @@
                      <div class="card-content">
                       <div class="card-body">
                         <div class="custom-radio custom-control-inline ml-3">
-                          <input type="radio" id="hidraulico_tapon" name="hidraulico_tapon" class="custom-control-input" value="1">
+                          <input type="radio" id="hidraulico_tapon" name="hidraulico_tapon" class="custom-control-input" checked="checked" value="1">
                           <label class="custom-control-label" for="hidraulico_tapon">Bien</label>
                         </div>
                         <div class="custom-radio custom-control-inline ml-3">
-                          <input type="radio" id="hidraulico_tapon1" name="hidraulico_tapon" class="custom-control-input" value="0" >
+                          <input type="radio" id="hidraulico_tapon1" name="hidraulico_tapon" class="custom-control-input" checked="checked" value="0" >
                           <label class="custom-control-label" for="hidraulico_tapon1">Defectuoso</label>
                         </div>
                          <hr>
@@ -110,11 +110,11 @@
                      <div class="card-content">
                       <div class="card-body">
                         <div class="custom-radio custom-control-inline ml-3">
-                          <input type="radio" id="hidraulico_visor" name="hidraulico_visor" class="custom-control-input" value="1">
+                          <input type="radio" id="hidraulico_visor" name="hidraulico_visor" class="custom-control-input" checked="checked" value="1">
                           <label class="custom-control-label" for="hidraulico_visor">Bien</label>
                         </div>
                         <div class="custom-radio custom-control-inline ml-3">
-                          <input type="radio" id="hidraulico_visor1" name="hidraulico_visor" class="custom-control-input" value="0" >
+                          <input type="radio" id="hidraulico_visor1" name="hidraulico_visor" class="custom-control-input" checked="checked" value="0" >
                           <label class="custom-control-label" for="hidraulico_visor1">Defectuoso</label>
                         </div>
                          <hr>
@@ -135,11 +135,11 @@
                      <div class="card-content">
                       <div class="card-body">
                         <div class="custom-radio custom-control-inline ml-3">
-                          <input type="radio" id="hidraulico_filtro_primario" name="hidraulico_filtro_primario" class="custom-control-input" value="1">
+                          <input type="radio" id="hidraulico_filtro_primario" name="hidraulico_filtro_primario" class="custom-control-input" checked="checked" value="1">
                           <label class="custom-control-label" for="hidraulico_filtro_primario">Bien</label>
                         </div>
                         <div class="custom-radio custom-control-inline ml-3">
-                          <input type="radio" id="hidraulico_filtro_primario1" name="hidraulico_filtro_primario" class="custom-control-input" value="0" >
+                          <input type="radio" id="hidraulico_filtro_primario1" name="hidraulico_filtro_primario" class="custom-control-input" checked="checked" value="0" >
                           <label class="custom-control-label" for="hidraulico_filtro_primario1">Defectuoso</label>
                         </div>
                         <hr>
@@ -161,11 +161,11 @@
                      <div class="card-content">
                       <div class="card-body">
                         <div class="custom-radio custom-control-inline ml-3">
-                          <input type="radio" id="hidraulico_filtro_secundario" name="hidraulico_filtro_secundario" class="custom-control-input" value="1">
+                          <input type="radio" id="hidraulico_filtro_secundario" name="hidraulico_filtro_secundario" class="custom-control-input" checked="checked" value="1">
                           <label class="custom-control-label" for="hidraulico_filtro_secundario">Bien</label>
                         </div>
                         <div class="custom-radio custom-control-inline ml-3">
-                          <input type="radio" id="hidraulico_filtro_secundario1" name="hidraulico_filtro_secundario" class="custom-control-input"  value="0">
+                          <input type="radio" id="hidraulico_filtro_secundario1" name="hidraulico_filtro_secundario" class="custom-control-input" checked="checked"  value="0">
                           <label class="custom-control-label" for="hidraulico_filtro_secundario1">Defectuoso</label>
                         </div>
                          <hr>
@@ -186,11 +186,11 @@
                      <div class="card-content">
                       <div class="card-body">
                         <div class="custom-radio custom-control-inline ml-3">
-                          <input type="radio" id="hidraulico_cilindros_fuga" name="hidraulico_cilindros_fuga" class="custom-control-input" value="1">
+                          <input type="radio" id="hidraulico_cilindros_fuga" name="hidraulico_cilindros_fuga" class="custom-control-input" checked="checked" value="1">
                           <label class="custom-control-label" for="hidraulico_cilindros_fuga">Bien</label>
                         </div>
                         <div class="custom-radio custom-control-inline ml-3">
-                          <input type="radio" id="hidraulico_cilindros_fuga1" name="hidraulico_cilindros_fuga" class="custom-control-input" value="0" >
+                          <input type="radio" id="hidraulico_cilindros_fuga1" name="hidraulico_cilindros_fuga" class="custom-control-input" checked="checked" value="0" >
                           <label class="custom-control-label" for="hidraulico_cilindros_fuga1">Defectuoso</label>
                         </div>
                          <hr>
@@ -211,11 +211,11 @@
                      <div class="card-content">
                       <div class="card-body">
                         <div class="custom-radio custom-control-inline ml-3">
-                          <input type="radio" id="hidraulico_cilindros_sellos" name="hidraulico_cilindros_sellos" class="custom-control-input" value="1">
+                          <input type="radio" id="hidraulico_cilindros_sellos" name="hidraulico_cilindros_sellos" class="custom-control-input" checked="checked" value="1">
                           <label class="custom-control-label" for="hidraulico_cilindros_sellos">Bien</label>
                         </div>
                         <div class="custom-radio custom-control-inline ml-3">
-                          <input type="radio" id="hidraulico_cilindros_sellos1" name="hidraulico_cilindros_sellos" class="custom-control-input"  value="0">
+                          <input type="radio" id="hidraulico_cilindros_sellos1" name="hidraulico_cilindros_sellos" class="custom-control-input" checked="checked"  value="0">
                           <label class="custom-control-label" for="hidraulico_cilindros_sellos1">Defectuoso</label>
                         </div>
                          <hr>
@@ -229,5 +229,5 @@
               </div>
             </div>
             <input type="button" name="previous" class="previous btn btn-warning" value="Anterior" />
-            <input type="submit" name="submit" class="submit btn btn-success" value="Guardar" />
+            <input type="button" name="next" class="next btn btn-info" value="Siguiente" />
           </fieldset>

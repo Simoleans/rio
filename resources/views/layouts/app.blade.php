@@ -46,7 +46,7 @@
      @include('layouts.navbar')
 
 
-    <div class="main-panel"> <!-- inicio del dashboard -->
+   <div class="main-panel"> <!-- inicio del dashboard -->
         <!-- BEGIN : Main Content-->
      <!-- CONTENIDO -->
        <div class="main-content">

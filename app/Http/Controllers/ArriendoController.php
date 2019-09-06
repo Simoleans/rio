@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Fotos;
+use App\Arriendo;
+use App\Combustible;
+use App\Hidraulico;
 
 class ArriendoController extends Controller
 {
@@ -14,7 +17,8 @@ class ArriendoController extends Controller
      */
     public function index()
     {
-        //
+        $arriendos = Arriendo::all();
+         return view('arriendo.index',['arriendo' => $arriendos]);
     }
 
     /**
@@ -35,52 +39,49 @@ class ArriendoController extends Controller
      */
     public function store(Request $request)
     {
-        //dd($request->image);
+        dd($request->all());
 
-        foreach ($request->image as $img) {
-            $image = $img;  // your base64 encoded
-            $image = str_replace('data:image/png;base64,', '', $image);
-            $image = str_replace(' ', '+', $image);
-            $imageName = str_random(10).'.'.'png';
-            \File::put(public_path(). '/fotos/' . $imageName, base64_decode($image));
-        }
+        $arriendo = new Arriendo();
+        $arriendo->fill($request->all());
 
+        if ($arriendo->save()) {
+
+            $combustible = new Combustible;
+            $combustible->arriendo_id = $arriendo->id;
+            $combustible->fill($request->all());
+            $combustible->save();
+
+            $hidraulico = new Hidraulico();
+            $hidraulico->arriendo_id = $arriendo->id;
+            $hidraulico->fill($request->all());
+            $hidraulico->save();
+
+            foreach ($request->image as $img) {
+                $image = $img;  // your base64 encoded
+                $image = str_replace('data:image/png;base64,', '', $image);
+                $image = str_replace(' ', '+', $image);
+                $imageName = str_random(10).'.'.'png';
+                \File::put(public_path(). '/fotos/' . $imageName, base64_decode($image));
+
+                $fotos = new Fotos();
+                $fotos->arriendo_id = $arriendo->id;
+                $fotos->foto = $imageName;
+                $fotos->save();
+
+            }//fin foreach
+            return redirect("arriendo")->with([
+                'flash_message' => 'Arriendo agregado correctamente.',
+                'flash_class'   => 'alert-success',
+            ]);
         
+        } else {
+            return redirect("arriendo")->with([
+                'flash_message'   => 'Ha ocurrido un error.',
+                'flash_class'     => 'alert-danger',
+                'flash_important' => true,
+            ]);
+        }//fin save arriendo
 
-        
-
-        // $array = [
-        //     "image_frente" => $request->image_frente,
-        //     "image_izquierdo" => $request->image_izquierdo,
-        //     "image_trasero" => $request->image_trasero,
-
-        // ];
-        // $fotos = new Fotos;
-        // $fotos->generateImage($array);
-
-        // $nombre = 'foto'.uniqid().'.png';
-        // $carpeta = public_path().'/fotos/'.$nombre;
-
-        // file_put_contents($carpeta, base64_decode($request->image_frente));
-        // file_put_contents($carpeta, base64_decode($request->image_izquierdo));
-        // file_put_contents($carpeta, base64_decode($request->image_trasero));
-        // file_put_contents($carpeta, base64_decode($request->image_derecho));
-        // file_put_contents($carpeta, base64_decode($request->image_tunel));
-        // file_put_contents($carpeta, base64_decode($request->image_comandos));
-        // file_put_contents($carpeta, base64_decode($request->image_horometro));
-
-
-        // $fotos->generateImage($request->image_frente);
-        // $fotos->generateImage($request->image_izquierdo);
-        // $fotos->generateImage($request->image_trasero);
-        // $fotos->generateImage($request->image_derecho);
-        // $fotos->generateImage($request->image_tunel);
-        // $fotos->generateImage($request->image_comandos);
-        // $fotos->generateImage($request->image_horometro);
-
-        //dd($fotos->generateImage($request->image_frente));
-
-        return "si";
     }
 
     /**
