@@ -27,5 +27,5 @@ class Motor extends Model
 						  'motor_filtro',
 						  'motor_ob_filtro',
 						  'motor_filtro_primario',
-						  'motor_ob_filtro_primario',]
+						  'motor_ob_filtro_primario',];
 }

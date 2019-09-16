@@ -7,7 +7,7 @@ use App\Fotos;
 use App\Arriendo;
 use App\Combustible;
 use App\Hidraulico;
-
+use App\Motor;
 class ArriendoController extends Controller
 {
     /**
@@ -39,7 +39,7 @@ class ArriendoController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->all());
+        //dd($request->all());
 
         $arriendo = new Arriendo();
         $arriendo->fill($request->all());
@@ -55,6 +55,11 @@ class ArriendoController extends Controller
             $hidraulico->arriendo_id = $arriendo->id;
             $hidraulico->fill($request->all());
             $hidraulico->save();
+
+            $motor = new Motor();
+            $motor->arriendo_id = $arriendo->id;
+            $motor->fill($request->all());
+            $motor->save();
 
             foreach ($request->image as $img) {
                 $image = $img;  // your base64 encoded
@@ -92,7 +97,10 @@ class ArriendoController extends Controller
      */
     public function show($id)
     {
-        //
+        $arriendo = Arriendo::findOrfail($id);
+        //dd($arriendo->combustible());
+
+        return view('arriendo.show',['arriendo' => $arriendo]);
     }
 
     /**

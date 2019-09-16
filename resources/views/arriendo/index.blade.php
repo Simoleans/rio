@@ -31,7 +31,7 @@
                   <td class="text-center">{{$a->rut}}</td>
                   <td class="text-center">{{$a->r_social}}</td>
 	               	<td class="text-center">
-	               		<a href="{{route('user.show',['id' => $a->id])}}" class="btn btn-raised btn-success btn-min-width mr-1 mb-1"><i class="fa fa-eye" title="Ver"></i></a>
+	               		<a href="{{route('arriendo.show',['id' => $a->id])}}" class="btn btn-raised btn-success btn-min-width mr-1 mb-1"><i class="fa fa-eye" title="Ver"></i></a>
 	               		<!-- <a href="{{route('user.edit',['id' => $a->id])}}" class="btn btn-raised btn-warning btn-min-width mr-1 mb-1"><i class="fa fa-edit" title="Ver"></i></a> -->
 	               	</td>
                </tr>
