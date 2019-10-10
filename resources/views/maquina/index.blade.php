@@ -8,7 +8,7 @@
       @include('partials.flash')
       <div class="card">
         <div class="card-header">
-          <h4 class="card-title">Maquinas Registrados</h4>
+          <h4 class="card-title">Maquinas Registradas</h4>
           <p class="card-text">todos los arriendos.</p>
         </div>
         <div class="card-content">
@@ -18,8 +18,10 @@
                 <tr>
                   <th class="text-center">Marca</th>
                   <th class="text-center">Modelo</th>
-                  <th class="text-center">RUT</th>
-                  <th class="text-center">Razón Social</th>
+                  <th class="text-center">Tipo</th>
+                  <th class="text-center">Año</th>
+                  <th class="text-center">Serie</th>
+                  <th class="text-center">Nombre</th>
                   <th class="text-center">Acción</th>
                 </tr>
               </thead>
@@ -28,8 +30,10 @@
                <tr>
 	               	<td class="text-center">{{$a->marca}}</td>
 	               	<td class="text-center">{{$a->modelo}}</td>
-                  <td class="text-center">{{$a->rut}}</td>
-                  <td class="text-center">{{$a->r_social}}</td>
+                  <td class="text-center">{{$a->tipo}}</td>
+                  <td class="text-center">{{$a->ano_maquina}}</td>
+                  <td class="text-center">{{$a->serie}}</td>
+                  <td class="text-center">{{$a->nombre}}</td>
 	               	<td class="text-center">
 	               		<a href="{{route('arriendo.show',['id' => $a->id])}}" class="btn btn-raised btn-success btn-min-width mr-1 mb-1"><i class="fa fa-eye" title="Ver"></i></a>
 	               		<!-- <a href="{{route('user.edit',['id' => $a->id])}}" class="btn btn-raised btn-warning btn-min-width mr-1 mb-1"><i class="fa fa-edit" title="Ver"></i></a> -->

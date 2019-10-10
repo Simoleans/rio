@@ -25,7 +25,7 @@ class MaquinaController extends Controller
      */
     public function create()
     {
-        //
+        return view('maquina.create');
     }
 
     /**

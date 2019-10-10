@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Maquina extends Model
 {
-    //
+    public $table = 'maquina';
 }
