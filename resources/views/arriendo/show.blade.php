@@ -209,7 +209,11 @@
         </div>
       </div>
     </div>
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> 5d75e065f71b9480f528ce92350c30b9485e11aa
   </div>
 </section>
 <!--About section ends-->

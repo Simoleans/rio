@@ -27,4 +27,5 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/dashboard', 'LoginController@index')->name('dashboard');
 
     Route::resource('/arriendo','ArriendoController');
+    Route::resource('/maquina','MaquinaController');
 });

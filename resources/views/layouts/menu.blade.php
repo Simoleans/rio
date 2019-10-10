@@ -30,6 +30,14 @@
                   </li>
                 </ul>
               </li>
+               <li class="has-sub nav-item"><a href="#"><i class="ft-check-circle"></i><span data-i18n="" class="menu-title">Maquinas</span></a>
+                <ul class="menu-content">
+                  <li><a href="{{route('maquina.index')}}" class="menu-item">Ver Maquinas</a>
+                  </li>
+                  <li><a href="{{route('maquina.create')}}" class="menu-item">Crear Maquina</a>
+                  </li>
+                </ul>
+              </li>
               <!-- <li class=" nav-item"><a href="color-palette.html"><i class="ft-droplet"></i><span data-i18n="" class="menu-title">Menu</span></a>
               </li>
               <li class=" nav-item"><a href="inbox.html"><i class="ft-mail"></i><span data-i18n="" class="menu-title">Inbox</span></a>
