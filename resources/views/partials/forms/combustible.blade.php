@@ -10,11 +10,11 @@
                     <div class="card-content">
                       <div class="card-body">
                         <div class="custom-radio custom-control-inline ml-3">
-                          <input type="radio" id="combustible_tanque" name="combustible_tanque" class="custom-control-input" checked="checked" value="1">
+                          <input type="radio" id="combustible_tanque" name="combustible_tanque" class="custom-control-input"  required value="1">
                           <label class="custom-control-label" for="combustible_tanque">Bien</label>
                         </div>
                         <div class="custom-radio custom-control-inline ml-3">
-                          <input type="radio"  id="combustible_tanque1" name="combustible_tanque" class="custom-control-input" checked="checked" value="0" >
+                          <input type="radio"  id="combustible_tanque1" name="combustible_tanque" class="custom-control-input"  required value="0" >
                           <label class="custom-control-label" for="combustible_tanque1">Defectuoso</label>
                         </div>
                         <hr>

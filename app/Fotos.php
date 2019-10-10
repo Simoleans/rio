@@ -6,6 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Fotos extends Model
 {
+    public $table = 'fotos';
+
+    public function arriendo()
+    {
+        return $this->belongsTo('App\Arriendo');
+    }
+
     public function generateImage($img)
     {
         

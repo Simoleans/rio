@@ -19,4 +19,14 @@ class Arriendo extends Model
 						  'direccion',
 						  'comuna',
 						  'region',];
+
+	public function combustible()
+	{
+		return $this->hasOne('App\Combustible');
+	}
+
+	public function fotos()
+	{
+		return $this->hasMany('App\Fotos','arriendo_id');
+	}
 }

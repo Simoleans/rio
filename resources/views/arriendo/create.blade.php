@@ -209,13 +209,14 @@
     next_step = $(this).parent().next();
     var counter = 0;
     var input = '';
-    //validacion de required
-    // $(current_step.find('input.required')).each(function() {
-    //     if ($(this).val() === "") {
-    //         $(this).css('border', '1px solid red');
-    //         counter++;
-    //     }
-    // });
+    // validacion de required
+    console.log(current_step.find('input[type=radio]'));
+    $(current_step.find('input.required')).each(function() {
+        if ($(this).val() === "") {
+            $(this).css('border', '1px solid red');
+            counter++;
+        }
+    });
 
 //console.log(counter)
    

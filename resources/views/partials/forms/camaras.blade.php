@@ -25,7 +25,7 @@
 <fieldset>
   <h2>Paso 4: Foto (Izquierda)</h2>
    <div class="row">
-     <div class="col-sm-12 offset-md-3  col-lg-6 col-md-6"">
+     <div class="col-sm-12 offset-md-3  col-lg-6 col-md-6">
        <div id="my_camera2"></div>
      </div>
    </div>
