@@ -30,7 +30,7 @@
                   </li>
                 </ul>
               </li>
-               <li class="has-sub nav-item"><a href="#"><i class="ft-check-circle"></i><span data-i18n="" class="menu-title">Maquinas</span></a>
+               <li class="has-sub nav-item"><a href="#"><i class="ft-cpu"></i><span data-i18n="" class="menu-title">Maquinas</span></a>
                 <ul class="menu-content">
                   <li><a href="{{route('maquina.index')}}" class="menu-item">Ver Maquinas</a>
                   </li>

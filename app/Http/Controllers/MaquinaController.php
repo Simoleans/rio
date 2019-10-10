@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Maquina;
 
@@ -36,7 +37,23 @@ class MaquinaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //dd($request->all());
+        $maquina = new Maquina;
+        $maquina->user_id = Auth::user()->id;
+        $maquina->fill($request->all());
+
+         if ($maquina->save()) {
+            return redirect("maquina")->with([
+                'flash_message' => 'Maquina agregadaa correctamente.',
+                'flash_class'   => 'alert-success',
+            ]);
+        } else {
+            return redirect("maquina")->with([
+                'flash_message'   => 'Ha ocurrido un error.',
+                'flash_class'     => 'alert-danger',
+                'flash_important' => true,
+            ]);
+        }
     }
 
     /**
@@ -47,7 +64,8 @@ class MaquinaController extends Controller
      */
     public function show($id)
     {
-        //
+        $maquina = Maquina::findOrfail($id);
+        return view('maquina.show',['maquina' => $maquina]);
     }
 
     /**
@@ -58,7 +76,9 @@ class MaquinaController extends Controller
      */
     public function edit($id)
     {
-        //
+        $maquina = Maquina::findOrfail($id);
+
+        return view('maquina.edit',['maquina' => $maquina]);
     }
 
     /**
@@ -70,7 +90,22 @@ class MaquinaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+         $maquina = Maquina::findOrfail($id);
+
+         $maquina->fill($request->all());
+
+         if ($maquina->save()) {
+            return redirect("maquina")->with([
+                'flash_message' => 'Maquina modificada correctamente.',
+                'flash_class'   => 'alert-success',
+            ]);
+        } else {
+            return redirect("maquina")->with([
+                'flash_message'   => 'Ha ocurrido un error.',
+                'flash_class'     => 'alert-danger',
+                'flash_important' => true,
+            ]);
+        }
     }
 
     /**
