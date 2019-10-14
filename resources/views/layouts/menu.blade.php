@@ -38,6 +38,22 @@
                   </li>
                 </ul>
               </li>
+              <li class="has-sub nav-item"><a href="#"><i class="ft-user-check"></i><span data-i18n="" class="menu-title">Productores</span></a>
+                <ul class="menu-content">
+                  <li><a href="{{route('productores.index')}}" class="menu-item">Ver Productores</a>
+                  </li>
+                  <li><a href="{{route('productores.create')}}" class="menu-item">Crear Productores</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="has-sub nav-item"><a href="#"><i class="ft-wind"></i><span data-i18n="" class="menu-title">Campos</span></a>
+                <ul class="menu-content">
+                  <li><a href="{{route('campo.index')}}" class="menu-item">Ver Campos</a>
+                  </li>
+                  <li><a href="{{route('campo.create')}}" class="menu-item">Crear Campo</a>
+                  </li>
+                </ul>
+              </li>
               <!-- <li class=" nav-item"><a href="color-palette.html"><i class="ft-droplet"></i><span data-i18n="" class="menu-title">Menu</span></a>
               </li>
               <li class=" nav-item"><a href="inbox.html"><i class="ft-mail"></i><span data-i18n="" class="menu-title">Inbox</span></a>

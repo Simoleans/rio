@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Maquina extends Migration
+class Productores extends Migration
 {
     /**
      * Run the migrations.
@@ -13,17 +13,19 @@ class Maquina extends Migration
      */
     public function up()
     {
-        Schema::create('maquina', function (Blueprint $table) {
+        Schema::create('productores', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
-            $table->string('marca');
-            $table->string('modelo');
-            $table->string('tipo');
-            $table->string('ano_maquina');
-            $table->string('serie');
-            $table->string('nombre');
-            $table->integer('status_maquina')->default(0);
+            $table->string('rut');
+            $table->string('r_social');
+            $table->string('localidad');
+            $table->string('region');
+            $table->string('comuna');
+            $table->string('direccion');
+            $table->string('contacto_responsable');
+            $table->string('correo');
+            $table->string('telefono');
             $table->timestamps();
         });
     }
@@ -35,6 +37,6 @@ class Maquina extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('maquina');
+        Schema::dropIfExists('productores');
     }
 }
