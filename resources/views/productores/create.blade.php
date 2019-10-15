@@ -17,7 +17,7 @@
               <div class="col-md-12">
                 <div class="form-group">
                   <label for="projectinput1">RUT</label>
-                  <input type="text" id="projectinput1" class="form-control" name="rut">
+                  <input type="text" id="projectinput1" class="form-control rut" name="rut">
                 </div>
               </div>
             </div>
@@ -67,7 +67,7 @@
               <div class="col-md-6">
                 <div class="form-group">
                   <label for="projectinput3">Teléfono</label>
-                  <input type="text" id="projectinput3" class="form-control" name="telefono">
+                  <input type="text" id="projectinput3" class="form-control tlf" name="telefono">
                 </div>
               </div>
           </div>

@@ -28,6 +28,9 @@
     <link rel="stylesheet" type="text/css" href='{{asset("app-assets/vendors/css/prism.min.css")}}'>
     <link rel="stylesheet" type="text/css" href='{{asset("app-assets/vendors/css/chartist.min.css")}}'>
     <link rel="stylesheet" type="text/css" href="{{asset('app-assets/vendors/css/tables/datatable/datatables.min.css')}}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/css/inputmask.min.css" rel="stylesheet"/>
+
+
     <!-- END VENDOR CSS-->
     <!-- BEGIN APEX CSS-->
     <link rel="stylesheet" type="text/css" href="{{asset('app-assets/css/app.css')}}">
@@ -147,6 +150,14 @@ input[type="radio"]:focus + span {
           language: {
             url:'{{asset("app-assets/vendors/js/datatable/spanish.json")}}'
           }
+        });
+
+      $(".rut").inputmask({
+            mask: "9[9.999.999]-[9|K|k]",
+          });
+
+      $(".tlf").inputmask({
+          mask: "[9-9999-9999]",
         });
     </script>
   </body>

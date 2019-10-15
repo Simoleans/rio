@@ -72,7 +72,7 @@
               <div class="col-md-6">
                 <div class="form-group">
                   <label for="projectinput3">Teléfono</label>
-                  <input type="text" id="projectinput3" class="form-control" name="telefono">
+                  <input type="text" id="projectinput3" class="form-control tlf" name="telefono">
                 </div>
               </div>
           </div>
