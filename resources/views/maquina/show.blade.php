@@ -11,10 +11,10 @@
         <div id="invoice-company-details" class="row">
           <div class="col-md-6 col-sm-12 text-center text-md-left">
             <div class="media">
-              <img src="app-assets/img/logos/logo-big-black.png" alt="company logo" width="80" height="80">
+           <!--    <img src="app-assets/img/logos/logo-big-black.png" alt="company logo" width="80" height="80"> -->
               <div class="media-body">
                 <ul class="ml-2 px-0 list-unstyled">
-                  <li class="text-bold-800">Pixinvent Creative Studio</li>
+                  <li class="text-bold-800">{{strtoupper($maquina->nombre)}}</li>
                   <li>4025 Oak Avenue,</li>
                   <li>Melbourne,</li>
                   <li>Florida 32940,</li>

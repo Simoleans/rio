@@ -15,6 +15,18 @@ class Campo extends Migration
     {
         Schema::create('campo', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->unsignedBigInteger('productores_id');
+            $table->foreign('productores_id')->references('id')->on('productores');
+            $table->string('nombre_campo');
+            $table->string('csg');
+            $table->string('region');
+            $table->string('comuna');
+            $table->string('direccion');
+            $table->string('contacto_responsable');
+            $table->string('correo');
+            $table->string('telefono');
             $table->timestamps();
         });
     }

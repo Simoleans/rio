@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
 use App\Campo;
+use App\Productores;
 use Illuminate\Http\Request;
 
 class CampoController extends Controller
@@ -15,7 +16,9 @@ class CampoController extends Controller
      */
     public function index()
     {
-        //
+        $campos = Campo::all();
+
+        return view('campo.index',['campos' => $campos]);
     }
 
     /**
@@ -25,7 +28,9 @@ class CampoController extends Controller
      */
     public function create()
     {
-        //
+        $productores = Productores::all();
+
+        return view('campo.create',['productores' => $productores]);
     }
 
     /**
@@ -36,7 +41,23 @@ class CampoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+         //dd($request->all());
+        $campo = new Campo;
+        $campo->user_id = Auth::user()->id;
+        $campo->fill($request->all());
+
+         if ($campo->save()) {
+            return redirect("campo")->with([
+                'flash_message' => 'Productores agregadaa correctamente.',
+                'flash_class'   => 'alert-success',
+            ]);
+        } else {
+            return redirect("campo")->with([
+                'flash_message'   => 'Ha ocurrido un error.',
+                'flash_class'     => 'alert-danger',
+                'flash_important' => true,
+            ]);
+        }
     }
 
     /**
