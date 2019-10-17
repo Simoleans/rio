@@ -30,4 +30,5 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('/maquina','MaquinaController');
     Route::resource('/productores','ProductoresController');
     Route::resource('/campo','CampoController');
+    Route::resource('/faena','FaenaController');
 });

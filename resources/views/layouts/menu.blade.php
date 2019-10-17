@@ -54,6 +54,14 @@
                   </li>
                 </ul>
               </li>
+              <li class="has-sub nav-item"><a href="#"><i class="ft-wind"></i><span data-i18n="" class="menu-title">Faena</span></a>
+                <ul class="menu-content">
+                  <li><a href="{{route('faena.index')}}" class="menu-item">Ver Faenas</a>
+                  </li>
+                  <li><a href="{{route('faena.create')}}" class="menu-item">Crear Faena</a>
+                  </li>
+                </ul>
+              </li>
               <!-- <li class=" nav-item"><a href="color-palette.html"><i class="ft-droplet"></i><span data-i18n="" class="menu-title">Menu</span></a>
               </li>
               <li class=" nav-item"><a href="inbox.html"><i class="ft-mail"></i><span data-i18n="" class="menu-title">Inbox</span></a>
