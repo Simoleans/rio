@@ -65,6 +65,8 @@ class MaquinaController extends Controller
     public function show($id)
     {
         $maquina = Maquina::findOrfail($id);
+
+        
         return view('maquina.show',['maquina' => $maquina]);
     }
 

@@ -8,7 +8,6 @@ use App\Productores;
 use App\Maquina;
 use App\Campo;
 use App\Faena;
-use Calendar;
 
 class FaenaController extends Controller
 {
@@ -74,19 +73,9 @@ class FaenaController extends Controller
     {
         $faena = Faena::findOrfail($id);
 
-        $faena_fecha[] = Calendar::event(
-            'maltratados',
-            true,
-            new \DateTime($faena->desde),
-            new \DateTime($faena->hasta.' +1 day'),
-        [
-        'locale' => 'es'
-        //any other full-calendar supported parameters
-    ]);
+        
 
-        $calendario = Calendar::addEvents($faena_fecha);
-
-        return view('faena.show',['faena' => $faena,'calendario' => $calendario]);
+        return view('faena.show',['faena' => $faena]);
     }
 
     /**
