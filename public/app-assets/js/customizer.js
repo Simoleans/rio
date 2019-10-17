@@ -48,12 +48,12 @@ $(document).ready(function() {
     $("#dl-switch").on("click", function() {
       $(".app-sidebar").attr("data-background-color", "black");
     });
-    $("#ll-switch").on("click", function() {
-      $(".sidebar-background").css(
-        "background-image",
-        "app-assets/img/sidebar-bg/01.jpg"
-      );
-    });
+    // $("#ll-switch").on("click", function() {
+    //   $(".sidebar-background").css(
+    //     "background-image",
+    //     "app-assets/img/sidebar-bg/01.jpg"
+    //   );
+    // });
   }
 
   // Change Sidebar Background Color

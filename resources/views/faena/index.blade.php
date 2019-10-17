@@ -28,9 +28,9 @@
               <tbody>
               @foreach($faena as $a)
                <tr>
-	               	<td class="text-center">{{$a->productores_id}}</td>
-	               	<td class="text-center">{{$a->campo_id}}</td>
-                  <td class="text-center">{{$a->maquina_id}}</td>
+	               	<td class="text-center">{{$a->productor->r_social}}</td>
+	               	<td class="text-center">{{$a->campo->nombre_campo}}</td>
+                  <td class="text-center">{{$a->maquina->nombre}}</td>
                   <td class="text-center">{{$a->minimo_kg}}</td>
                   <td class="text-center">{{$a->tipo_moneda}}</td>
                   <td class="text-center">{{$a->status}}</td>
