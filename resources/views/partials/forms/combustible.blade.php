@@ -1,8 +1,44 @@
  <fieldset>
             <h2>Paso 10: Combustible</h2>
             <div class="row">
+
+
               <div class="col-md-6">
-                 <div class="card card-outline-info text-center box-shadow-0">    
+                 <div class="card card-outline-info text-center box-shadow-0">
+                  <div class="card">
+                    <div class="card-header">
+                      <h4 class="card-title">Ejemplo</h4>
+                    </div>
+                     <div class="card-content">
+                      <div class="card-body">
+                        <div class="container">
+                          <div id="radios">
+                            <label for="Si" class="material-icons">
+                              <input type="radio" name="mode" id="Si" value="1" checked/>
+                              <span><i class="icon-like"></i></span>
+                            </label>
+                            <label for="No" class="material-icons">
+                              <input type="radio" name="mode" id="No" value="0" />
+                              <span><i class="icon-dislike"></i></span>
+                            </label>
+                          </div>
+                        </div>
+                         <hr>
+                        <br>
+                        <small>Observacion</small>
+                        <textarea class="form-control" name="combustible_ob_medidor_nivel"></textarea>
+                      </div>
+                      <button type="button" class="btn btn-info">Confirmar</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+
+
+              <div class="col-md-6">
+                 <div class="card card-outline-info text-center box-shadow-0">
                   <div class="card">
                     <div class="card-header">
                       <h4 class="card-title">Tanque</h4>
@@ -22,7 +58,7 @@
                           <label for="Si" class="material-icons">
                             <input type="radio" name="mode" id="Si" value="1" checked/>
                             <span><i class="icon-like"></i></span>
-                          </label>                
+                          </label>
                           <label for="No" class="material-icons">
                             <input type="radio" name="mode" id="No" value="0" />
                             <span><i class="icon-dislike"></i></span>
@@ -48,7 +84,7 @@
                 </div>
               </div>
               <div class="col-md-6">
-                 <div class="card card-outline-info text-center box-shadow-0">    
+                 <div class="card card-outline-info text-center box-shadow-0">
                   <div class="card">
                     <div class="card-header">
                       <h4 class="card-title">Medidor Nivel</h4>
@@ -73,7 +109,7 @@
                 </div>
               </div>
               <div class="col-md-6">
-                 <div class="card card-outline-info text-center box-shadow-0">    
+                 <div class="card card-outline-info text-center box-shadow-0">
                   <div class="card">
                     <div class="card-header">
                       <h4 class="card-title">Tapón</h4>
@@ -98,7 +134,7 @@
                 </div>
               </div>
               <div class="col-md-6">
-                 <div class="card card-outline-info text-center box-shadow-0">    
+                 <div class="card card-outline-info text-center box-shadow-0">
                   <div class="card">
                     <div class="card-header">
                       <h4 class="card-title">Fugas</h4>
@@ -123,7 +159,7 @@
                 </div>
               </div>
                <div class="col-md-6">
-                 <div class="card card-outline-info text-center box-shadow-0">    
+                 <div class="card card-outline-info text-center box-shadow-0">
                   <div class="card">
                     <div class="card-header">
                       <h4 class="card-title">Cebador</h4>
@@ -148,7 +184,7 @@
                 </div>
               </div>
               <div class="col-md-6">
-                 <div class="card card-outline-info text-center box-shadow-0">    
+                 <div class="card card-outline-info text-center box-shadow-0">
                   <div class="card">
                     <div class="card-header">
                       <h4 class="card-title">Filtro Primario</h4>
@@ -168,13 +204,13 @@
                         <small>Observacion</small>
                         <textarea class="form-control" name="combustible_ob_filtro_primario"></textarea>
                       </div>
-                       
+
                     </div>
                   </div>
                 </div>
               </div>
               <div class="col-md-12">
-                 <div class="card card-outline-info text-center box-shadow-0">    
+                 <div class="card card-outline-info text-center box-shadow-0">
                   <div class="card">
                     <div class="card-header">
                       <h4 class="card-title">Filtro Secundario</h4>
@@ -199,6 +235,10 @@
                 </div>
               </div>
             </div>
+          </div>
+
+
             <input type="button" name="previous" class="previous btn btn-warning" value="Anterior" />
             <input type="button" name="next" class="next btn btn-info" value="Siguiente" />
-          </fieldset>
+
+</fieldset>

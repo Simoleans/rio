@@ -45,7 +45,7 @@ class ProductoresController extends Controller
 
          if ($productores->save()) {
             return redirect("productores")->with([
-                'flash_message' => 'Productores agregadaa correctamente.',
+                'flash_message' => 'Productores agregada correctamente.',
                 'flash_class'   => 'alert-success',
             ]);
         } else {

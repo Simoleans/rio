@@ -38,7 +38,7 @@
           <input type="hidden"  name="image[]" id="image_comandos">
           <input type="hidden"  name="image[]" id="image_horometro">
           <fieldset>
-            <h2>Paso 1: Datos Maquina</h2>  
+            <h2>Paso 1: Datos Maquina</h2>
             <div class="form-group">
               <label for="marca">Marca</label>
               <input type="text" class="form-control required" id="marca" name="marca" placeholder="Marca">
@@ -60,7 +60,7 @@
               <input type="text" class="form-control required" id="horas" name="horas" placeholder="Horas">
             </div>
             <div class="form-group">
-              <label for="hombre">Hombre</label>
+              <label for="hombre">Nombre</label>
               <input type="text" class="form-control required" id="hombre" name="hombre" placeholder="Hombre">
             </div>
             <input type="button" name="password" class="next btn btn-info" value="Siguiente" />
@@ -94,7 +94,7 @@
             <input type="button" name="previous" class="previous btn btn-warning" value="Anterior" />
             <input type="button" name="next" class="next btn btn-info" value="Siguiente" />
           </fieldset>
-         
+
           @include('partials.forms.camaras')
           @include('partials.forms.combustible')
           @include('partials.forms.hidraulico')
@@ -110,18 +110,18 @@
 @section('script')
 
 <script type="text/javascript">
-  
+
  function take_snapshot(id,image,preview,img_data) {
 
   // console.log(id,image,preview,img_data);
-       
+
        // take snapshot and get image data
        Webcam.snap( function(data_uri) {
         // display results in page
-        document.getElementById(preview).innerHTML = 
+        document.getElementById(preview).innerHTML =
         '<img id="'+image+'" src="'+data_uri+'"/>';
 
-      
+
 
          var base64image = document.getElementById(image).src;
 
@@ -134,13 +134,13 @@
             // $("#firma").val(img_data);
               $("#"+img_data).val(img64);
               console.log(img_data)
-               
+
           }
         });// fin html2canvas
         });
      }
 
-     
+
 
      Webcam.set({
       width: 320,
@@ -219,21 +219,21 @@
     });
 
 //console.log(counter)
-   
+
     if(counter > 0){
         Swal.fire({
           type: 'error',
           title: 'Oops...',
           text: '¡Debe llenar todos los campos!'
         })
-       
+
     }else{
       next_step.show();
       current_step.hide();
       setProgressBar(++current);
     }
-    //fin validacion  
-    
+    //fin validacion
+
   });
   $(".previous").click(function(){
     current_step = $(this).parent();
@@ -249,7 +249,7 @@
     percent = percent.toFixed();
     $(".progress-bar")
       .css("width",percent+"%")
-      .html(percent+"%");   
+      .html(percent+"%");
   }
 });
 

@@ -44,7 +44,7 @@ class MaquinaController extends Controller
 
          if ($maquina->save()) {
             return redirect("maquina")->with([
-                'flash_message' => 'Maquina agregadaa correctamente.',
+                'flash_message' => 'Maquina agregada correctamente.',
                 'flash_class'   => 'alert-success',
             ]);
         } else {

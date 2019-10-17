@@ -48,7 +48,7 @@ class CampoController extends Controller
 
          if ($campo->save()) {
             return redirect("campo")->with([
-                'flash_message' => 'Productores agregadaa correctamente.',
+                'flash_message' => 'Productores agregada correctamente.',
                 'flash_class'   => 'alert-success',
             ]);
         } else {
