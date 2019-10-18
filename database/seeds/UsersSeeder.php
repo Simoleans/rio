@@ -1,18 +1,18 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
-class DatabaseSeeder extends Seeder
+class UsersSeeder extends Seeder
 {
     /**
-     * Seed the application's database.
+     * Run the database seeds.
      *
      * @return void
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
-        /*App\User::create([
+        DB::table('users')->insert([
             'nombre'   => 'Admin',
             'email'    => 'admin@admin.com',
             // 'rut_user'   => '4555-555',
@@ -20,12 +20,6 @@ class DatabaseSeeder extends Seeder
             // 'telefono_user'   => '4555-555-55',
             // 'direccion_user'   => 'Santiago De chile',
             'password' => bcrypt('admin123456'),
-        ]);*/
-        $this->call(RegionesSeeder::class);
-        
-        $this->call(UsersSeeder::class);
-
-        $this->call(ComunasSeeder::class);
-
+        ]);
     }
 }
