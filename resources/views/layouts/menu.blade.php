@@ -30,6 +30,38 @@
                   </li>
                 </ul>
               </li>
+              <li class="has-sub nav-item"><a href="#"><i class="ft-check-circle"></i><span data-i18n="" class="menu-title">POT <span class="badge badge-info">Desarrrollo</span></span></a>
+               <ul class="menu-content">
+                 <li><a href="{{route('arriendo.index')}}" class="menu-item">Ver POT's</a>
+                 </li>
+                 <li><a href="{{route('arriendo.create')}}" class="menu-item">Crear POT</a>
+                 </li>
+               </ul>
+             </li>
+             <li class="has-sub nav-item"><a href="#"><i class="ft-wind"></i><span data-i18n="" class="menu-title">Faena</span></a>
+               <ul class="menu-content">
+                 <li><a href="{{route('faena.index')}}" class="menu-item">Ver Faenas</a>
+                 </li>
+                 <li><a href="{{route('faena.create')}}" class="menu-item">Crear Faena</a>
+                 </li>
+               </ul>
+             </li>
+             <li class="has-sub nav-item"><a href="#"><i class="ft-check-circle"></i><span data-i18n="" class="menu-title">SAG <span class="badge badge-info">Desarrrollo</span></span></a>
+              <ul class="menu-content">
+                <li><a href="{{route('arriendo.index')}}" class="menu-item">Ver SAG's</a>
+                </li>
+                <li><a href="{{route('arriendo.create')}}" class="menu-item">Crear SAG</a>
+                </li>
+              </ul>
+            </li>
+            <li class="has-sub nav-item"><a href="#"><i class="ft-check-circle"></i><span data-i18n="" class="menu-title">Reports <span class="badge badge-info">Desarrrollo</span></span></a>
+             <ul class="menu-content">
+               <li><a href="{{route('arriendo.index')}}" class="menu-item">Lista de Reports</a>
+               </li>
+               <li><a href="{{route('arriendo.create')}}" class="menu-item">Crear Reports</a>
+               </li>
+             </ul>
+           </li>
                <li class="has-sub nav-item"><a href="#"><i class="ft-cpu"></i><span data-i18n="" class="menu-title">Maquinas</span></a>
                 <ul class="menu-content">
                   <li><a href="{{route('maquina.index')}}" class="menu-item">Ver Maquinas</a>
@@ -54,14 +86,62 @@
                   </li>
                 </ul>
               </li>
-              <li class="has-sub nav-item"><a href="#"><i class="ft-wind"></i><span data-i18n="" class="menu-title">Faena</span></a>
-                <ul class="menu-content">
-                  <li><a href="{{route('faena.index')}}" class="menu-item">Ver Faenas</a>
-                  </li>
-                  <li><a href="{{route('faena.create')}}" class="menu-item">Crear Faena</a>
-                  </li>
-                </ul>
+
+              <hr/>
+
+              <li class="has-sub nav-item"><a href="#"><i class="ft-check-circle"></i><span data-i18n="" class="menu-title">Variedades <span class="badge badge-info">Desarrrollo</span></span></a>
+               <ul class="menu-content">
+                 <li><a href="{{route('arriendo.index')}}" class="menu-item">Ver Variedades</a>
+                 </li>
+                 <li><a href="{{route('arriendo.create')}}" class="menu-item">Crear Variedades</a>
+                 </li>
+               </ul>
+             </li>
+
+             <li class="has-sub nav-item"><a href="#"><i class="ft-check-circle"></i><span data-i18n="" class="menu-title">Tipo Bandeja <span class="badge badge-info">Desarrrollo</span></span></a>
+              <ul class="menu-content">
+                <li><a href="{{route('arriendo.index')}}" class="menu-item">Ver Tipo Bandeja</a>
+                </li>
+                <li><a href="{{route('arriendo.create')}}" class="menu-item">Crear Tipo Bandeja</a>
+                </li>
+              </ul>
+            </li>
+
+            <li class="has-sub nav-item"><a href="#"><i class="ft-check-circle"></i><span data-i18n="" class="menu-title">Tipo Bandeja <span class="badge badge-info">Desarrrollo</span></span></a>
+             <ul class="menu-content">
+               <li><a href="{{route('arriendo.index')}}" class="menu-item">Ver Tipo Bandeja</a>
+               </li>
+               <li><a href="{{route('arriendo.create')}}" class="menu-item">Crear Tipo Bandeja</a>
+               </li>
+             </ul>
+           </li>
+           <li class="has-sub nav-item"><a href="#"><i class="ft-check-circle"></i><span data-i18n="" class="menu-title">Transportista <span class="badge badge-info">Desarrrollo</span></span></a>
+            <ul class="menu-content">
+              <li><a href="{{route('arriendo.index')}}" class="menu-item">Ver Transportista's</a>
               </li>
+              <li><a href="{{route('arriendo.create')}}" class="menu-item">Crear Transportista</a>
+              </li>
+            </ul>
+          </li>
+          <li class="has-sub nav-item"><a href="#"><i class="ft-check-circle"></i><span data-i18n="" class="menu-title">Notificaciones <span class="badge badge-info">Desarrrollo</span></span></a>
+           <ul class="menu-content">
+             <li><a href="{{route('arriendo.index')}}" class="menu-item">Ver Notificaciones</a>
+             </li>
+           </ul>
+         </li>
+         <li class="has-sub nav-item"><a href="#"><i class="ft-check-circle"></i><span data-i18n="" class="menu-title">Talonarios <span class="badge badge-info">Desarrrollo</span></span></a>
+          <ul class="menu-content">
+            <li><a href="{{route('arriendo.index')}}" class="menu-item">Ver Talonarios</a>
+            </li>
+            <li><a href="{{route('arriendo.create')}}" class="menu-item">Crear Talonarios</a>
+            </li>
+          </ul>
+        </li>
+        <li class="has-sub nav-item"><a href="#"><i class="ft-check-circle"></i><span data-i18n="" class="menu-title">Configuracion <span class="badge badge-info">Desarrrollo</span></span></a>
+       </li>
+
+
+
               <!-- <li class=" nav-item"><a href="color-palette.html"><i class="ft-droplet"></i><span data-i18n="" class="menu-title">Menu</span></a>
               </li>
               <li class=" nav-item"><a href="inbox.html"><i class="ft-mail"></i><span data-i18n="" class="menu-title">Inbox</span></a>

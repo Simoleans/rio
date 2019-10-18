@@ -78,7 +78,6 @@ class ArriendoController extends Controller
                 'flash_message' => 'Arriendo agregado correctamente.',
                 'flash_class'   => 'alert-success',
             ]);
-        
         } else {
             return redirect("arriendo")->with([
                 'flash_message'   => 'Ha ocurrido un error.',
