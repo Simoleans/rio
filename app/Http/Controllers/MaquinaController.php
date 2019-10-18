@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Maquina;
+use App\Faena;
 
 class MaquinaController extends Controller
 {
@@ -16,7 +17,10 @@ class MaquinaController extends Controller
     public function index()
     {
         $maquina = Maquina::all();
-        return view('maquina.index',['maquina' => $maquina]);
+        $faenas = Faena::all();
+
+        //dd($faenas);
+        return view('maquina.index',['maquina' => $maquina,'faenas' => $faenas]);
     }
 
     /**

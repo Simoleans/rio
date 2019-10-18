@@ -66,13 +66,13 @@
     },
     resourceLabelText: 'Faenas',
     resources: [
-    <?php foreach($maquina->faena as $a){?>
+    <?php foreach($maquina->faenas as $a){?>
     
       {"id":"{{$a->id}}","title":"{{$a->flete}}"},
     <?php } ?>
     ],
    events: [
-    <?php foreach($maquina->faena as $a){?>
+    <?php foreach($maquina->faenas as $a){?>
     {
       resourceId: '{{$a->id}}',
       title: '{{$a->flete}}',

@@ -23,4 +23,9 @@ class Faena extends Model
     {
     	return $this->belongsTo('App\Maquina','maquina_id');
     }
+
+     public function maquinas()
+    {
+        return $this->hasMany('App\Maquina','maquina_id');
+    }
 }

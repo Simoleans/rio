@@ -10,8 +10,13 @@ class Maquina extends Model
 
     public $fillable = ['user_id','marca','modelo','tipo','ano_maquina','serie','nombre'];
 
-     public function faena()
+     public function faenas()
     {
         return $this->hasMany('App\Faena','maquina_id');
+    }
+
+     public function faena()
+    {
+        return $this->hasOne('App\Faena','maquina_id');
     }
 }
