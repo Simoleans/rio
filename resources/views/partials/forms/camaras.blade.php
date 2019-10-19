@@ -9,7 +9,7 @@
    <div class="row">
      <div class="col-5 offset-5">
        <br>
-       <button type="button" class="btn btn-danger"  onClick="take_snapshot('my_camera1','image1','results1','image_frente')"><i class="ft-camera"></i></button>
+       <button type="button" class="btn btn-danger"  onClick="take_snapshot('my_camera1','image1','my_camera1','image_frente',this)"><i class="ft-camera"></i></button>
      </div>
    </div>
      <br>
@@ -32,7 +32,7 @@
    <div class="row">
      <div class="col-5 offset-5">
        <br>
-       <button type="button" class="btn btn-danger"  onClick="take_snapshot('my_camera2','image2','results2','image_izquierdo')"><i class="ft-camera"></i></button>
+       <button type="button" class="btn btn-danger"  onClick="take_snapshot('my_camera2','image2','my_camera2','image_izquierdo',this)"><i class="ft-camera"></i></button>
      </div>
    </div>
      <br>
@@ -55,7 +55,7 @@
    <div class="row">
      <div class="col-5 offset-5">
        <br>
-       <button type="button" class="btn btn-danger"  onClick="take_snapshot('my_camera3','image3','results3','image_trasero')"><i class="ft-camera"></i></button>
+       <button type="button" class="btn btn-danger"  onClick="take_snapshot('my_camera3','image3','my_camera3','image_trasero',this)"><i class="ft-camera"></i></button>
      </div>
    </div>
      <br>
@@ -78,7 +78,7 @@
    <div class="row">
      <div class="col-5 offset-5">
        <br>
-       <button type="button" class="btn btn-danger"  onClick="take_snapshot('my_camera4','image4','results4','image_derecho')"><i class="ft-camera"></i></button>
+       <button type="button" class="btn btn-danger"  onClick="take_snapshot('my_camera4','image4','my_camera4','image_derecho',this)"><i class="ft-camera"></i></button>
      </div>
    </div>
      <br>
@@ -101,7 +101,7 @@
    <div class="row">
      <div class="col-5 offset-5">
        <br>
-       <button type="button" class="btn btn-danger"  onClick="take_snapshot('my_camera5','image5','results5','image_tunel')"><i class="ft-camera"></i></button>
+       <button type="button" class="btn btn-danger"  onClick="take_snapshot('my_camera5','image5','my_camera5','image_tunel',this)"><i class="ft-camera"></i></button>
      </div>
    </div>
      <br>
@@ -124,7 +124,7 @@
    <div class="row">
      <div class="col-5 offset-5">
        <br>
-       <button type="button" class="btn btn-danger"  onClick="take_snapshot('my_camera6','image6','results6','image_comandos')"><i class="ft-camera"></i></button>
+       <button type="button" class="btn btn-danger"  onClick="take_snapshot('my_camera6','image6','my_camera6','image_comandos',this)"><i class="ft-camera"></i></button>
      </div>
    </div>
      <br>
@@ -147,7 +147,7 @@
    <div class="row">
      <div class="col-5 offset-5">
        <br>
-       <button type="button" class="btn btn-danger"  onClick="take_snapshot('my_camera7','image7','results7','image_horometro')"><i class="ft-camera"></i></button>
+       <button type="button" class="btn btn-danger"  onClick="take_snapshot('my_camera7','image7','my_camera7','image_horometro',this)"><i class="ft-camera"></i></button>
      </div>
    </div>
      <br>

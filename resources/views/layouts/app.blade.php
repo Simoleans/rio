@@ -89,7 +89,7 @@ input[type="radio"]:focus + span {
 /* ================ TOOLTIPS ================= */
 
 #radios label:hover::before {
-  content: attr(for);
+  content: attr(data-tooltip);
   font-family: Roboto, -apple-system, sans-serif;
   text-transform: capitalize;
   font-size: 11px;
