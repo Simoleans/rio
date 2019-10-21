@@ -29,8 +29,8 @@
                <tr>
 	               	<td class="text-center">{{$a->nombre_campo}}</td>
                   <td class="text-danger">{{$a->productor->r_social}}</td>
-                  <td class="text-center">{{$a->region}}</td>
-                  <td class="text-center">{{$a->comuna}}</td>
+                  <td class="text-center">{{$a->region->region}}</td>
+                  <td class="text-center">{{$a->comuna->comuna}}</td>
                   <td class="text-center">{{$a->direccion}}</td>
 	               	<td class="text-center">
 	               		<a href="{{route('campo.show',['id' => $a->id])}}" class="btn btn-raised btn-success btn-min-width mr-1 mb-1"><i class="fa fa-eye" title="Ver"></i></a>
