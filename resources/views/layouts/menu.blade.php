@@ -137,7 +137,7 @@
             </li>
           </ul>
         </li>
-        <li class="has-sub nav-item"><a href="#"><i class="ft-check-circle"></i><span data-i18n="" class="menu-title">Configuracion <span class="badge badge-info">Desarrrollo</span></span></a>
+        <li class="nav-item"><a href="{{route('configuracion.index')}}"><i class="ft-check-circle"></i><span data-i18n="" class="menu-title">Configuracion</span></a>
        </li>
 
 
