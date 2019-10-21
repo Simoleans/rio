@@ -21,11 +21,13 @@ class Campo extends Migration
             $table->foreign('productores_id')->references('id')->on('productores');
             $table->string('nombre_campo');
             $table->string('csg');
-            $table->string('region');
+
             $table->unsignedBigInteger('region_id');
             $table->foreign('region_id')->references('id')->on('regiones');
+
             $table->unsignedBigInteger('comuna_id');
             $table->foreign('comuna_id')->references('id')->on('comunas');
+            
             $table->string('direccion');
             $table->string('contacto_responsable');
             $table->string('correo');

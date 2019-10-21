@@ -16,7 +16,7 @@
             <div class="row">
               <div class="col-md-12">
                 <div class="form-group">
-                  <label for="projectinput1">Campo</label>
+                  <label for="projectinput1">Productor:</label>
                   <select class="form-control" name="productores_id">
                     <option value="">Seleccione..</option>
                     @foreach($productores as $p)

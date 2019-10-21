@@ -14,4 +14,14 @@ class Campo extends Model
     {
     	return $this->belongsTo('App\Productores','productores_id');
     }
+
+    public function comuna()
+    {
+    	return $this->belongsTo('App\Comunas','comuna_id');
+    }
+
+    public function region()
+    {
+    	return $this->belongsTo('App\Regiones','region_id');
+    }
 }

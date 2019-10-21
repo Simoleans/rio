@@ -8,4 +8,6 @@ class Comunas extends Model
 {
     protected $table = "comunas";
 
+   
+
 }
