@@ -122,6 +122,7 @@ input[type="radio"]:focus + span {
 
   </style>
 
+
   <!-- BEGIN : Body-->
   <body data-col="2-columns" class=" 2-columns  layout-dark">
     <!-- ////////////////////////////////////////////////////////////////////////////-->
@@ -192,6 +193,30 @@ input[type="radio"]:focus + span {
       $(".tlf").inputmask({
           mask: "[9-9999-9999]",
         });
+
+      $(".region").change(function(event) {
+        event.preventDefault();
+        $.ajax({
+          url: '{{url("/comunas")}}/'+$(this).val(),
+          type: 'GET',
+          dataType: 'json',
+        })
+        .done(function(data) {
+          var datos = '';
+          $.each(data, function(index, val) {
+             //console.log(val.comuna);
+             datos+= '<option value="'+val.id+'">'+val.comuna+'</option>';
+          });
+          $(".comunas").html(datos);
+        })
+        .fail(function() {
+          console.log("error");
+        })
+        .always(function() {
+          console.log("complete");
+        });
+        
+      });
     </script>
   </body>
   <!-- END : Body-->
