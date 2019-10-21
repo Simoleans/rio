@@ -36,13 +36,18 @@
               <div class="col-md-6">
                 <div class="form-group">
                   <label for="projectinput3">Región</label>
-                  <input type="text" id="projectinput3" class="form-control" name="region">
+                  <select class="form-control region" name="region_id">
+                    <option value="">Seleccione...</option>
+                    @foreach($regiones as $r)
+                      <option value="{{$r->id}}">{{$r->region}}</option>
+                    @endforeach   
+                  </select> 
                 </div>
               </div>
                <div class="col-md-6">
                 <div class="form-group">
                   <label for="projectinput3">Comuna</label>
-                  <input type="text" id="projectinput3" class="form-control" name="comuna">
+                  <select class="form-control comunas" name="comuna_id" ></select>
                 </div>
               </div>
                <div class="col-md-6">

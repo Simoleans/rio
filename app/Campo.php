@@ -8,7 +8,7 @@ class Campo extends Model
 {
     public $table = 'campo';
 
-    public $fillable = ['user_id','productores_id','nombre_campo','csg','region','comuna','direccion','contacto_responsable','correo','telefono'];
+    public $fillable = ['user_id','productores_id','nombre_campo','csg','region_id','comuna_id','direccion','contacto_responsable','correo','telefono'];
 
     public function productor()
     {

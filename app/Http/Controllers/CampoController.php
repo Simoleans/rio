@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
 use App\Campo;
+use App\Regiones;
 use App\Productores;
 use Illuminate\Http\Request;
 
@@ -29,8 +30,9 @@ class CampoController extends Controller
     public function create()
     {
         $productores = Productores::all();
+        $regiones = Regiones::all();
 
-        return view('campo.create',['productores' => $productores]);
+        return view('campo.create',['productores' => $productores,'regiones' => $regiones]);
     }
 
     /**
@@ -104,4 +106,6 @@ class CampoController extends Controller
     {
         //
     }
+
+    
 }
