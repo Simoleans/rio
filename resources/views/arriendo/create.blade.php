@@ -49,11 +49,11 @@
             </div>
              <div class="form-group">
               <label for="año">Año</label>
-              <input type="text" class="form-control required" id="ano" name="ano" placeholder="Año">
+              <input type="number" class="form-control required" id="ano" name="ano" placeholder="Año">
             </div>
              <div class="form-group">
               <label for="serie">Nro Serie</label>
-              <input type="text" class="form-control required red" id="serie" name="series" placeholder="Nro Serie">
+              <input type="number" class="form-control required red" id="serie" name="series" placeholder="Nro Serie">
             </div>
              <div class="form-group">
               <label for="horas">Horas</label>
@@ -69,7 +69,7 @@
             <h2>Paso 2: Datos Propietario</h2>
              <div class="form-group">
               <label for="rut">RUT</label>
-              <input type="text" class="form-control required" id="rut" name="rut" placeholder="RUT">
+              <input type="text" class="form-control required rut" id="rut" name="rut" placeholder="RUT">
             </div>
              <div class="form-group">
               <label for="r_social">Razón Social</label>
@@ -79,15 +79,22 @@
               <label for="direccion">Dirección</label>
               <input type="text" class="form-control required" id="direccion" name="direccion" placeholder="Dirección">
             </div>
-             <div class="form-group">
-              <label for="comuna">Comuna</label>
-              <input type="text" class="form-control required red" id="comuna" name="comuna" placeholder="Nro Serie">
-            </div>
-             <div class="form-group">
-              <label for="region">Región</label>
-              <input type="text" class="form-control required" id="region" name="region" placeholder="Región">
-            </div>
-            <div class="form-group">
+
+                <div class="form-group">
+                  <label for="projectinput3">Región</label>
+                  <select class="form-control region" name="region_id">
+                    <option value="">Seleccione...</option>
+                    @foreach($regiones as $r)
+                      <option value="{{$r->id}}">{{$r->region}}</option>
+                    @endforeach   
+                  </select> 
+                </div>
+
+                <div class="form-group">
+                  <label for="projectinput3">Comuna</label>
+                  <select class="form-control comunas" name="comuna_id" ></select>
+                </div>
+          <div class="form-group">
               <label for="hombre">CSG</label>
               <input type="text" class="form-control required" id="hombre" name="hombre" placeholder="CSG">
             </div>
@@ -210,20 +217,34 @@
     current_step = $(this).parent();
     next_step = $(this).parent().next();
     var counter = 0;
+    var counters = 0;
     var input = '';
    
-    // // validacion de required
-    // console.log(current_step.find('input[type=radio]'));
-    // $(current_step.find('input.required')).each(function() {
-    //     if ($(this).val() === "") {
-    //         $(this).css('border', '1px solid red');
-    //         counter++;
-    //     }
-    // });
+    // validacion de required
+    $(current_step.find('input.required')).each(function() {
+        if ($(this).val() === "") {
+            $(this).css('border', '1px solid red');
+            counter++;
+        }
+    });
+     $(current_step.find('input[required]:radio')).each(function() {
+      //console.log($(this).is(':checked'))
+        if (!$(this).is(':checked')) {
+            $(this).css('border', '1px solid red');
+            counters++;
+        }
+    });
 
-//console.log(counter)
+//console.log(counters)
 
-    if(counter > 0){
+  if(counters == 2){
+        Swal.fire({
+          type: 'error',
+          title: 'Oops...',
+          text: '¡Debe llenar todos los campos!'
+        })
+
+    }else if(counter > 0){
         Swal.fire({
           type: 'error',
           title: 'Oops...',
@@ -236,6 +257,8 @@
       setProgressBar(++current);
     }
     //fin validacion
+
+    
 
   });
   $(".previous").click(function(){

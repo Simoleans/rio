@@ -17,8 +17,8 @@ class Arriendo extends Model
 						  'rut',
 						  'r_social',
 						  'direccion',
-						  'comuna',
-						  'region',];
+						  'comuna_id',
+						  'region_id',];
 
 	public function combustible()
 	{

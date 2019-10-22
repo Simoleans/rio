@@ -24,8 +24,11 @@ class Arriendo extends Migration
             $table->string('rut');
             $table->string('r_social');
             $table->string('direccion');
-            $table->string('comuna');
-            $table->string('region');
+            $table->unsignedBigInteger('region_id');
+            $table->foreign('region_id')->references('id')->on('regiones');
+
+            $table->unsignedBigInteger('comuna_id');
+            $table->foreign('comuna_id')->references('id')->on('comunas');
             $table->timestamps();
         });
     }

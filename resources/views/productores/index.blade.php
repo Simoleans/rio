@@ -31,8 +31,8 @@
 	               	<td class="text-center">{{$a->rut}}</td>
 	               	<td class="text-center">{{$a->r_social}}</td>
                   <td class="text-center">{{$a->localidad}}</td>
-                  <td class="text-center">{{$a->region}}</td>
-                  <td class="text-center">{{$a->comuna}}</td>
+                  <td class="text-center">{{$a->region->region}}</td>
+                  <td class="text-center">{{$a->comuna->comuna}}</td>
                   <td class="text-center">{{$a->direccion}}</td>
 	               	<td class="text-center">
 	               		<a href="{{route('productores.show',['id' => $a->id])}}" class="btn btn-raised btn-success btn-min-width mr-1 mb-1"><i class="fa fa-eye" title="Ver"></i></a>

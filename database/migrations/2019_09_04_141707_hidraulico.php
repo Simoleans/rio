@@ -34,6 +34,7 @@ class Hidraulico extends Migration
               $table->string('hidraulico_cilindros_fuga')->nullable();
               $table->string('hidraulico_ob_cilindros_fuga')->nullable();
               $table->string('hidraulico_cilindros_sellos')->nullable();
+              $table->string('hidraulico_cilindros_ob_sellos')->nullable();
             $table->timestamps();
         });
     }

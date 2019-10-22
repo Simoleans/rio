@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Productores;
+use App\Regiones;
 
 class ProductoresController extends Controller
 {
@@ -27,7 +28,9 @@ class ProductoresController extends Controller
      */
     public function create()
     {
-        return view('productores.create');
+         $regiones = Regiones::all();
+         //dd($regiones);
+        return view('productores.create',['regiones' => $regiones]);
     }
 
     /**

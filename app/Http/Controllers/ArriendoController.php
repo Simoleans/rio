@@ -8,6 +8,7 @@ use App\Arriendo;
 use App\Combustible;
 use App\Hidraulico;
 use App\Motor;
+use App\Regiones;
 class ArriendoController extends Controller
 {
     /**
@@ -28,7 +29,8 @@ class ArriendoController extends Controller
      */
     public function create()
     {
-        return view('arriendo.create');
+        $regiones= Regiones::all();
+        return view('arriendo.create',['regiones' => $regiones]);
     }
 
     /**
@@ -56,10 +58,10 @@ class ArriendoController extends Controller
             $hidraulico->fill($request->all());
             $hidraulico->save();
 
-            $motor = new Motor();
-            $motor->arriendo_id = $arriendo->id;
-            $motor->fill($request->all());
-            $motor->save();
+            // $motor = new Motor();
+            // $motor->arriendo_id = $arriendo->id;
+            // $motor->fill($request->all());
+            // $motor->save();
 
             foreach ($request->image as $img) {
                 $image = $img;  // your base64 encoded

@@ -20,8 +20,11 @@ class Productores extends Migration
             $table->string('rut');
             $table->string('r_social');
             $table->string('localidad');
-            $table->string('region');
-            $table->string('comuna');
+             $table->unsignedBigInteger('region_id');
+            $table->foreign('region_id')->references('id')->on('regiones');
+
+            $table->unsignedBigInteger('comuna_id');
+            $table->foreign('comuna_id')->references('id')->on('comunas');
             $table->string('direccion');
             $table->string('contacto_responsable');
             $table->string('correo');
