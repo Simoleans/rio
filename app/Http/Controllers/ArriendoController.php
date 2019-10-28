@@ -9,6 +9,8 @@ use App\Combustible;
 use App\Hidraulico;
 use App\Motor;
 use App\Regiones;
+use App\Aire;
+use App\Radiador;
 class ArriendoController extends Controller
 {
     /**
@@ -58,10 +60,20 @@ class ArriendoController extends Controller
             $hidraulico->fill($request->all());
             $hidraulico->save();
 
-            // $motor = new Motor();
-            // $motor->arriendo_id = $arriendo->id;
-            // $motor->fill($request->all());
-            // $motor->save();
+            $motor = new Motor();
+            $motor->arriendo_id = $arriendo->id;
+            $motor->fill($request->all());
+            $motor->save();
+
+            $aire = new Aire();
+            $aire->arriendo_id = $arriendo->id;
+            $aire->fill($request->all());
+            $aire->save();
+
+            $radiador = new Radiador();
+            $radiador->arriendo_id = $arriendo->id;
+            $radiador->fill($request->all());
+            $radiador->save();
 
             foreach ($request->image as $img) {
                 $image = $img;  // your base64 encoded

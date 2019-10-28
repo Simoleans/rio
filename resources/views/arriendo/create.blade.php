@@ -94,7 +94,7 @@
                   <label for="projectinput3">Comuna</label>
                   <select class="form-control comunas" name="comuna_id" ></select>
                 </div>
-          <div class="form-group">
+            <div class="form-group">
               <label for="hombre">CSG</label>
               <input type="text" class="form-control required" id="hombre" name="hombre" placeholder="CSG">
             </div>
@@ -106,6 +106,7 @@
           @include('partials.forms.combustible')
           @include('partials.forms.hidraulico')
           @include('partials.forms.motor')
+          @include('partials.forms.radiador')
 
         </form>
       </div>

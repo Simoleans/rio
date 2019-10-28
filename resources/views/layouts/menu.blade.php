@@ -117,9 +117,9 @@
            </li>
            <li class="has-sub nav-item"><a href="#"><i class="ft-check-circle"></i><span data-i18n="" class="menu-title">Transportista <span class="badge badge-info">Desarrrollo</span></span></a>
             <ul class="menu-content">
-              <li><a href="{{route('arriendo.index')}}" class="menu-item">Ver Transportista's</a>
+              <li><a href="{{route('transportista.index')}}" class="menu-item">Ver Transportista's</a>
               </li>
-              <li><a href="{{route('arriendo.create')}}" class="menu-item">Crear Transportista</a>
+              <li><a href="{{route('transportista.create')}}" class="menu-item">Crear Transportista</a>
               </li>
             </ul>
           </li>

@@ -32,6 +32,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('/campo','CampoController');
     Route::resource('/faena','FaenaController');
     Route::resource('/configuracion','ConfiguracionController');
+    Route::resource('/transportista','TransportistaController');
+    Route::resource('/talonarios','TalonariosController');
 
     //ajax request
     Route::get('comunas/{id}','AjaxRequestController@comunas')->name('comunas');
