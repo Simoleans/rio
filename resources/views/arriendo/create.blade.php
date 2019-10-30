@@ -61,7 +61,7 @@
             </div>
             <div class="form-group">
               <label for="hombre">Nombre</label>
-              <input type="text" class="form-control required" id="hombre" name="hombre" placeholder="Hombre">
+              <input type="text" class="form-control required" id="hombre" name="hombre" placeholder="Nombre">
             </div>
             <input type="button" name="password" class="next btn btn-info" value="Siguiente" />
           </fieldset>

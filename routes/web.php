@@ -34,6 +34,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('/configuracion','ConfiguracionController');
     Route::resource('/transportista','TransportistaController');
     Route::resource('/talonarios','TalonariosController');
+    Route::resource('/frutas','FrutasController');
+    Route::resource('/variedades','VariedadesController');
 
     //ajax request
     Route::get('comunas/{id}','AjaxRequestController@comunas')->name('comunas');

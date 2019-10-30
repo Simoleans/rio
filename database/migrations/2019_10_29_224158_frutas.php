@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTalonariosTable extends Migration
+class Frutas extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,11 @@ class CreateTalonariosTable extends Migration
      */
     public function up()
     {
-        Schema::create('talonarios', function (Blueprint $table) {
+        Schema::create('frutas', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
-            $table->string('nombre');
-            $table->string('inicio');
-            $table->string('fin');
+            $table->string('nombre_fruta');
             $table->timestamps();
         });
     }
@@ -31,6 +29,6 @@ class CreateTalonariosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('talonarios');
+        Schema::dropIfExists('frutas');
     }
 }

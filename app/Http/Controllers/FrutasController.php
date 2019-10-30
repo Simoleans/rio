@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Talonarios;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Frutas;
 
-class TalonariosController extends Controller
+class FrutasController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +15,9 @@ class TalonariosController extends Controller
      */
     public function index()
     {
-        $talonarios = Talonarios::all();
+        $frutas = Frutas::all();
 
-        return view('talonarios.index',['talonarios' => $talonarios]);
+        return view('frutas.index',['frutas' => $frutas]);
     }
 
     /**
@@ -27,7 +27,7 @@ class TalonariosController extends Controller
      */
     public function create()
     {
-        return view('talonarios.create');
+        return view('frutas.create');
     }
 
     /**
@@ -38,17 +38,17 @@ class TalonariosController extends Controller
      */
     public function store(Request $request)
     {
-        $talonario = new Talonarios;
-        $talonario->user_id = Auth::user()->id;
-        $talonario->fill($request->all());
+        $frutas = new Frutas;
+        $frutas->user_id = Auth::user()->id;
+        $frutas->fill($request->all());
 
-         if ($talonario->save()) {
-            return redirect("talonarios")->with([
-                'flash_message' => 'Talonario agregado correctamente.',
+         if ($frutas->save()) {
+            return redirect("frutas")->with([
+                'flash_message' => 'Fruta agregada correctamente.',
                 'flash_class'   => 'alert-success',
             ]);
         } else {
-            return redirect("talonarios")->with([
+            return redirect("frutas")->with([
                 'flash_message'   => 'Ha ocurrido un error.',
                 'flash_class'     => 'alert-danger',
                 'flash_important' => true,
@@ -59,10 +59,10 @@ class TalonariosController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Talonarios  $talonarios
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Talonarios $talonarios)
+    public function show($id)
     {
         //
     }
@@ -70,33 +70,50 @@ class TalonariosController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Talonarios  $talonarios
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Talonarios $talonarios)
+    public function edit($id)
     {
-        //
+        $fruta = Frutas::findOrfail($id);
+
+        return view('frutas.edit',['fruta' => $fruta]);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Talonarios  $talonarios
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Talonarios $talonarios)
+    public function update(Request $request, $id)
     {
-        //
+      $fruta = Frutas::findOrfail($id);
+
+      $fruta->fill($request->all());
+
+      if ($fruta->save()) {
+         return redirect("frutas")->with([
+             'flash_message' => 'Fruta modificada correctamente.',
+             'flash_class'   => 'alert-success',
+         ]);
+     } else {
+         return redirect("frutas")->with([
+             'flash_message'   => 'Ha ocurrido un error.',
+             'flash_class'     => 'alert-danger',
+             'flash_important' => true,
+         ]);
+     }
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Talonarios  $talonarios
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Talonarios $talonarios)
+    public function destroy($id)
     {
         //
     }

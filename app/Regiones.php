@@ -18,7 +18,12 @@ class Regiones extends Model
     public static function comunas_ajax($region)
     {
 
-    	$comunas = Comunas::where('region_id',$region)->get();
+    	$comunas = Comunas::where('region_id',$region)
+                    // ->orderBy('LENGTH(comuna)', 'ASC')
+                    ->orderBy('comuna', 'ASC')
+                    ->get();
+
+      
     	//dd($comunas);
     	return response()->json($comunas);
     }
