@@ -38,6 +38,7 @@ class FrutasController extends Controller
      */
     public function store(Request $request)
     {
+    
         $frutas = new Frutas;
         $frutas->user_id = Auth::user()->id;
         $frutas->fill($request->all());

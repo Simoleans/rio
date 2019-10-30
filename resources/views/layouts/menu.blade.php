@@ -89,10 +89,12 @@
 
               <hr/>
 
-              <li class="has-sub nav-item"><a href="#"><i class="ft-check-circle"></i><span data-i18n="" class="menu-title">Variedades <span class="badge badge-info">Desarrrollo</span></span></a>
+              <li class="has-sub nav-item"><a href="#"><i class="ft-check-circle"></i><span data-i18n="" class="menu-title">Variedades</span></a>
                <ul class="menu-content">
                 <li><a href="{{route('frutas.create')}}" class="menu-item">Crear Fruta</a>
                  </li>
+                 <li><a href="{{route('frutas.index')}}" class="menu-item">Ver Frutas</a>
+                 </li> 
                  <li><a href="{{route('variedades.create')}}" class="menu-item">Crear Variedades</a>
                  </li>
                  <li><a href="{{route('variedades.index')}}" class="menu-item">Ver Variedades</a>

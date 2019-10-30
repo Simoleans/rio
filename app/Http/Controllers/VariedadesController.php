@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Frutas;
 use App\Variedades;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,9 @@ class VariedadesController extends Controller
      */
     public function index()
     {
-        //
+        $variedades= Variedades::all();
+
+        return view('variedades.index',['variedades' => $variedades]);
     }
 
     /**
@@ -24,7 +27,8 @@ class VariedadesController extends Controller
      */
     public function create()
     {
-        //
+        $frutas = Frutas::all(); 
+        return view('variedades.create',['frutas' => $frutas]);
     }
 
     /**
@@ -35,7 +39,21 @@ class VariedadesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $variedad = new Variedades;
+        $variedad->fill($request->all());
+
+         if ($variedad->save()) {
+            return redirect("variedades")->with([
+                'flash_message' => 'Variedad agregada correctamente.',
+                'flash_class'   => 'alert-success',
+            ]);
+        } else {
+            return redirect("variedades")->with([
+                'flash_message'   => 'Ha ocurrido un error.',
+                'flash_class'     => 'alert-danger',
+                'flash_important' => true,
+            ]);
+        }
     }
 
     /**
