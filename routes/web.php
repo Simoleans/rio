@@ -36,6 +36,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('/talonarios','TalonariosController');
     Route::resource('/frutas','FrutasController');
     Route::resource('/variedades','VariedadesController');
+    Route::resource('/bandejas','BandejaController');
 
     //ajax request
     Route::get('comunas/{id}','AjaxRequestController@comunas')->name('comunas');

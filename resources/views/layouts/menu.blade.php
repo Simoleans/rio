@@ -102,23 +102,14 @@
                </ul>
              </li>
 
-             <li class="has-sub nav-item"><a href="#"><i class="ft-check-circle"></i><span data-i18n="" class="menu-title">Tipo Bandeja <span class="badge badge-info">Desarrrollo</span></span></a>
+             <li class="has-sub nav-item"><a href="#"><i class="ft-check-circle"></i><span data-i18n="" class="menu-title">Tipo Bandeja</span></a>
               <ul class="menu-content">
-                <li><a href="{{route('arriendo.index')}}" class="menu-item">Ver Tipo Bandeja</a>
+                <li><a href="{{route('bandejas.index')}}" class="menu-item">Ver Tipo Bandeja</a>
                 </li>
-                <li><a href="{{route('arriendo.create')}}" class="menu-item">Crear Tipo Bandeja</a>
+                <li><a href="{{route('bandejas.create')}}" class="menu-item">Crear Tipo Bandeja</a>
                 </li>
               </ul>
             </li>
-
-            <li class="has-sub nav-item"><a href="#"><i class="ft-check-circle"></i><span data-i18n="" class="menu-title">Tipo Bandeja <span class="badge badge-info">Desarrrollo</span></span></a>
-             <ul class="menu-content">
-               <li><a href="{{route('arriendo.index')}}" class="menu-item">Ver Tipo Bandeja</a>
-               </li>
-               <li><a href="{{route('arriendo.create')}}" class="menu-item">Crear Tipo Bandeja</a>
-               </li>
-             </ul>
-           </li>
            <li class="has-sub nav-item"><a href="#"><i class="ft-check-circle"></i><span data-i18n="" class="menu-title">Transportista</span></a>
             <ul class="menu-content">
               <li><a href="{{route('transportista.index')}}" class="menu-item">Ver Transportista's</a>
