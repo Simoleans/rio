@@ -41,4 +41,7 @@ Route::group(['middleware' => 'auth'], function () {
     //ajax request
     Route::get('comunas/{id}','AjaxRequestController@comunas')->name('comunas');
     Route::post('frutasApi','AjaxRequestController@storeFrutas')->name('storeFrutas.ajax');
+
+    //reportes PDF
+    Route::get('/pdf','ReportesController@pot');
 });
