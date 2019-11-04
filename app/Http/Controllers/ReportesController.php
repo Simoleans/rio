@@ -9,8 +9,8 @@ class ReportesController extends Controller
 {
     public function pot()
     {
-    	 $pdf = PDF::loadView('pdf.pdf');
+    	 //$pdf = PDF::loadView('pdf.pdf');
 
-        return $pdf->stream('reporte.pdf');
+        return view('pdf.pdf');
     }
 }
