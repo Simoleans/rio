@@ -14,6 +14,11 @@
 Route::get('/', function () {
     return view('login');
 })->name('login');
+Route::get('/updateapp', function()
+{
+    \Artisan::call('dump-autoload');
+    echo 'dump-autoload complete';
+})->name('autoload');
 Route::get('/registrar', function () {
     return view('register');
 })->name('registrar.public');

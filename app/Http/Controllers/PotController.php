@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\configuracion;
+use App\Configuracion;
 
 class PotController extends Controller
 {
