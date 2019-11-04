@@ -37,11 +37,12 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('/frutas','FrutasController');
     Route::resource('/variedades','VariedadesController');
     Route::resource('/bandejas','BandejaController');
+    Route::resource('/pot','PotController');
 
     //ajax request
     Route::get('comunas/{id}','AjaxRequestController@comunas')->name('comunas');
     Route::post('frutasApi','AjaxRequestController@storeFrutas')->name('storeFrutas.ajax');
 
     //reportes PDF
-    Route::get('/pdf','ReportesController@pot');
+    Route::get('/reportPOT','ReportesController@pot')->name('reporte.pot');
 });

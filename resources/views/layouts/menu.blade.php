@@ -30,12 +30,12 @@
                   </li>
                 </ul>
               </li>
-              <li class="has-sub nav-item"><a href="#"><i class="ft-check-circle"></i><span data-i18n="" class="menu-title">POT <span class="badge badge-info">Desarrrollo</span></span></a>
+              <li class="has-sub nav-item"><a href="#"><i class="ft-check-circle"></i><span data-i18n="" class="menu-title">POT</span></a>
                <ul class="menu-content">
-                 <li><a href="{{route('arriendo.index')}}" class="menu-item">Ver POT's</a>
+                 <li><a href="{{route('pot.index')}}" class="menu-item">Generar POT</a>
                  </li>
-                 <li><a href="{{route('arriendo.create')}}" class="menu-item">Crear POT</a>
-                 </li>
+                 <!-- <li><a href="{{route('arriendo.create')}}" class="menu-item">Crear POT</a>
+                 </li> -->
                </ul>
              </li>
              <li class="has-sub nav-item"><a href="#"><i class="ft-wind"></i><span data-i18n="" class="menu-title">Faena</span></a>

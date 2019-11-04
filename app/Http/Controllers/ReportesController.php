@@ -3,14 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Maquina;
 use PDF;
 
 class ReportesController extends Controller
 {
     public function pot()
     {
-    	 //$pdf = PDF::loadView('pdf.pdf');
+    	 $maquinas = Maquina::MaquinaActive();
 
-        return view('pdf.pdf');
+    	 //dd($maquinas);
+
+        return view('pdf.pdf',['maquinas' => $maquinas]);
     }
 }

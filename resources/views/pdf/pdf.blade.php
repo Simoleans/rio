@@ -217,15 +217,15 @@
 <div id="t7_1" class="t s2_1">5 </div>
 <div id="t8_1" class="t s2_1">9 </div>
 <div id="t9_1" class="t s2_1">6 </div>
-<div id="ta_1" class="t s3_1">1.- Razón social Empresa: RIO FRIO SERVICE SPA </div>
-<div id="tb_1" class="t s3_1">2.- RUT: 76.297.862-8 </div>
-<div id="tc_1" class="t s3_1">Dirección: Quechereguas 655, San Fernando </div>
-<div id="td_1" class="t s3_1">Fono: + 56 9 95545323 </div>
+<div id="ta_1" class="t s3_1">1.- Razón social Empresa:{{strtoupper(configuracion('email_empresa'))}} </div>
+<div id="tb_1" class="t s3_1">2.- RUT: {{strtoupper(configuracion('rut'))}} </div>
+<div id="tc_1" class="t s3_1">Dirección: {{strtoupper(configuracion('direccion'))}} </div>
+<div id="td_1" class="t s3_1">Teléfono: {{strtoupper(configuracion('telefono'))}} </div>
 <div id="te_1" class="t s3_1">3.- Correo electrónico: </div>
-<div id="tf_1" class="t s3_1">info@riofriofs.cl </div>
+<div id="tf_1" class="t s3_1">{{strtoupper(configuracion('email_sistema'))}} </div>
 <div id="tg_1" class="t s3_1">4.- Contraparte responsable ante </div>
-<div id="th_1" class="t s3_1">el SAG: Diego Correa Lira. </div>
-<div id="ti_1" class="t s3_1">Teléfono: + 56 9 95545323</div>
+<div id="th_1" class="t s3_1">el SAG: {{strtoupper(configuracion('rlegal'))}} </div>
+<div id="ti_1" class="t s3_1">Teléfono: {{strtoupper(configuracion('tlfrlegal'))}}</div>
 <div id="tj_1" class="t s3_1">5.- Resolución Exenta N° 4287/2014 y </div>
 <div id="tk_1" class="t s3_1">resoluciones regionales </div>
 <div id="tl_1" class="t s4_1">6-</div>
@@ -399,46 +399,26 @@
 <div id="t1_2" class="t s1_2">PROCEDIMIENTO DE TRABAJO MAQUINARIAS QUE PRESTAN </div>
 <div id="t2_2" class="t s1_2">SERVICIOS DE COSECHA TEMPORADA 2019-2020 </div>
 <div id="t3_2" class="t s1_2">ANTECEDENTES DE LA EMPRESA </div>
-<div id="t4_2" class="t s2_2">Nombre Empresa: RIO FRIO FRUIT SERVICE </div>
-<div id="t5_2" class="t s2_2">Razón social: RIO FRIO SERVICE SPA </div>
-<div id="t6_2" class="t s2_2">Rut razón social: 76.297.862 - 8 </div>
-<div id="t7_2" class="t s2_2">Representante legal: DIEGO CORREA LIRA </div>
-<div id="t8_2" class="t s2_2">Rut representante legal: 13.731.512 - 2 </div>
-<div id="t9_2" class="t s2_2">Dirección Comercial: QUECHEREGUAS 655, SAN FERNANDO </div>
+<div id="t4_2" class="t s2_2">Nombre Empresa:{{strtoupper(configuracion('razonsocial'))}} </div>
+<div id="t5_2" class="t s2_2">Razón social: {{strtoupper(configuracion('razonsocial'))}} </div>
+<div id="t6_2" class="t s2_2">Rut razón social: {{configuracion('rut')}} </div>
+<div id="t7_2" class="t s2_2">Representante legal: {{strtoupper(configuracion('rlegal'))}} </div>
+<div id="t8_2" class="t s2_2">Rut representante legal: {{configuracion('rutrlegal')}} </div>
+<div id="t9_2" class="t s2_2">Dirección Comercial: {{strtoupper(configuracion('direccion'))}} </div>
 <div id="ta_2" class="t s2_2">Contacto ante SAG: CAROLINA VALENZUELA CASTILLO </div>
 <div id="tb_2" class="t s2_2">Celular: + 56 9 92446260 </div>
-<div id="tc_2" class="t s2_2">Correo electrónico: cvalenzuela@riofrioexport.com </div>
+<div id="tc_2" class="t s2_2">Correo electrónico: {{configuracion('email_empresa')}} </div>
 <div id="td_2" class="t s2_2">BERRIES__X_____ </div>
 <div id="te_2" class="t s2_2">CIRUELO_______ </div>
 <div id="tf_2" class="t s1_2">INFORMACION MAQUINARIAS </div>
 <div id="tg_2" class="t s1_2">Marca </div>
 <div id="th_2" class="t s1_2">Modelo </div>
-<div id="ti_2" class="t s2_2">Oxbo</div>
-<div id="tj_2" class="t s3_2">9120 </div>
-<div id="tk_2" class="t s2_2">Oxbo</div>
-<div id="tl_2" class="t s3_2">8000 </div>
-<div id="tm_2" class="t s2_2">Korvan</div>
-<div id="tn_2" class="t s3_2">9000 M </div>
-<div id="to_2" class="t s2_2">Korvan</div>
-<div id="tp_2" class="t s3_2">9000 P </div>
-<div id="tq_2" class="t s2_2">Littau</div>
-<div id="tr_2" class="t s3_2">OR 0221 </div>
-<div id="ts_2" class="t s2_2">Littau</div>
-<div id="tt_2" class="t s3_2">OR 0208 </div>
-<div id="tu_2" class="t s2_2">Korvan</div>
-<div id="tv_2" class="t s3_2">7420 </div>
-<div id="tw_2" class="t s2_2">Oxbo</div>
-<div id="tx_2" class="t s3_2">9000 </div>
-<div id="ty_2" class="t s2_2">Kubota</div>
-<div id="tz_2" class="t s3_2">V2203-M-ET02 </div>
-<div id="t10_2" class="t s2_2">Oxbo</div>
-<div id="t11_2" class="t s3_2">9120R </div>
-<div id="t12_2" class="t s2_2">Littau</div>
-<div id="t13_2" class="t s3_2">OR 0308 </div>
-<div id="t14_2" class="t s2_2">Littau</div>
-<div id="t15_2" class="t s3_2">OR 1410 </div>
-<div id="t16_2" class="t s2_2">Fulcrum</div>
-<div id="t17_2" class="t s3_2">180177 </div>
+
+@foreach($maquinas as $m)
+	<div id="ti_2" class="t s2_2">{{$m->marca}}</div>
+	<div id="tj_2" class="t s3_2">{{$m->modelo}}</div>
+@endforeach
+
 
 <!-- End text definitions -->
 
@@ -766,3 +746,17 @@
 </div>
 </body>
 </html>
+
+
+
+ <script src="{{asset('app-assets/vendors/js/core/jquery-3.2.1.min.js')}}" type="text/javascript"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        window.print();
+        setTimeout("closePrintView()", 4000);
+    });
+    function closePrintView() {
+        document.location.href = '{{route("pot.index")}}';
+    }
+</script>
+

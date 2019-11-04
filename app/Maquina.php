@@ -19,4 +19,9 @@ class Maquina extends Model
     {
         return $this->hasOne('App\Faena','maquina_id');
     }
+
+    static public function MaquinaActive()
+    {
+        return static::where('status_maquina','1')->get();
+    }
 }
