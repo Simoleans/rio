@@ -26,7 +26,7 @@ class BandejaController extends Controller
      */
     public function create()
     {
-        return view('banejas.create');
+        return view('bandejas.create');
     }
 
     /**

@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Configuracion;
+use App\Pot;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
 
 class PotController extends Controller
 {
@@ -16,7 +19,7 @@ class PotController extends Controller
     {
        $configuracion = Configuracion::all();
 
-       return view('pot.index',['configuracion' => $configuracion]);
+       return view('pot.generar',['configuracion' => $configuracion]);
     }
 
     /**
@@ -26,7 +29,9 @@ class PotController extends Controller
      */
     public function create()
     {
-        //
+        $pot = Pot::all();
+
+        return view('pot.index',['pot' => $pot]);
     }
 
     /**
@@ -37,7 +42,32 @@ class PotController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+         $this->validate($request, [
+            'documento'   => 'required|mimes:pdf|max:11000',
+        ]);
+
+         $name =  'POT'.date('Yhis').'.pdf';
+
+        $pot = new Pot;
+        $pot->user_id = Auth::user()->id;
+        $pot->documento= $name;
+
+         if ($pot->save()) {
+            $request->documento->storeAs('documentos',$name);
+            return redirect("pot/create")->with([
+                'flash_message' => 'Fruta agregada correctamente.',
+                'flash_class'   => 'alert-success',
+            ]);
+        } else {
+            return redirect("pot/create")->with([
+                'flash_message'   => 'Ha ocurrido un error.',
+                'flash_class'     => 'alert-danger',
+                'flash_important' => true,
+            ]);
+        }
+
+        //$request->documento->storeAs('documentos', $request->documento->getClientOriginalName());
     }
 
     /**
@@ -48,7 +78,13 @@ class PotController extends Controller
      */
     public function show($id)
     {
-        //
+        $pot = Pot::findOrfail($id);
+
+        $path = storage_path('app/documentos/'.$pot->documento);
+
+        return response()->download($path);
+
+        //return Storage::download($pot->documento);
     }
 
     /**

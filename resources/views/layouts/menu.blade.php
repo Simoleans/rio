@@ -34,8 +34,8 @@
                <ul class="menu-content">
                  <li><a href="{{route('pot.index')}}" class="menu-item">Generar POT</a>
                  </li>
-                 <!-- <li><a href="{{route('arriendo.create')}}" class="menu-item">Crear POT</a>
-                 </li> -->
+                 <li><a href="{{route('pot.create')}}" class="menu-item">Subir POT</a>
+                 </li>
                </ul>
              </li>
              <li class="has-sub nav-item"><a href="#"><i class="ft-wind"></i><span data-i18n="" class="menu-title">Faena</span></a>

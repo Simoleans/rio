@@ -33,6 +33,7 @@
     <link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap-datepicker.css')}}">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <link rel="stylesheet" type="text/css" href="https://unpkg.com/fullcalendar-scheduler@1.10.0/dist/scheduler.min.css">
+    
 
 
 

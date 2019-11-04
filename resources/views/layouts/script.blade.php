@@ -30,6 +30,7 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.1/locale/es.js"></script>
     <script type="text/javascript" src="https://unpkg.com/fullcalendar-scheduler@1.10.0/dist/scheduler.min.js"></script>
+    
 
    
 
