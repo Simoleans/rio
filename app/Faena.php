@@ -28,4 +28,14 @@ class Faena extends Model
     {
         return $this->hasMany('App\Maquina','maquina_id');
     }
+
+    static public function maquinaExists($id)
+    {
+        return self::where('maquina_id',$id)->exists();
+    }
+
+    static public function maquinaData($id)
+    {
+        return self::with('productor')->where('maquina_id',$id)->first();
+    }
 }

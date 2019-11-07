@@ -138,15 +138,14 @@ input[type="radio"]:focus + span {
      <!-- CONTENIDO -->
        <div class="main-content">
           <div class="content-wrapper">
-            @yield('content')
+            <div class="row">
+              @yield('content')
+            </div>    
           </div>
       </div>
-
         <!-- END : End Main Content-->
-
        @include('layouts.footer')
-
-      </div>
+   </div>
     <!-- </div> -->
     <!-- ////////////////////////////////////////////////////////////////////////////-->
 

@@ -38,8 +38,8 @@
       @include('partials.flash')
       <div class="card">
         <div class="card-header">
-          <h4 class="card-title">Frutas Registrados</h4>
-          <p class="card-text">Todas los Frutas.</p>
+          <h4 class="card-title">Dicumentos Registrados</h4>
+          <p class="card-text">Todas los documentos.</p>
         </div>
         <div class="card-content">
           <div class="card-body card-dashboard table-responsive">
@@ -68,6 +68,4 @@
     </div>
   </div>
 </section>
-
-
 @endsection

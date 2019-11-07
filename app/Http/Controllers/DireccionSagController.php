@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
+
+use App\DireccionSag;
 use Illuminate\Http\Request;
-use App\Configuracion;
-use App\Pot;
-use Illuminate\Support\Facades\Storage;
+use App\Maquina;
+use App\Regiones;
 use Illuminate\Support\Facades\Auth;
 
-class PotController extends Controller
+class DireccionSagController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,9 +18,9 @@ class PotController extends Controller
      */
     public function index()
     {
-       $configuracion = Configuracion::all();
+        $direccion = DireccionSag::all();
 
-       return view('pot.generar',['configuracion' => $configuracion]);
+        return view('dirsag.index',['direccion' => $direccion]);
     }
 
     /**
@@ -29,9 +30,9 @@ class PotController extends Controller
      */
     public function create()
     {
-        $pot = Pot::all();
+        $regiones = Regiones::all();
 
-        return view('pot.index',['pot' => $pot]);
+       return view('dirsag.create',['regiones' => $regiones]);
     }
 
     /**
@@ -42,58 +43,42 @@ class PotController extends Controller
      */
     public function store(Request $request)
     {
+        $direccion = new DireccionSag;
+        $direccion->fill($request->all());
+        $direccion->user_id = Auth::user()->id;
 
-         $this->validate($request, [
-            'documento'   => 'required|mimes:pdf|max:11000',
-        ]);
-
-        $name =  'POT-'.date('Yhis').'.pdf';
-
-        $pot = new Pot;
-        $pot->user_id = Auth::user()->id;
-        $pot->documento= $name;
-
-         if ($pot->save()) {
-            $request->documento->storeAs('documentos',$name);
-            return redirect("pot/create")->with([
-                'flash_message' => 'Documento guardado correctamente.',
+         if ($direccion->save()) {
+            return redirect("dirsag")->with([
+                'flash_message' => 'Direccion agregada correctamente.',
                 'flash_class'   => 'alert-success',
             ]);
         } else {
-            return redirect("pot/create")->with([
+            return redirect("dirsag")->with([
                 'flash_message'   => 'Ha ocurrido un error.',
                 'flash_class'     => 'alert-danger',
                 'flash_important' => true,
             ]);
         }
-
-        //$request->documento->storeAs('documentos', $request->documento->getClientOriginalName());
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\DireccionSag  $direccionSag
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(DireccionSag $direccionSag)
     {
-        $pot = Pot::findOrfail($id);
-
-        $path = storage_path('app/documentos/'.$pot->documento);
-
-        return response()->download($path);
-
-        //return Storage::download($pot->documento);
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\DireccionSag  $direccionSag
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(DireccionSag $direccionSag)
     {
         //
     }
@@ -102,10 +87,10 @@ class PotController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\DireccionSag  $direccionSag
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, DireccionSag $direccionSag)
     {
         //
     }
@@ -113,10 +98,10 @@ class PotController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\DireccionSag  $direccionSag
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(DireccionSag $direccionSag)
     {
         //
     }

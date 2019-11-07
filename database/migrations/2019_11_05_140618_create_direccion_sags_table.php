@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Productores extends Migration
+class CreateDireccionSagsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,22 +13,19 @@ class Productores extends Migration
      */
     public function up()
     {
-        Schema::create('productores', function (Blueprint $table) {
+        Schema::create('direccion_sags', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
-            $table->string('rut');
-            $table->string('r_social');
-            $table->string('localidad');
+            $table->string('oficina');
             $table->unsignedBigInteger('region_id');
             $table->foreign('region_id')->references('id')->on('regiones');
-
             $table->unsignedBigInteger('comuna_id');
             $table->foreign('comuna_id')->references('id')->on('comunas');
             $table->string('direccion');
-            $table->string('contacto_responsable');
-            $table->string('correo');
             $table->string('telefono');
+            $table->string('email');
+            $table->string('jefatura');
             $table->timestamps();
         });
     }
@@ -40,6 +37,6 @@ class Productores extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('productores');
+        Schema::dropIfExists('direccion_sags');
     }
 }

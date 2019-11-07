@@ -43,10 +43,14 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('/variedades','VariedadesController');
     Route::resource('/bandejas','BandejaController');
     Route::resource('/pot','PotController');
+    Route::resource('/dirsag','DireccionSagController');
+    Route::resource('/sag','SagController');
 
     //ajax request
     Route::get('comunas/{id}','AjaxRequestController@comunas')->name('comunas');
     Route::post('frutasApi','AjaxRequestController@storeFrutas')->name('storeFrutas.ajax');
+    Route::post('/sagMaquina','AjaxRequestController@searchFaena')->name('searchFaena.search');
+    Route::post('/storeFaena','AjaxRequestController@storeFaena')->name('storeFaena.store');
 
     //reportes PDF
     Route::get('/reportPOT','ReportesController@pot')->name('reporte.pot');
