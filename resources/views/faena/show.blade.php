@@ -2,8 +2,8 @@
 
 @section('content')
 
-
-<section class="invoice-template">
+<div class="col-md-12">
+  <section class="invoice-template">
   <div class="card">
     <div class="card-content p-3">
       <div id="invoice-template" class="card-body">
@@ -64,4 +64,6 @@
     </div>
   </div>
 </section>
+</div>
+
 @endsection

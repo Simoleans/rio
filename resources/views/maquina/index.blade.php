@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-
-<section id="ordering">
+<div class="col-md-12">
+  <section id="ordering">
   <div class="row">
     <div class="col-12">
       @include('partials.flash')
@@ -29,18 +29,18 @@
               <tbody>
               @foreach($maquina as $a)
                <tr>
-	               	<td class="text-center">{{$a->marca}}</td>
-	               	<td class="text-center">{{$a->modelo}}</td>
+                  <td class="text-center">{{$a->marca}}</td>
+                  <td class="text-center">{{$a->modelo}}</td>
                   <td class="text-center">{{$a->tipo}}</td>
                   <td class="text-center">{{$a->ano_maquina}}</td>
                   <td class="text-center">{{$a->serie}}</td>
                   <td class="text-center">{{$a->nombre}}</td>
-	               	<td class="text-center">
-	               		<a href="{{route('maquina.show',['id' => $a->id])}}" class="btn btn-raised btn-success btn-min-width mr-1 mb-1"><i class="fa fa-eye" title="Ver"></i></a>
-	               		<a href="{{route('maquina.edit',['id' => $a->id])}}" class="btn btn-raised btn-warning btn-min-width mr-1 mb-1"><i class="fa fa-edit" title="Editar"></i></a>
-	               	</td>
+                  <td class="text-center">
+                    <a href="{{route('maquina.show',['id' => $a->id])}}" class="btn btn-raised btn-success btn-min-width mr-1 mb-1"><i class="fa fa-eye" title="Ver"></i></a>
+                    <a href="{{route('maquina.edit',['id' => $a->id])}}" class="btn btn-raised btn-warning btn-min-width mr-1 mb-1"><i class="fa fa-edit" title="Editar"></i></a>
+                  </td>
                </tr>
-			        @endforeach
+              @endforeach
               </tbody>
             </table>
           </div>
@@ -49,12 +49,13 @@
     </div>
   </div>
 </section>
+</div>
+
 <!--/ Default ordering table -->
 
 <section id="ordering">
   <div class="row">
     <div class="col-12">
-      @include('partials.flash')
       <div class="card">
         <div class="card-header">
           <h4 class="card-title">Calendario de Faenas</h4>

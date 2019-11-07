@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-
-<section id="ordering">
+<div class="col-md-12">
+  <section id="ordering">
   <div class="row">
     <div class="col-12">
       @include('partials.flash')
@@ -21,25 +21,25 @@
                   <th class="text-center">Maquina</th>
                   <th class="text-center">KG</th>
                   <th class="text-center">Moneda</th>
-                  <th class="text-center">Estatus</th>
+                  <th class="text-center">Tipo</th>
                   <th class="text-center">Acción</th>
                 </tr>
               </thead>
               <tbody>
               @foreach($faena as $a)
                <tr>
-	               	<td class="text-center">{{$a->productor->r_social}}</td>
-	               	<td class="text-center">{{$a->campo->nombre_campo}}</td>
+                  <td class="text-center">{{$a->productor->r_social}}</td>
+                  <td class="text-center">{{$a->campo->nombre_campo}}</td>
                   <td class="text-center">{{$a->maquina->nombre}}</td>
                   <td class="text-center">{{$a->minimo_kg}}</td>
                   <td class="text-center">{{$a->tipo_moneda}}</td>
-                  <td class="text-center">{{$a->status}}</td>
-	               	<td class="text-center">
-	               		<a href="{{route('faena.show',['id' => $a->id])}}" class="btn btn-raised btn-success btn-min-width mr-1 mb-1"><i class="fa fa-eye" title="Ver"></i></a>
-	               		<a href="{{route('faena.edit',['id' => $a->id])}}" class="btn btn-raised btn-warning btn-min-width mr-1 mb-1"><i class="fa fa-edit" title="Editar"></i></a>
-	               	</td>
+                  <td class="text-center">{{$a->tipo}}</td>
+                  <td class="text-center">
+                    <a href="{{route('faena.show',['id' => $a->id])}}" class="btn btn-raised btn-success btn-min-width mr-1 mb-1"><i class="fa fa-eye" title="Ver"></i></a>
+                    <a href="{{route('faena.edit',['id' => $a->id])}}" class="btn btn-raised btn-warning btn-min-width mr-1 mb-1"><i class="fa fa-edit" title="Editar"></i></a>
+                  </td>
                </tr>
-			        @endforeach
+              @endforeach
               </tbody>
             </table>
           </div>
@@ -48,6 +48,8 @@
     </div>
   </div>
 </section>
+</div>
+
 <!--/ Default ordering table -->
 
 

@@ -47,11 +47,12 @@
             <table class="table table-striped table-bordered default-ordering dataTable">
               <thead>
                 <tr>
-                  <th class="text-center">Nombre</th>
+                  <th class="text-center">Desde</th>
+                  <th class="text-center">Hasta</th>
                   <th class="text-center">Acción</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody id="table_direccion">
               </tbody>
             </table>
           </div>
@@ -61,7 +62,6 @@
   </div>
 </section>
 </div>
-
 
 @include('partials.sag.configuracion')
 
@@ -88,7 +88,17 @@
       if (!data.data) {
         $('#xlarge').modal('toggle');
       }else{
-        console.log(data.data.productor.r_social)
+        var datos = '';
+         // $('.dataTable').DataTable().destroy();
+        $.each(data.faenas, function(index, val) {
+           datos += '<tr>'+
+                      '<td class="text-center">'+val.desde+'</td>'+
+                      '<td class="text-center">'+val.hasta+'</td>'+
+                      '<td class="text-center"><a data-id="'+val.id+'" style="color: #FFFF" class="btn btn-raised btn-success btn-min-width mr-1 mb-1"><i class="fa fa-eye faena_id" title="Ver"></i></a></td>'+
+                    '</tr>'
+        });
+
+        $("#table_direccion").html(datos);
       }
     })
     .fail(function() {

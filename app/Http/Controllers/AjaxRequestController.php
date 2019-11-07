@@ -36,11 +36,12 @@ class AjaxRequestController extends Controller
 
     public function searchFaena(Request $request)
     {
-        //dd($request->all());
+        $faenas = Maquina::findOrfail($request->maquina_id)->faenas;
 
-        $faena = Faena::maquinaExists($request->maquina_id);
 
-        if ($faena) {
+        $maquina = Faena::maquinaExists($request->maquina_id);
+
+        if ($maquina) {
 
             $maquinaData = Faena::maquinaData($request->maquina_id);
             // dd($maquinaData->productor->comuna->id);
@@ -49,9 +50,9 @@ class AjaxRequestController extends Controller
 
             $direccionSag = DireccionSag::where('region_id',$region)->where('comuna_id',$comuna)->get();
 
-            return response()->json(['data' => $maquinaData,'status' => true,'direccion' => $direccionSag]);   
+            return response()->json(['data' => $maquinaData,'status' => true,'direccion' => $direccionSag,'faenas' => $faenas]);   
         }else{
-            return response()->json(['data' => false,'status' => false,'direccion' => false]);
+            return response()->json(['data' => false,'status' => false,'direccion' => false,'faenas' => $faenas]);
         } 
         
     }

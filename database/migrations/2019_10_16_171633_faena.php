@@ -31,7 +31,7 @@ class Faena extends Migration
             $table->string('tarifa_2');
             $table->string('flete');
             $table->string('petroleo');
-            $table->string('status')->default(0)->comment('aprobado/desactivado');
+            $table->string('tipo')->comment('origen/destino')->nullable();
             $table->timestamps();
         });
     }
