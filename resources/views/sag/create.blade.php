@@ -89,7 +89,7 @@
         $('#xlarge').modal('toggle');
       }else{
         var datos = '';
-         // $('.dataTable').DataTable().destroy();
+         $('.dataTable').DataTable().destroy();
         $.each(data.faenas, function(index, val) {
            datos += '<tr>'+
                       '<td class="text-center">'+val.desde+'</td>'+
@@ -97,7 +97,7 @@
                       '<td class="text-center"><a data-id="'+val.id+'" style="color: #FFFF" class="btn btn-raised btn-success btn-min-width mr-1 mb-1"><i class="fa fa-eye faena_id" title="Ver"></i></a></td>'+
                     '</tr>'
         });
-
+        $('.dataTable').DataTable();
         $("#table_direccion").html(datos);
       }
     })
