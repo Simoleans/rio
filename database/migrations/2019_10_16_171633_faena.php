@@ -32,6 +32,7 @@ class Faena extends Migration
             $table->string('flete');
             $table->string('petroleo');
             $table->string('tipo')->comment('origen/destino')->nullable();
+            $table->string('status')->default(1)
             $table->timestamps();
         });
     }

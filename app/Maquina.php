@@ -12,7 +12,7 @@ class Maquina extends Model
 
      public function faenas()
     {
-        return $this->hasMany('App\Faena','maquina_id');
+        return $this->hasMany('App\Faena','maquina_id')->where('status',1);
     }
 
      public function faena()

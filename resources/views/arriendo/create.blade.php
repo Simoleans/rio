@@ -26,8 +26,8 @@
     <div class="card-content">
       <div class="px-3">
         <div class="progress">
-    <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
-  </div>
+          <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
         <form id="regiration_form" novalidate action="{{route('arriendo.store')}}"  method="POST">
           @csrf
           <input type="hidden"  name="image[]" id="image_frente">
