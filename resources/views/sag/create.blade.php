@@ -6,7 +6,7 @@
     display: none;
   }
 </style>
-<div class="col-md-5">
+<div class="col-md-12"  id="row_maquina">
   <div class="card">
     <div class="card-header">
       <h4 class="card-title" id="basic-layout-form">Buscar Maquina</h4>
@@ -32,7 +32,7 @@
           </div>
         </div>
           <div class="form-actions">
-            <input type="submit" name="submit"  value="Enviar" class="btn btn-raised btn-raised btn-primary">
+            <input type="submit" name="submit" id="submit_maquina" value="Enviar" class="btn btn-raised btn-raised btn-primary">
           </div>
         </form>
       </div>
@@ -40,7 +40,7 @@
   </div>
 </div>
 
-<div class="col-md-7">
+<div class="col-md-8" style="display: none;" id="form_faenas">
   <div class="card">
     <div class="card-header">
       <h4 class="card-title" id="basic-layout-form">Nuevo SAG</h4>
@@ -52,11 +52,12 @@
           <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
         </div>
         <form id="regiration_form" novalidate action="{{route('arriendo.store')}}"  method="POST">
+        <input type="hidden" name="faena_id" id="faena_ori_id">
           @csrf
           <fieldset>
             <h2>Paso 1: Faena Origen</h2>
             
-              <div class="card-body card-dashboard table-responsive">
+              <div class="card-body card-dashboard table-responsive tabla_faenas">
                 <table class="table table-striped table-bordered default-ordering dataTable">
                   <thead>
                     <tr>
@@ -68,6 +69,12 @@
                   <tbody id="table_direccion">
                   </tbody>
                 </table>
+                  
+                  <div class="form-group" id="hora_origen" style="display: none;">
+                    <label for="hora_origen">Hora Origen</label>
+                   <input type="time" name="hora_ori"  class="form-control" required="">
+                  </div>
+                
               </div>
            
                
@@ -107,6 +114,7 @@
 </div>
 
 
+
 @endsection
 
 @section('script')
@@ -129,6 +137,9 @@
       data: $(this).serialize(),
     })
     .done(function(data) {
+      $("#row_maquina").attr('class', 'col-md-4');
+      $("#form_faenas").fadeIn('slow/400/fast');
+      $("#submit_maquina").attr('disabled',true);
       if (!data.data) {
         $('#xlarge').modal('toggle');
       }else{
@@ -140,14 +151,13 @@
                       '<td class="text-center">'+val.desde+'</td>'+
                       '<td class="text-center">'+val.hasta+'</td>'+
                       '<td class="text-center">'+
-                        '<a data-id="'+val.id+'" data.value="ORIGEN" style="color: #FFFF" class="btn btn-raised btn-success btn-min-width mr-1 mb-1 status">Origen</a>'+
-                        '<a data-id="'+val.id+'" data.value="DESTINO" style="color: #FFFF" class="btn btn-raised btn-danger btn-min-width mr-1 mb-1 status">Destino</a>'+
+                        '<button type="button" data-id="'+val.id+'" style="color: #FFFF" class="btn btn-raised btn-success btn-min-width mr-1 mb-1 origen_faena">SELECCIONAR</button>'+
                       '</td>'+
                     '</tr>'
 
         });
         //$('.dataTable').DataTable();
-          $('.dataTable').DataTable().destroy();
+        $('.dataTable').DataTable().destroy();
         $("#table_direccion").html(datos);
         $('.dataTable').DataTable();
       }
@@ -160,6 +170,16 @@
     });
     
   });// fin busqueda de maquina con el select
+
+
+  $(".tabla_faenas").on('click', '.origen_faena', function(event) {
+    event.preventDefault();
+    var id = $(this).data('id');
+    $("#faena_ori_id").val(id);
+    $("#hora_origen").toggle("slow/400/fast");
+  });
+
+
 
   //cambiar estatus DESTINO - ORIGEN
 
