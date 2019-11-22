@@ -36,7 +36,9 @@ class AjaxRequestController extends Controller
 
     public function searchFaena(Request $request)
     {
-        $faenas = Maquina::findOrfail($request->maquina_id)->faenas;
+        $faenasOrigen = Maquina::findOrfail($request->maquina_id)->faenas;
+
+        $faenasDestino = Maquina::findOrfail($request->maquina_id)->faenasDestino;
 
 
         $maquina = Faena::maquinaExists($request->maquina_id);
@@ -50,9 +52,9 @@ class AjaxRequestController extends Controller
 
             $direccionSag = DireccionSag::where('region_id',$region)->where('comuna_id',$comuna)->get();
 
-            return response()->json(['data' => $maquinaData,'status' => true,'direccion' => $direccionSag,'faenas' => $faenas]);   
+            return response()->json(['data' => $maquinaData,'status' => true,'direccion' => $direccionSag,'origen' => $faenasOrigen,'destino' => $faenasDestino]);   
         }else{
-            return response()->json(['data' => false,'status' => false,'direccion' => false,'faenas' => $faenas]);
+            return response()->json(['data' => false,'status' => false,'direccion' => false,'faenas' => $faenasOrigen,'destino' => $faenasDestino]);
         } 
         
     }
@@ -60,5 +62,21 @@ class AjaxRequestController extends Controller
     public function storeFaena(Request $request)
     {
         dd($request->all());
+    }
+
+    public function fecha_sugerida(Request $request)
+    {
+         $faena = Faena::findOrfail($request->id);
+
+        
+
+         $faena->desde = $request->fecha;
+
+         if ($faena->save()) {
+             $faenasDestino = Maquina::findOrfail($request->maquina_id)->faenasDestino;
+            return response()->json(['destino' => $faenasDestino,'status' => true,'msg' => 'Se ha modificado la fecha correctamente']);
+        } else {
+            return response()->json(['destino' => $faenasDestino,'status' => false,'msg' => '¡Error!']);
+        }
     }
 }

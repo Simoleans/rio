@@ -10,9 +10,14 @@ class Maquina extends Model
 
     public $fillable = ['user_id','marca','modelo','tipo','ano_maquina','serie','nombre'];
 
-     public function faenas()
+     public function faenas() // origen
     {
         return $this->hasMany('App\Faena','maquina_id')->where('status',1);
+    }
+
+    public function faenasDestino() // origen
+    {
+        return $this->hasMany('App\Faena','maquina_id')->where('status',0);
     }
 
      public function faena()

@@ -27,6 +27,7 @@
     <script src='https://unpkg.com/moment@2.24.0/min/moment.min.js'></script>
     <script src='https://unpkg.com/fullcalendar@3.10.1/dist/fullcalendar.min.js'></script>
     <script type="text/javascript" src="{{asset('js/bootstrap-datepicker.js')}}"></script>
+    <script type="text/javascript" src="{{asset('js/moment.min.js')}}"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.1/locale/es.js"></script>
     <script type="text/javascript" src="https://unpkg.com/fullcalendar-scheduler@1.10.0/dist/scheduler.min.js"></script>

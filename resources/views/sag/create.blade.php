@@ -40,6 +40,7 @@
   </div>
 </div>
 
+
 <div class="col-md-8" style="display: none;" id="form_faenas">
   <div class="card">
     <div class="card-header">
@@ -52,11 +53,13 @@
           <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
         </div>
         <form id="regiration_form" novalidate action="{{route('arriendo.store')}}"  method="POST">
-        <input type="hidden" name="faena_id" id="faena_ori_id">
+          <input type="hidden" name="faena_ori_id" id="faena_ori_id">
+          <input type="hidden" name="faena_dest_id" id="faena_dest_id">
+          <input type="hidden" name="fecha_ori" id="fecha_ori">
+          <input type="hidden" name="fecha_dest" id="fecha_dest">
           @csrf
           <fieldset>
             <h2>Paso 1: Faena Origen</h2>
-            
               <div class="card-body card-dashboard table-responsive tabla_faenas">
                 <table class="table table-striped table-bordered default-ordering dataTable">
                   <thead>
@@ -66,44 +69,35 @@
                       <th class="text-center">Acción</th>
                     </tr>
                   </thead>
-                  <tbody id="table_direccion">
+                  <tbody id="table_origen">
                   </tbody>
                 </table>
-                  
                   <div class="form-group" id="hora_origen" style="display: none;">
-                    <label for="hora_origen">Hora Origen</label>
-                   <input type="time" name="hora_ori"  class="form-control" required="">
+                    <label for="hora_origen">Hora Origen(Obligatorio)</label>
+                   <input type="time" name="hora_ori"  class="form-control" required>
                   </div>
-                
               </div>
-           
-               
-               
-          
-            <input type="button" name="button" class="next btn btn-info" value="Siguiente" />
+          <input type="button" name="button" class="next btn btn-info" value="Siguiente" />
           </fieldset>
           <fieldset>
-            <h2>Paso 2: Datos Propietario</h2>
-             <div class="form-group">
-              <label for="rut">RUT</label>
-              <input type="text" class="form-control required rut" id="rut" name="rut" placeholder="RUT">
-            </div>
-             <div class="form-group">
-              <label for="r_social">Razón Social</label>
-              <input type="text" class="form-control required" id="r_social" name="r_social" placeholder="Razón Social">
-            </div>
-             <div class="form-group">
-              <label for="direccion">Dirección</label>
-              <input type="text" class="form-control required" id="direccion" name="direccion" placeholder="Dirección">
-            </div>
-                <div class="form-group">
-                  <label for="projectinput3">Comuna</label>
-                  <select class="form-control comunas" name="comuna_id" ></select>
-                </div>
-            <div class="form-group">
-              <label for="hombre">CSG</label>
-              <input type="text" class="form-control required" id="hombre" name="hombre" placeholder="CSG">
-            </div>
+            <h2>Paso 2: Faena  Destino</h2>
+              <div class="card-body card-dashboard table-responsive tabla_faenas">
+                <table class="table table-striped table-bordered default-ordering dataTable">
+                  <thead>
+                    <tr>
+                      <th class="text-center">Desde</th>
+                      <th class="text-center">Hasta</th>
+                      <th class="text-center">Acción</th>
+                    </tr>
+                  </thead>
+                  <tbody id="table_destino">
+                  </tbody>
+                </table>
+                  <div class="form-group" id="hora_destino" style="display: none;">
+                    <label for="hora_origen">Hora Destino(Obligatorio)</label>
+                   <input type="time" name="hora_dest"  class="form-control" required>
+                  </div>
+              </div>
             <input type="button" name="previous" class="previous btn btn-warning" value="Anterior" />
             <input type="button" name="next" class="next btn btn-info" value="Siguiente" />
           </fieldset>
@@ -113,7 +107,38 @@
   </div>
 </div>
 
+      </div>
+    </div>
+  </div>
+</div>
 
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Fecha Sugerida</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h3 class="text-warning">La fecha de destino es menor a la faena origen, le sugerimos esta fecha</h3>
+        <span class="text-success" id="mensaje_fecha"></span>
+        <form id="form_fecha_sugerida" method="POST" class="form">
+            @csrf
+            <input type="hidden" name="maquina_id" id="maquina_send">
+              <label for="hora_origen">Fecha Destino(Obligatorio)</label>
+              <input type="text" name="fecha"  class="form-control fecha" required autocomplete="off" id="fecha_sugerida" required>
+           
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+            <button type="button" class="btn btn-primary" id="sub_fecha">Guardar</button>
+          </div>
+      </form>
+    </div>
+  </div>
+</div>
 
 @endsection
 
@@ -140,27 +165,48 @@
       $("#row_maquina").attr('class', 'col-md-4');
       $("#form_faenas").fadeIn('slow/400/fast');
       $("#submit_maquina").attr('disabled',true);
+      $("#maquina_send").val($("#maquina_value").val())
       if (!data.data) {
         $('#xlarge').modal('toggle');
       }else{
         var datos = '';
          
-        $.each(data.faenas, function(index, val) {
+        $.each(data.origen, function(index, val) {
 
            datos += '<tr>'+
                       '<td class="text-center">'+val.desde+'</td>'+
                       '<td class="text-center">'+val.hasta+'</td>'+
                       '<td class="text-center">'+
-                        '<button type="button" data-id="'+val.id+'" style="color: #FFFF" class="btn btn-raised btn-success btn-min-width mr-1 mb-1 origen_faena">SELECCIONAR</button>'+
+                        '<button type="button" data-id="'+val.id+'" data-fechaOr="'+val.desde+'" style="color: #FFFF"  class="btn btn-raised btn-success btn-min-width mr-1 mb-1 origen_faena">SELECCIONAR</button>'+
                       '</td>'+
                     '</tr>'
 
         });
         //$('.dataTable').DataTable();
         $('.dataTable').DataTable().destroy();
-        $("#table_direccion").html(datos);
+        $("#table_origen").html(datos);
+        $('.dataTable').DataTable();
+
+        var datosDestino = '';
+         
+        $.each(data.destino, function(index, val) {
+
+           datosDestino += '<tr>'+
+                      '<td class="text-center">'+val.desde+'</td>'+
+                      '<td class="text-center">'+val.hasta+'</td>'+
+                      '<td class="text-center">'+
+                        '<button type="button" data-id="'+val.id+'" data-fechaDes="'+val.desde+'" style="color: #FFFF"  class="btn btn-raised btn-success btn-min-width mr-1 mb-1 destino_faena">SELECCIONAR</button>'+
+                      '</td>'+
+                    '</tr>'
+
+        });
+        //$('.dataTable').DataTable();
+        $('.dataTable').DataTable().destroy();
+        $("#table_destino").html(datosDestino);
         $('.dataTable').DataTable();
       }
+
+
     })
     .fail(function() {
       console.log("error");
@@ -175,8 +221,55 @@
   $(".tabla_faenas").on('click', '.origen_faena', function(event) {
     event.preventDefault();
     var id = $(this).data('id');
+    var fecha = $(this).data('fechaor');
+    console.log(fecha);
+    $("#fecha_ori").val(fecha)
     $("#faena_ori_id").val(id);
-    $("#hora_origen").toggle("slow/400/fast");
+    //Esta parte es para el seleccionar faenas al darle un boton el otro se desactive
+    var boton_disabled = $("#table_origen").find('button[type=button]:disabled');
+    if(boton_disabled.length > 0){
+      boton_disabled.attr('disabled',false);
+    }
+    //fin
+    
+    $(this).attr('disabled','disabled');
+   
+    $("#hora_origen").fadeIn('slow/400/fast', function() {
+       $(this).removeAttr('style');
+    });
+  });
+
+  $(".tabla_faenas").on('click', '.destino_faena', function(event) {
+    event.preventDefault();
+    var id = $(this).data('id');
+    var fecha = $(this).data('fechades');
+    $("#faena_dest_id").val(id);
+    console.log(fecha);
+    $("#fecha_dest").val(fecha);
+     var dia_diferencia = moment($("#fecha_dest").val()).diff(moment($("#fecha_ori").val()), 'days');
+     console.log("dias "+dia_diferencia);
+    if (dia_diferencia >= 2) {
+      $("#exampleModal").modal("show");
+      var fecha_sugerida = moment($("#fecha_ori").val()).add(1, 'd').format('YYYY-MM-DD');
+      $("#fecha_sugerida").val(fecha_sugerida);
+    }else{
+      console.log("si");
+    }
+
+    //Esta parte es para el seleccionar faenas al darle un boton el otro se desactive
+    var boton_disabled = $("#table_origen").find('button[type=button]:disabled');
+    if(boton_disabled.length > 0){
+      boton_disabled.attr('disabled',false);
+    }
+    //fin
+    
+    $(this).attr('disabled','disabled');
+
+    //alert($("#hora_origen").val());
+   
+    $("#hora_destino").fadeIn('slow/400/fast', function() {
+       $(this).removeAttr('style');
+    });
   });
 
 
@@ -192,7 +285,45 @@
 
 
 
+$("#sub_fecha").click(function(event) {
+  event.preventDefault();
+  $.ajax({
+    url: '{{route("fechaS.store")}}',
+    type: 'POST',
+    dataType: 'json',
+    data: {_token: '{{csrf_token()}}',maquina_id: $("#maquina_value").val(),id: $("#faena_dest_id").val(), fecha: $("#fecha_sugerida").val() },
+  })
+  .done(function(data) {
+    $("#mensaje_fecha").text(data.msg);
+    $("#sub_fecha").attr('disabled',true);
+    $("#fecha_sugerida").attr('readonly',true);
+     var datosDestino = '';
+         
+        $.each(data.destino, function(index, val) {
 
+           datosDestino += '<tr>'+
+                      '<td class="text-center">'+val.desde+'</td>'+
+                      '<td class="text-center">'+val.hasta+'</td>'+
+                      '<td class="text-center">'+
+                        '<button type="button" data-id="'+val.id+'" data-fechaDes="'+val.desde+'" style="color: #FFFF"  class="btn btn-raised btn-success btn-min-width mr-1 mb-1 destino_faena">SELECCIONAR</button>'+
+                      '</td>'+
+                    '</tr>'
+
+        });
+        //$('.dataTable').DataTable();
+        $('.dataTable').DataTable().destroy();
+        $("#table_destino").html(datosDestino);
+        $('.dataTable').DataTable();
+
+  })
+  .fail(function() {
+    console.log("error");
+  })
+  .always(function() {
+    console.log("complete");
+  });
+  
+});
 
 
 
@@ -232,42 +363,42 @@
     var counters = 0;
     var input = '';
    
-    // validacion de required
-//     $(current_step.find('input.required')).each(function() {
-//         if ($(this).val() === "") {
-//             $(this).css('border', '1px solid red');
-//             counter++;
-//         }
-//     });
-//      $(current_step.find('input[required]:radio')).each(function() {
-//       //console.log($(this).is(':checked'))
-//         if (!$(this).is(':checked')) {
-//             $(this).css('border', '1px solid red');
-//             counters++;
-//         }
-//     });
+    //validacion de required
+    $(current_step.find('input.required')).each(function() {
+        if ($(this).val() === "") {
+            $(this).css('border', '1px solid red');
+            counter++;
+        }
+    });
+     $(current_step.find('input[type=time]')).each(function() {
+      //console.log($(this).is(':checked'))
+        if ($(this).val() === "") {
+            $(this).css('border', '1px solid red');
+            counters++;
+        }
+    });
+//console.log(current_step.find('input[type=time]:required'))
+console.log(counters)
 
-// //console.log(counters)
+  if(counters > 0){
+        Swal.fire({
+          type: 'error',
+          title: 'Oops...',
+          text: '¡Faltan Opciones!'
+        })
 
-//   if(counters == 2){
-//         Swal.fire({
-//           type: 'error',
-//           title: 'Oops...',
-//           text: '¡Debe llenar todos los campos!'
-//         })
+    }else if(counter > 0){
+        Swal.fire({
+          type: 'error',
+          title: 'Oops...',
+          text: '¡Faltan Opciones!'
+        })
 
-//     }else if(counter > 0){
-//         Swal.fire({
-//           type: 'error',
-//           title: 'Oops...',
-//           text: '¡Debe llenar todos los campos!'
-//         })
-
-//     }else{
+    }else{
       next_step.show();
       current_step.hide();
       setProgressBar(++current);
-    // }
+    }
     //fin validacion
 
     
