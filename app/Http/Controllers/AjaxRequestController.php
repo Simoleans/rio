@@ -79,4 +79,9 @@ class AjaxRequestController extends Controller
             return response()->json(['destino' => $faenasDestino,'status' => false,'msg' => '¡Error!']);
         }
     }
+
+    public function status_faena($id)
+    {
+         $faena = Faena::findOrfail($request->id);
+    }
 }

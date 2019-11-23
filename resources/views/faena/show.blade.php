@@ -59,11 +59,58 @@
               </table>
           </div>
         </div>
+        <button type="button" id="delete" class="pull-right btn btn-success" data-url="{{route('faena.status',['id' => $faena->id])}}">Cambiar Status</button>
         <!--/ Invoice Footer -->
       </div>
     </div>
   </div>
 </section>
 </div>
+
+@endsection
+
+@section('script')
+
+<script type="text/javascript">
+  $("#delete").click(function(event) {
+    var url = $(this).data('url');
+      Swal.fire({
+      title: '¿Estas segur@?',
+      //text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#0CC27E',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Si, Cambiar'
+    }).then((result) => {
+      if (result.value) {
+
+        $.ajax({
+          url: url,
+          type: 'DELETE',
+          dataType: 'json',
+          data: {_token: '{{csrf_token()}}'},
+        })
+        .done(function(data) {
+          if (data.status) {
+            window.location="{{route('user.index')}}";
+          }
+        })
+        .fail(function() {
+          console.log("error");
+        })
+        .always(function() {
+          console.log("complete");
+        });
+        
+        // Swal.fire(
+        //   'Eliminado!',
+        //   'Your file has been deleted.',
+        //   'success'
+        // )
+      }
+    })
+  });
+</script>
 
 @endsection
