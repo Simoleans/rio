@@ -6,6 +6,7 @@ use App\Sag;
 use App\Campo;
 use App\Maquina;
 use App\Productores;
+use App\Faena;
 use Illuminate\Http\Request;
 
 class SagController extends Controller
@@ -17,7 +18,9 @@ class SagController extends Controller
      */
     public function index()
     {
-        //
+        $sag = Sag::all();
+
+        return view('sag.sag',['sags' => $sag]);
     }
 
     /**
@@ -42,7 +45,30 @@ class SagController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //dd($request->all());
+        $sag = new Sag;
+        $sag->fill($request->all());
+        //cambiar status faenas
+            $faenaOrigen= Faena::findOrfail($request->faena_ori_id);
+            $faenaOrigen->status = 2;
+        //cambiar status faena destino
+            $faenaDestino = Faena::findOrfail($request->faena_dest_id);
+            $faenaDestino->status = 1;
+
+        if ($sag->save() && $faenaDestino->save() && $faenaOrigen->save()) {
+            
+
+            return redirect("sag")->with([
+                'flash_message' => 'Sag registrado correctamente.',
+                'flash_class'   => 'alert-success',
+            ]);
+        } else {
+            return redirect("sag")->with([
+                'flash_message'   => 'Ha ocurrido un error.',
+                'flash_class'     => 'alert-danger',
+                'flash_important' => true,
+            ]);
+        }
     }
 
     /**

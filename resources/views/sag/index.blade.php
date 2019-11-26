@@ -9,7 +9,7 @@
       <div class="card">
         <div class="card-header">
           <h4 class="card-title">Direcciones Registradas</h4>
-          <p class="card-text">todos los productores.</p>
+          <p class="card-text">todos las direcciones.</p>
         </div>
         <div class="card-content">
           <div class="card-body card-dashboard table-responsive">

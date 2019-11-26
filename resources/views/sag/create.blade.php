@@ -14,6 +14,7 @@
     <div class="card-content">
       <div class="px-3">
         <form class="form" id="form"  method="POST" enctype="multipart/form-data">
+          
           @csrf
           <div class="form-body">
             <!-- <h4 class="form-section"><i class="ft-user"></i>Información Personal</h4> -->
@@ -52,11 +53,13 @@
         <div class="progress">
           <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
         </div>
-        <form id="regiration_form" novalidate action="{{route('arriendo.store')}}"  method="POST">
+        <form id="regiration_form" novalidate action="{{route('sag.store')}}"  method="POST">
           <input type="hidden" name="faena_ori_id" id="faena_ori_id">
           <input type="hidden" name="faena_dest_id" id="faena_dest_id">
           <input type="hidden" name="fecha_ori" id="fecha_ori">
           <input type="hidden" name="fecha_dest" id="fecha_dest">
+          <input type="hidden" name="maquina_id" id="maquina_id">
+          <input type="hidden" name="seleccionado" id="seleccionado">
           @csrf
           <fieldset>
             <h2>Paso 1: Faena Origen</h2>
@@ -99,7 +102,7 @@
                   </div>
               </div>
             <input type="button" name="previous" class="previous btn btn-warning" value="Anterior" />
-            <input type="button" name="next" class="next btn btn-info" value="Siguiente" />
+            <input type="submit" name="submit" class="submit btn btn-success" value="Guardar" />
           </fieldset>
         </form>
       </div>
@@ -162,13 +165,14 @@
       data: $(this).serialize(),
     })
     .done(function(data) {
-      $("#row_maquina").attr('class', 'col-md-4');
-      $("#form_faenas").fadeIn('slow/400/fast');
+      
       $("#submit_maquina").attr('disabled',true);
       $("#maquina_send").val($("#maquina_value").val())
-      if (!data.data) {
+      if (data.count < 2) {
         $('#xlarge').modal('toggle');
       }else{
+        $("#row_maquina").attr('class', 'col-md-4');
+        $("#form_faenas").fadeIn('slow/400/fast');
         var datos = '';
          
         $.each(data.origen, function(index, val) {
@@ -187,10 +191,13 @@
         $("#table_origen").html(datos);
         $('.dataTable').DataTable();
 
+// Destino
         var datosDestino = '';
-         
+        //var disabled = '';
+         console.log('id '+$("#seleccionado").val())
         $.each(data.destino, function(index, val) {
 
+        
            datosDestino += '<tr>'+
                       '<td class="text-center">'+val.desde+'</td>'+
                       '<td class="text-center">'+val.hasta+'</td>'+
@@ -198,6 +205,7 @@
                         '<button type="button" data-id="'+val.id+'" data-fechaDes="'+val.desde+'" style="color: #FFFF"  class="btn btn-raised btn-success btn-min-width mr-1 mb-1 destino_faena">SELECCIONAR</button>'+
                       '</td>'+
                     '</tr>'
+    
 
         });
         //$('.dataTable').DataTable();
@@ -220,14 +228,16 @@
 
   $(".tabla_faenas").on('click', '.origen_faena', function(event) {
     event.preventDefault();
+
     var id = $(this).data('id');
     var fecha = $(this).data('fechaor');
-    console.log(fecha);
+
     $("#fecha_ori").val(fecha)
     $("#faena_ori_id").val(id);
     //Esta parte es para el seleccionar faenas al darle un boton el otro se desactive
     var boton_disabled = $("#table_origen").find('button[type=button]:disabled');
-    if(boton_disabled.length > 0){
+    $("#seleccionado").val(id); // el id del origen para que este seleccionado en destino
+    if(boton_disabled.length > 0){ // validacion de click en "seleccionar"
       boton_disabled.attr('disabled',false);
     }
     //fin
@@ -239,12 +249,26 @@
     });
   });
 
+
+
+
+    
+
+
   $(".tabla_faenas").on('click', '.destino_faena', function(event) {
     event.preventDefault();
     var id = $(this).data('id');
     var fecha = $(this).data('fechades');
     $("#faena_dest_id").val(id);
-    console.log(fecha);
+    if ($("#faena_ori_id").val() == id) {
+      Swal.fire({
+          type: 'error',
+          title: 'Oops...',
+          text: '¡Esta Faena Ya se Selecciono como origen!'
+        })
+      return false;
+    }
+
     $("#fecha_dest").val(fecha);
      var dia_diferencia = moment($("#fecha_dest").val()).diff(moment($("#fecha_ori").val()), 'days');
      console.log("dias "+dia_diferencia);
@@ -256,8 +280,11 @@
       console.log("si");
     }
 
+    
+    
+
     //Esta parte es para el seleccionar faenas al darle un boton el otro se desactive
-    var boton_disabled = $("#table_origen").find('button[type=button]:disabled');
+    var boton_disabled = $("#table_destino").find('button[type=button]:disabled');
     if(boton_disabled.length > 0){
       boton_disabled.attr('disabled',false);
     }
@@ -375,6 +402,14 @@ $("#sub_fecha").click(function(event) {
         if ($(this).val() === "") {
             $(this).css('border', '1px solid red');
             counters++;
+        }
+    });
+
+     $(current_step.find('input[type=time]')).each(function() {
+      //console.log($(this).is(':checked'))
+        if ($(this).val() === "") {
+            $(this).css('border', '1px solid red');
+            counterss++;
         }
     });
 //console.log(current_step.find('input[type=time]:required'))

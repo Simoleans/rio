@@ -34,6 +34,11 @@ class Faena extends Model
         return self::where('maquina_id',$id)->exists();
     }
 
+    static public function maquinaCount($id)
+    {
+        return self::where('maquina_id',$id)->count();
+    }
+
     static public function maquinaData($id)
     {
         return self::with('productor')->where('maquina_id',$id)->first();

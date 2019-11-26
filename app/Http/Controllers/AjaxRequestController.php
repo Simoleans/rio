@@ -38,7 +38,7 @@ class AjaxRequestController extends Controller
     {
         $faenasOrigen = Maquina::findOrfail($request->maquina_id)->faenas;
 
-        $faenasDestino = Maquina::findOrfail($request->maquina_id)->faenasDestino;
+        $faenasDestino = Maquina::findOrfail($request->maquina_id)->faenas;
 
 
         $maquina = Faena::maquinaExists($request->maquina_id);
@@ -46,15 +46,16 @@ class AjaxRequestController extends Controller
         if ($maquina) {
 
             $maquinaData = Faena::maquinaData($request->maquina_id);
-            // dd($maquinaData->productor->comuna->id);
+            $maquinaCount = Faena::maquinaCount($request->maquina_id);
+        //dd($maquinaCount);
             $comuna = $maquinaData->productor->comuna->id;
             $region=  $maquinaData->productor->region->id;
 
             $direccionSag = DireccionSag::where('region_id',$region)->where('comuna_id',$comuna)->get();
 
-            return response()->json(['data' => $maquinaData,'status' => true,'direccion' => $direccionSag,'origen' => $faenasOrigen,'destino' => $faenasDestino]);   
+            return response()->json(['count'=>$maquinaCount,'data' => $maquinaData,'status' => true,'direccion' => $direccionSag,'origen' => $faenasOrigen,'destino' => $faenasDestino]);   
         }else{
-            return response()->json(['data' => false,'status' => false,'direccion' => false,'faenas' => $faenasOrigen,'destino' => $faenasDestino]);
+            return response()->json(['count'=>$maquinaCount,'data' => false,'status' => false,'direccion' => false,'faenas' => $faenasOrigen,'destino' => $faenasDestino]);
         } 
         
     }
@@ -83,5 +84,10 @@ class AjaxRequestController extends Controller
     public function status_faena($id)
     {
          $faena = Faena::findOrfail($request->id);
+         // $faena->status = 
+
+         // if ($faena->) {
+         //     # code...
+         // }
     }
 }
