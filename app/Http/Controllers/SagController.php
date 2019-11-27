@@ -79,8 +79,12 @@ class SagController extends Controller
      */
     public function show(Sag $sag)
     {
-        //
-    }
+        
+
+        $correos = Sag::CorreosSag($sag->faenaOrigen->productor->comuna_id);
+
+        return view('sag.show',['sag' => $sag,'correoSag' => $correos]);
+    }   
 
     /**
      * Show the form for editing the specified resource.

@@ -19,8 +19,7 @@
                   <th class="text-center">Hora O.</th>
                   <th class="text-center">Faena D.</th>
                   <th class="text-center">Hora D.</th>
-<!--              <th class="text-center">Email</th>
-                  <th class="text-center">Acción</th> -->
+                  <th class="text-center">Acción</th>
                 </tr>
               </thead>
               <tbody>
@@ -30,11 +29,10 @@
 	               	<td class="text-center">{{$a->hora_ori}}</td>
                   <td class="text-center">{{$a->faenaDestino->productor->r_social}}</td>
                   <td class="text-center">{{$a->hora_dest}}</td>
-                  <!-- <td class="text-center">{{$a->email}}</td>
 	               	<td class="text-center">
-	               		<a href="{{route('dirsag.show',['id' => $a->id])}}" class="btn btn-raised btn-success btn-min-width mr-1 mb-1"><i class="fa fa-eye" title="Ver"></i></a>
-	               		<a href="{{route('dirsag.edit',['id' => $a->id])}}" class="btn btn-raised btn-warning btn-min-width mr-1 mb-1"><i class="fa fa-edit" title="Editar"></i></a>
-	               	</td> -->
+	               		<a href="{{route('sags.show',['id' => $a->id])}}" class="btn btn-raised btn-success btn-min-width mr-1 mb-1"><i class="fa fa-eye" title="Ver"></i></a>
+	               		<!-- <a href="{{route('dirsag.edit',['id' => $a->id])}}" class="btn btn-raised btn-warning btn-min-width mr-1 mb-1"><i class="fa fa-edit" title="Editar"></i></a> -->
+	               	</td>
                </tr>
 			        @endforeach
               </tbody>

@@ -46,11 +46,19 @@
                  </li>
                </ul>
              </li>
+             <li class="has-sub nav-item"><a href="#"><i class="ft-check-circle"></i><span data-i18n="" class="menu-title">Correos</span></a>
+                <ul class="menu-content">
+                  <li><a href="{{route('correos.index')}}" class="menu-item">Ver Correos</a>
+                  </li>
+                  <li><a href="{{route('correos.create')}}" class="menu-item">Crear Correo</a>
+                  </li>
+                </ul>
+              </li>
              <li class="has-sub nav-item"><a href="#"><i class="ft-check-circle"></i><span data-i18n="" class="menu-title">SAG <span class="badge badge-info">Desarrrollo</span></span></a>
               <ul class="menu-content">
-                <li><a href="{{route('sag.index')}}" class="menu-item">Ver SAG's</a>
+                <li><a href="{{route('sags.index')}}" class="menu-item">Ver SAG's</a>
                 </li>
-                <li><a href="{{route('sag.create')}}" class="menu-item">Crear SAG</a>
+                <li><a href="{{route('sags.create')}}" class="menu-item">Crear SAG</a>
                 </li>
                 <li><a href="{{route('dirsag.create')}}" class="menu-item">Crear Dirección-SAG</a>
                 </li>

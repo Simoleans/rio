@@ -44,7 +44,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('/bandejas','BandejaController');
     Route::resource('/pot','PotController');
     Route::resource('/dirsag','DireccionSagController');
-    Route::resource('/sag','SagController');
+    Route::resource('/sags','SagController');
+    Route::resource('/correos','CorreosController');
 
     //ajax request
     Route::get('comunas/{id}','AjaxRequestController@comunas')->name('comunas');
@@ -56,4 +57,5 @@ Route::group(['middleware' => 'auth'], function () {
 
     //reportes PDF
     Route::get('/reportPOT','ReportesController@pot')->name('reporte.pot');
+    Route::get('/reportSAG/{id}','ReportesController@sag')->name('reporte.sag');
 });

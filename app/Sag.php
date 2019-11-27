@@ -1,7 +1,7 @@
 <?php
 
 namespace App;
-
+use App\CorreosPersonas;
 use Illuminate\Database\Eloquent\Model;
 
 class Sag extends Model
@@ -22,5 +22,12 @@ class Sag extends Model
 	public function faenaDestino()
 	{
 		return $this->belongsTo('App\Faena','faena_dest_id');
+	}
+
+	public static function CorreosSag($id_comuna)
+	{
+		$correos = CorreosPersonas::where('comunas_id',$id_comuna)->get();
+
+		return $correos;
 	}
 }
