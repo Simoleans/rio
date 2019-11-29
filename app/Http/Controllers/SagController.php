@@ -7,6 +7,7 @@ use App\Campo;
 use App\Maquina;
 use App\Productores;
 use App\Faena;
+use App\Mail\SagMail;
 use Illuminate\Http\Request;
 
 class SagController extends Controller
@@ -118,5 +119,13 @@ class SagController extends Controller
     public function destroy(Sag $sag)
     {
         //
+    }
+
+    public function sendMail($id)
+    {
+        $sag = Sag::findOrfail($id);
+
+        \Mail::to($participantes->clientes->email)
+            ->send(new ActasMail($request->id, $request->acta, $request->id_acta));
     }
 }
