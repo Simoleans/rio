@@ -30,4 +30,9 @@ class Sag extends Model
 
 		return $correos;
 	}
+
+	public function maquina()
+	{
+		return $this->belongsTo('App\Maquina','maquina_id');
+	}
 }

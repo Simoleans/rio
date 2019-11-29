@@ -16,9 +16,11 @@ class SagMail extends Mailable
      *
      * @return void
      */
-    public function __construct()
+
+    public $sag;
+    public function __construct($sag)
     {
-        //
+        $this->sag = $sag;
     }
 
     /**
@@ -28,6 +30,8 @@ class SagMail extends Mailable
      */
     public function build()
     {
-        return $this->view('view.name');
+        return $this->view('mail.sag')
+                    ->from('no-reply@actas.veanx.cl')
+                    ->subject('Firma El Acta De Asistencia');
     }
 }

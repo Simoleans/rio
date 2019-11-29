@@ -179,9 +179,9 @@
 <div id="te_1" class="t s1">RUT:</div>
 <div id="tf_1" class="t s1">Región:</div>
 <div id="tg_1" class="t s1">Comuna:</div>
-<div id="th_1" class="t s1">LOS ANGELES</div>
+<div id="th_1" class="t s1">{{$sag->faenaOrigen->productor->comuna->comuna}}</div>
 <div id="ti_1" class="t s1">Localidad:</div>
-<div id="tj_1" class="t s1">LOS ANGELES</div>
+<div id="tj_1" class="t s1">{{$sag->faenaOrigen->productor->comuna->comuna}}</div>
 <div id="tk_1" class="t s1">IDPNLb:</div>
 <div id="tl_1" class="t s1">CSG:</div>
 <div id="tm_1" class="t s1">153507</div>
@@ -192,37 +192,37 @@
 <div id="tr_1" class="t s4">2018-2019</div>
 <div id="ts_1" class="t s5">Antecedentes de empresa que presta el servicio de maquinaria</div>
 <div id="tt_1" class="t s1">6326596</div>
-<div id="tu_1" class="t s1">76.297.862-8</div>
+<div id="tu_1" class="t s1">{{configuracion('rut')}}</div>
 <div id="tv_1" class="t s1">Nombre de la razón social:</div>
-<div id="tw_1" class="t s1">RIO FRIO SERVICE SPA</div>
+<div id="tw_1" class="t s1">{{strtoupper(configuracion('razonsocial'))}}</div>
 <div id="tx_1" class="t s1">Nombre de la razón social:</div>
-<div id="ty_1" class="t s1">Agricola e Inversiones Altos Los Olmos Ltda</div>
+<div id="ty_1" class="t s1">{{strtoupper(configuracion('razonsocial'))}}</div>
 <div id="tz_1" class="t s1">Dirección:</div>
-<div id="t10_1" class="t s1">Salida a Cuellar, S/N, Linares.</div>
+<div id="t10_1" class="t s1">{{configuracion('direccion')}}</div>
 <div id="t11_1" class="t s1">Fecha de aviso:</div>
 <div id="t12_1" class="t s1">16-03-2019</div>
 <div id="t13_1" class="t s1">Tipo de Maquinaria:</div>
-<div id="t14_1" class="t s1">Máquina Cosechadora de Berries, marca Oxbo, 7420</div>
+<div id="t14_1" class="t s1">{{strtoupper($sag->maquina->nombre)}}</div>
 <div id="t15_1" class="t s1">Identificación </div>
 <div id="t16_1" class="t s1">Maquinaria:</div>
-<div id="t17_1" class="t s1">7420 - E</div>
+<div id="t17_1" class="t s1">{{strtoupper($sag->maquina->marca.' '.$sag->maquina->modelo)}}</div>
 <div id="t18_1" class="t s1">RFS</div>
 <div id="t19_1" class="t s5">Antecedentes del origen (donde se encuentra la Maquinaria)</div>
-<div id="t1a_1" class="t s1">VII</div>
+<div id="t1a_1" class="t s1">{{$sag->faenaOrigen->productor->region->region}}</div>
 <div id="t1b_1" class="t s1">Dirección:</div>
-<div id="t1c_1" class="t s1">Parcela 171, Villa Longavi.</div>
-<div id="t1d_1" class="t s1">76.636.190-0</div>
+<div id="t1c_1" class="t s1">{{$sag->faenaOrigen->productor->direccion}}</div>
+<div id="t1d_1" class="t s1">{{$sag->faenaOrigen->productor->rut}}</div>
 <div id="t1e_1" class="t s1">Fecha de salida:</div>
-<div id="t1f_1" class="t s1">18-03-2019</div>
+<div id="t1f_1" class="t s1">{{$sag->faenaOrigen->desde}}</div>
 <div id="t1g_1" class="t s1">Hora de salida:</div>
-<div id="t1h_1" class="t s1">10:00:00</div>
+<div id="t1h_1" class="t s1">{{$sag->hora_ori}}</div>
 <div id="t1i_1" class="t s1">0</div>
 <div id="t1j_1" class="t s5">Antecedentes del destino (hacia donde se dirige la maquinaria)</div>
-<div id="t1k_1" class="t s1">VIII</div>
+<div id="t1k_1" class="t s1">{{$sag->faenaOrigen->productor->region->region}}</div>
 <div id="t1l_1" class="t s1">Nombre de la razón social:</div>
 <div id="t1m_1" class="t s1">AGRICOLA AGROBERRIES - LA PERLA</div>
 <div id="t1n_1" class="t s1">Dirección:</div>
-<div id="t1o_1" class="t s1">Lote 1 Fundo la Perla.,LOS ANGELES,DEL BÍOBIO</div>
+<div id="t1o_1" class="t s1">{{$sag->faenaDestino->productor->direccion.', '.$sag->faenaOrigen->productor->region->region}}</div>
 <div id="t1p_1" class="t s5">Deberán dar aviso:</div>
 <div id="t1q_1" class="t s5">Los movimientos de maquinaria que se realicen desde un predio ubicado en una región de </div>
 <div id="t1r_1" class="t s5">contención hacia un predio ubicado en una región de erradicación o hacia una zona libre de </div>
@@ -235,9 +235,9 @@
 <div id="t1y_1" class="t s5">el resto de las regiones será considerado como región de erradicación.</div>
 <div id="t1z_1" class="t s1">76169449-9</div>
 <div id="t20_1" class="t s1">Fecha de salida:</div>
-<div id="t21_1" class="t s1">18-03-2019</div>
+<div id="t21_1" class="t s1">{{$sag->faenaDestino->hasta}}</div>
 <div id="t22_1" class="t s1">Hora de llegada:</div>
-<div id="t23_1" class="t s1">15:00:00</div>
+<div id="t23_1" class="t s1">{{$sag->hora_dest}}</div>
 <div id="t24_1" class="t s1">0</div>
 
 <!-- End text definitions -->
@@ -248,7 +248,7 @@
 </html>
 
 <script src="{{asset('app-assets/vendors/js/core/jquery-3.2.1.min.js')}}" type="text/javascript"></script>
-<script type="text/javascript">
+<!-- <script type="text/javascript">
     $(document).ready(function () {
         window.print();
         setTimeout("closePrintView()", 4000);
@@ -256,4 +256,4 @@
     function closePrintView() {
         document.location.href = "{{route('sags.show',['id' => $sag->id])}}";
     }
-</script>
+</script> -->

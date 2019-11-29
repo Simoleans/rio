@@ -42,7 +42,7 @@
   <section class="invoice-template">
   <div class="card">
     <div class="card-content p-3">
-      <h2>Correos <button class="btn btn-lg btn-success pull-right">Enviar a Todos</button></h2>
+      <h2>Correos <a class="btn btn-lg btn-success pull-right" href="{{route('sag.mail',['id' => $sag->id])}}">Enviar a Todos</a></h2>
 
       <div id="invoice-template" class="card-body">
         <div class="row">
@@ -53,7 +53,7 @@
                    <tr>
                     <td>Correo:</td>
                     <td class="text-right">{{$c->persona->correo}}</td>
-                    <td><button class="btn btn-sm btn-success pull-right">Enviar Correo</button></td>
+                    <td><a class="btn btn-sm btn-success pull-right">Enviar Correo</a></td>
                   </tr>
                   @endforeach
                 </tbody>

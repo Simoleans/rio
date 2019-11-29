@@ -58,4 +58,7 @@ Route::group(['middleware' => 'auth'], function () {
     //reportes PDF
     Route::get('/reportPOT','ReportesController@pot')->name('reporte.pot');
     Route::get('/reportSAG/{id}','ReportesController@sag')->name('reporte.sag');
+
+    //Sag email
+    Route::get('sag/mail/{id}','SagController@sendMail')->name('sag.mail');
 });

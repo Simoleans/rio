@@ -83,6 +83,7 @@ class SagController extends Controller
         
 
         $correos = Sag::CorreosSag($sag->faenaOrigen->productor->comuna_id);
+        //dd($sag->faenaOrigen->productor->comuna_id);
 
         return view('sag.show',['sag' => $sag,'correoSag' => $correos]);
     }   
@@ -125,7 +126,19 @@ class SagController extends Controller
     {
         $sag = Sag::findOrfail($id);
 
-        \Mail::to($participantes->clientes->email)
-            ->send(new ActasMail($request->id, $request->acta, $request->id_acta));
+        $correos = Sag::CorreosSag($sag->faenaOrigen->productor->comuna_id);
+        $c = 0;
+
+        foreach ($correos as $key) {
+            $c++;
+            \Mail::to($key->persona->correo)
+                ->send(new SagMail($sag));
+         }
+         if (count($correos) == $c) {
+              return redirect("sag")->with([
+                'flash_message' => 'Correo enviado correctamente.',
+                'flash_class'   => 'alert-success',
+            ]);
+         }
     }
 }

@@ -22,7 +22,7 @@ class ReportesController extends Controller
     {
     	 $sag = Sag::findOrfail($id);
 
-    	 //dd($maquinas);
+    	 //dd($sag->faenaOrigen->desde);
 
         return view('pdf.sag',['sag' => $sag]);
     }
