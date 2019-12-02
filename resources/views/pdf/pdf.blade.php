@@ -410,7 +410,7 @@
 <div id="tc_2" class="t s2_2">Correo electrónico: {{configuracion('email_empresa')}} </div>
 <div id="td_2" class="t s2_2">BERRIES__X_____ </div>
 <div id="te_2" class="t s2_2">CIRUELO_______ </div>
-<div id="tf_2" class="t s1_2">INFORMACION MAQUINARIAS </div>
+<div id="tf_2" class="t s1_2">INFORMACION MAQUINARIAS ACTIVAS </div>
 <div id="tg_2" class="t s1_2">Marca </div>
 <div id="th_2" class="t s1_2">Modelo </div>
 

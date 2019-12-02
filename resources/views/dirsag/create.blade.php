@@ -61,7 +61,7 @@
               <div class="col-md-6">
                 <div class="form-group">
                   <label for="projectinput3">Jefatura</label>
-                  <input type="text" id="projectinput3" class="form-control tlf" name="jefatura">
+                  <input type="text" id="projectinput3" class="form-control" name="jefatura">
                 </div>
               </div>
           </div>

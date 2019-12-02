@@ -54,6 +54,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/storeFaena','AjaxRequestController@storeFaena')->name('storeFaena.store');
     Route::post('/fechaSug','AjaxRequestController@fecha_sugerida')->name('fechaS.store');
     Route::put('/statusFaena/{id}','AjaxRequestController@status_faena')->name('faena.status');
+    Route::put('/statusMaquina/{id}','AjaxRequestController@status_maquina')->name('maquina.status');
 
     //reportes PDF
     Route::get('/reportPOT','ReportesController@pot')->name('reporte.pot');

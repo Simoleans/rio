@@ -23,7 +23,7 @@ class Maquina extends Migration
             $table->string('ano_maquina');
             $table->string('serie');
             $table->string('nombre');
-            $table->integer('status_maquina')->default(0);
+            $table->integer('status_maquina')->default(1);
             $table->timestamps();
         });
     }

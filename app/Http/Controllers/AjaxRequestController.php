@@ -90,4 +90,21 @@ class AjaxRequestController extends Controller
          //     # code...
          // }
     }
+
+    public function status_maquina($id)
+    {
+        $maquina = Maquina::findOrfail($id);
+
+        if ($maquina->status_maquina == 1) {
+            $maquina->status_maquina = 0;
+        }else{
+            $maquina->status_maquina = 1;
+        }
+
+         if ($maquina->save()) {
+            return response()->json(['status' => true]);
+        } else {
+            return response()->json(['status' => false]);
+        }
+    }
 }

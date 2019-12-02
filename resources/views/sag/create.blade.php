@@ -53,7 +53,7 @@
         <div class="progress">
           <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
         </div>
-        <form id="regiration_form" novalidate action="{{route('sag.store')}}"  method="POST">
+        <form id="regiration_form" novalidate action="{{route('sags.store')}}"  method="POST">
           <input type="hidden" name="faena_ori_id" id="faena_ori_id">
           <input type="hidden" name="faena_dest_id" id="faena_dest_id">
           <input type="hidden" name="fecha_ori" id="fecha_ori">

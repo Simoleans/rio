@@ -124,4 +124,6 @@ class MaquinaController extends Controller
     {
         //
     }
+
+    
 }
