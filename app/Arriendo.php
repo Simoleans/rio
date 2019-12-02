@@ -13,7 +13,7 @@ class Arriendo extends Model
 						  'ano',
 						  'series',
 						  'horas',
-						  'hombre',
+						  'nombre',
 						  'rut',
 						  'r_social',
 						  'direccion',

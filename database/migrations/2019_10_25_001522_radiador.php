@@ -18,15 +18,15 @@ class Radiador extends Migration
             $table->unsignedBigInteger('arriendo_id');
             $table->foreign('arriendo_id')->references('id')->on('arriendo');
             $table->string('rad_portafiltro');
-            $table->string('rad_ob_portafiltro');
+            $table->string('rad_ob_portafiltro')->nullable();
             $table->string('rad_radiador');
-            $table->string('rad_ob_radiador');
+            $table->string('rad_ob_radiador')->nullable();
             $table->string('rad_ventilador');
-            $table->string('rad_ob_ventilador');
+            $table->string('rad_ob_ventilador')->nullable();
             $table->string('rad_refrigerante_est');
-            $table->string('rad_ob_refrigerante_est');
+            $table->string('rad_ob_refrigerante_est')->nullable();
             $table->string('rad_refiregerante_niv');
-            $table->string('rad_ob_refrigerante_niv');
+            $table->string('rad_ob_refrigerante_niv')->nullable();
             $table->timestamps();
         });
     }

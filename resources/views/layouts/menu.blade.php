@@ -38,11 +38,13 @@
                  </li>
                </ul>
              </li>
-             <li class="has-sub nav-item"><a href="#"><i class="ft-wind"></i><span data-i18n="" class="menu-title">Faena</span></a>
+             <li class="has-sub nav-item"><a href="#"><i class="ft-wind"></i><span data-i18n="" class="menu-title">Faenas</span></a>
                <ul class="menu-content">
                  <li><a href="{{route('faena.index')}}" class="menu-item">Ver Faenas</a>
                  </li>
                  <li><a href="{{route('faena.create')}}" class="menu-item">Crear Faena</a>
+                 </li>
+                 <li><a href="{{route('faenas.calendario')}}" class="menu-item">Ver Calendario</a>
                  </li>
                </ul>
              </li>

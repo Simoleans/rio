@@ -23,6 +23,13 @@ class FaenaController extends Controller
         return view('faena.index',['faena' => $faena]);
     }
 
+    public function calendario()
+    {
+         $maquina = Maquina::all();
+
+         return view('faena.calendario',['maquina' => $maquina]);
+    }
+
     /**
      * Show the form for creating a new resource.
      *

@@ -15,8 +15,8 @@
                     <input type="radio" name="mode" id="Si" value="1" required/>
                     <span><i class="icon-like"></i></span>
                   </label>
-                  <label for="No" class="material-icons">
-                    <input type="radio" name="mode" id="No" value="0" data-tooltip="No" required/>
+                  <label for="No" class="material-icons" data-tooltip="No">
+                    <input type="radio" name="mode" id="No" value="0"  required/>
                     <span><i class="icon-dislike"></i></span>
                   </label>
                 </div>

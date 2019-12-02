@@ -12,9 +12,11 @@
   </div>
   <div class="row">
     <div class="col-sm-12">
+
       <div class="card">
         <div class="card-header">
-          <h5>Maquina</h5>
+          <h5>Maquina <button type="button" id="cambiar_status" class="pull-right btn btn-danger" data-url="{{route('arriendo.eliminar',['id' => $arriendo->id])}}">Eliminar</button></h5>
+
         </div>
         <div class="card-content">
           <div class="card-body">
@@ -94,6 +96,7 @@
         </div>
       </div>
     </div>
+
     <div class="col-sm-12">
       <div class="card">
         <!-- <div class="card-header">
@@ -244,4 +247,52 @@
 </section>
 <!--User's uploaded photos section starts-->
 <!--User Profile Starts-->
+@endsection
+
+@section('script')
+
+<script type="text/javascript">
+
+  $("#cambiar_status").click(function(event) {
+  var url = $(this).data('url');
+
+  Swal.fire({
+    title: '¿Estas segur@?',
+    //text: "You won't be able to revert this!",
+    icon: 'danger',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Si, eliminar'
+  }).then((result) => {
+    if (result.value) {
+
+      $.ajax({
+        url: url,
+        type: 'PUT',
+        dataType: 'json',
+        data: {_token: '{{csrf_token()}}'},
+      })
+      .done(function(data) {
+        if (data.status) {
+          window.location.href = "{{route('arriendo.index')}}";
+        }
+      })
+      .fail(function() {
+        console.log("error");
+      })
+      .always(function() {
+        console.log("complete");
+      });
+      
+      // Swal.fire(
+      //   'Eliminado!',
+      //   'Your file has been deleted.',
+      //   'success'
+      // )
+    }
+  })
+});
+
+  </script>
 @endsection

@@ -9,6 +9,7 @@ use App\Regiones;
 use App\Frutas;
 use App\Maquina;
 use App\Faena;
+use App\Arriendo;
 
 class AjaxRequestController extends Controller
 {
@@ -102,6 +103,27 @@ class AjaxRequestController extends Controller
         }
 
          if ($maquina->save()) {
+            return response()->json(['status' => true]);
+        } else {
+            return response()->json(['status' => false]);
+        }
+    }
+
+    public function searchMaquina(Request $request)
+    {
+        $maquina = Maquina::findOrfail($request->id);
+
+        return response()->json(['maquina' => $maquina,'status'=> true]);
+    }
+
+    public function eliminar_arriendo($id)
+    {
+        $arriendo = Arriendo::findOrfail($id);
+
+            $arriendo->status = 0;
+
+
+         if ($arriendo->save()) {
             return response()->json(['status' => true]);
         } else {
             return response()->json(['status' => false]);

@@ -40,28 +40,37 @@
           <fieldset>
             <h2>Paso 1: Datos Maquina</h2>
             <div class="form-group">
+              <label for="marca">Selecciona maquina</label>
+             <select name="maquina_select" id="select_maquina" class="form-control">
+               <option value="">Seleccione....</option>
+               @foreach($maquinas as $m)
+                  <option value="{{$m->id}}">{{strtoupper($m->nombre)}}</option>
+               @endforeach
+             </select>
+            </div>
+            <div class="form-group">
               <label for="marca">Marca</label>
-              <input type="text" class="form-control required" id="marca" name="marca" placeholder="Marca">
+              <input type="text" class="form-control required" id="marca" name="marca" placeholder="Marca" readonly="">
             </div>
              <div class="form-group">
               <label for="modelo">Modelo</label>
-              <input type="text" class="form-control required" id="modelo" name="modelo" placeholder="Modelo">
+              <input type="text" class="form-control required" id="modelo" name="modelo" placeholder="Modelo" readonly="">
             </div>
              <div class="form-group">
               <label for="año">Año</label>
-              <input type="number" class="form-control required" id="ano" name="ano" placeholder="Año">
+              <input type="number" class="form-control required" id="ano" name="ano" placeholder="Año" readonly="">
             </div>
              <div class="form-group">
               <label for="serie">Nro Serie</label>
-              <input type="number" class="form-control required red" id="serie" name="series" placeholder="Nro Serie">
+              <input type="text" class="form-control required red" id="serie" name="series" placeholder="Nro Serie" readonly="">
             </div>
              <div class="form-group">
               <label for="horas">Horas</label>
               <input type="text" class="form-control required" id="horas" name="horas" placeholder="Horas">
             </div>
             <div class="form-group">
-              <label for="hombre">Nombre</label>
-              <input type="text" class="form-control required" id="hombre" name="hombre" placeholder="Nombre">
+              <label for="nombre">Nombre</label>
+              <input type="text" class="form-control required" id="nombre" name="nombre" placeholder="Nombre" readonly="">
             </div>
             <input type="button" name="password" class="next btn btn-info" value="Siguiente" />
           </fieldset>
@@ -105,6 +114,7 @@
           @include('partials.forms.camaras')
           @include('partials.forms.combustible')
           @include('partials.forms.hidraulico')
+          @include('partials.forms.aire')
           @include('partials.forms.motor')
           @include('partials.forms.radiador')
 
@@ -118,6 +128,36 @@
 @section('script')
 
 <script type="text/javascript">
+
+  $("#select_maquina").change(function(event) {
+    event.preventDefault();
+
+    $.ajax({
+      headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+     },
+      url: '{{route("search.maquina")}}',
+      type: 'POST',
+      dataType: 'JSON',
+      data: {_token: '{{csrf_token()}}',id: $(this).val()},
+    })
+    .done(function(data) {
+      $("#marca").val(data.maquina.marca);
+      $("#modelo").val(data.maquina.modelo);
+      $("#ano").val(data.maquina.ano_maquina);
+      $("#serie").val(data.maquina.serie);
+      $("#nombre").val(data.maquina.nombre);
+
+      
+    })
+    .fail(function() {
+      console.log("error");
+    })
+    .always(function() {
+      console.log("complete");
+    });
+    
+  });
 
  function take_snapshot(id,image,preview,img_data,button) {
 

@@ -12,11 +12,11 @@
               <div class="container">
                 <div id="radios">
                   <label for="air_filtro_pri" class="material-icons" data-tooltip="Si">
-                    <input type="radio" name="air_filtro_pri" id="air_filtro_pri" value="1" checked/>
+                    <input type="radio" name="air_filtro_pri" id="air_filtro_pri" value="1"/>
                     <span><i class="icon-like"></i></span>
                   </label>
-                  <label for="air_filtro_pri1" class="material-icons">
-                    <input type="radio" name="air_filtro_pri" id="air_filtro_pri1" value="0" data-tooltip="No" />
+                  <label for="air_filtro_pri1" class="material-icons" data-tooltip="No">
+                    <input type="radio" name="air_filtro_pri" id="air_filtro_pri1" value="0"/>
                     <span><i class="icon-dislike"></i></span>
                   </label>
                 </div>
@@ -49,11 +49,11 @@
               <div class="container">
                 <div id="radios">
                   <label for="air_filtro_sec" class="material-icons" data-tooltip="Si">
-                    <input type="radio" name="air_filtro_sec" id="air_filtro_sec" value="1" checked/>
+                    <input type="radio" name="air_filtro_sec" id="air_filtro_sec" value="1"/>
                     <span><i class="icon-like"></i></span>
                   </label>
-                  <label for="air_filtro_sec2" class="material-icons">
-                    <input type="radio" name="air_filtro_sec" id="air_filtro_sec2" value="0" data-tooltip="No" />
+                  <label for="air_filtro_sec2" class="material-icons" data-tooltip="No">
+                    <input type="radio" name="air_filtro_sec" id="air_filtro_sec2" value="0"/>
                     <span><i class="icon-dislike"></i></span>
                   </label>
                 </div>
@@ -87,11 +87,11 @@
               <div class="container">
                 <div id="radios">
                   <label for="air_portafiltro" class="material-icons" data-tooltip="Si">
-                    <input type="radio" name="air_portafiltro" id="air_portafiltro" value="1" checked/>
+                    <input type="radio" name="air_portafiltro" id="air_portafiltro" value="1"/>
                     <span><i class="icon-like"></i></span>
                   </label>
-                  <label for="air_portafiltro2" class="material-icons">
-                    <input type="radio" name="air_portafiltro" id="air_portafiltro2" value="0" data-tooltip="No" />
+                  <label for="air_portafiltro2" class="material-icons" data-tooltip="No"data-tooltip="No">
+                    <input type="radio" name="air_portafiltro" id="air_portafiltro2" value="0"  />
                     <span><i class="icon-dislike"></i></span>
                   </label>
                 </div>
@@ -108,5 +108,5 @@
     </div>
   </div> <!-- fin row -->
   <input type="button" name="previous" class="previous btn btn-warning"  value="Anterior" />
-  <input type="submit" name="submit" class="submit btn btn-success" value="Guardar" />
+  <input type="button" name="next" class="next btn btn-info"  value="Confirmar" />
 </fieldset>

@@ -71,7 +71,7 @@
                <div class="col-md-6">
                 <div class="form-group">
                   <label for="projectinput3">Tipo de moneda</label>
-                  <select class="form-control" name="tipo_moneda">
+                  <select class="form-control" name="tipo_moneda" required="">
                     <option value="">Seleccione....</option>
                     <option value="US">US $</option>
                     <option value="CLP">CLP $</option>

@@ -51,7 +51,4 @@
 </div>
 
 <!--/ Default ordering table -->
-
-
-
 @endsection

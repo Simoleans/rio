@@ -11,6 +11,7 @@ use App\Motor;
 use App\Regiones;
 use App\Aire;
 use App\Radiador;
+use App\Maquina;
 class ArriendoController extends Controller
 {
     /**
@@ -20,7 +21,7 @@ class ArriendoController extends Controller
      */
     public function index()
     {
-        $arriendos = Arriendo::all();
+        $arriendos = Arriendo::where('status',1)->get();
          return view('arriendo.index',['arriendo' => $arriendos]);
     }
 
@@ -32,7 +33,8 @@ class ArriendoController extends Controller
     public function create()
     {
         $regiones= Regiones::all();
-        return view('arriendo.create',['regiones' => $regiones]);
+        $maquinas = Maquina::where('status_maquina',1)->get();
+        return view('arriendo.create',['regiones' => $regiones,'maquinas' => $maquinas]);
     }
 
     /**

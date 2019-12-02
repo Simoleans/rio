@@ -20,7 +20,7 @@ class Arriendo extends Migration
             $table->string('ano');
             $table->string('series');
             $table->string('horas');
-            $table->string('hombre');
+            $table->string('nombre');
             $table->string('rut');
             $table->string('r_social');
             $table->string('direccion');
@@ -29,6 +29,7 @@ class Arriendo extends Migration
 
             $table->unsignedBigInteger('comuna_id');
             $table->foreign('comuna_id')->references('id')->on('comunas');
+            $table->string('status',1)->default(1);
             $table->timestamps();
         });
     }

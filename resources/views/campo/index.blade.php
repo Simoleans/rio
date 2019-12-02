@@ -2,8 +2,7 @@
 
 @section('content')
 
-<section id="ordering">
-  <div class="row">
+
     <div class="col-12">
       @include('partials.flash')
       <div class="card">
@@ -44,8 +43,6 @@
         </div>
       </div>
     </div>
-  </div>
-</section>
 <!--/ Default ordering table -->
 
 @endsection

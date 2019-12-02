@@ -12,11 +12,11 @@
               <div class="container">
                 <div id="radios">
                   <label for="hidraulico_bombas" class="material-icons" data-tooltip="Si">
-                    <input type="radio" name="hidraulico_bombas" id="hidraulico_bombas" value="1" checked/>
+                    <input type="radio" name="hidraulico_bombas" id="hidraulico_bombas" value="1"/>
                     <span><i class="icon-like"></i></span>
                   </label>
-                  <label for="hidraulico_bombas1" class="material-icons">
-                    <input type="radio" name="hidraulico_bombas" id="hidraulico_bombas1" value="0" data-tooltip="No" />
+                  <label for="hidraulico_bombas1" class="material-icons" data-tooltip="No">
+                    <input type="radio" name="hidraulico_bombas" id="hidraulico_bombas1" value="0"/>
                     <span><i class="icon-dislike"></i></span>
                   </label>
                 </div>
@@ -49,11 +49,11 @@
               <div class="container">
                 <div id="radios">
                   <label for="hidraulico_tanque1" class="material-icons" data-tooltip="Si">
-                    <input type="radio" name="hidraulico_tanque" id="hidraulico_tanque1" value="1" checked/>
+                    <input type="radio" name="hidraulico_tanque" id="hidraulico_tanque1" value="1"/>
                     <span><i class="icon-like"></i></span>
                   </label>
-                  <label for="hidraulico_tanque2" class="material-icons">
-                    <input type="radio" name="hidraulico_tanque" id="hidraulico_bombas2" value="0" data-tooltip="No" />
+                  <label for="hidraulico_tanque2" class="material-icons" data-tooltip="No">
+                    <input type="radio" name="hidraulico_tanque" id="hidraulico_bombas2" value="0"  />
                     <span><i class="icon-dislike"></i></span>
                   </label>
                 </div>
@@ -87,11 +87,11 @@
               <div class="container">
                 <div id="radios">
                   <label for="hidraulico_nivel1" class="material-icons" data-tooltip="Si">
-                    <input type="radio" name="hidraulico_tanque" id="hidraulico_nivel1" value="1" checked/>
+                    <input type="radio" name="hidraulico_tanque" id="hidraulico_nivel1" value="1"/>
                     <span><i class="icon-like"></i></span>
                   </label>
-                  <label for="hidraulico_nivel2" class="material-icons">
-                    <input type="radio" name="hidraulico_tanque" id="hidraulico_nivel2" value="0" data-tooltip="No" />
+                  <label for="hidraulico_nivel2" class="material-icons" data-tooltip="No">
+                    <input type="radio" name="hidraulico_tanque" id="hidraulico_nivel2" value="0"  />
                     <span><i class="icon-dislike"></i></span>
                   </label>
                 </div>
@@ -125,11 +125,11 @@
               <div class="container">
                 <div id="radios">
                   <label for="hidraulico_tapon1" class="material-icons" data-tooltip="Si">
-                    <input type="radio" name="hidraulico_tapon" id="hidraulico_tapon1" value="1" checked/>
+                    <input type="radio" name="hidraulico_tapon" id="hidraulico_tapon1" value="1"/>
                     <span><i class="icon-like"></i></span>
                   </label>
-                  <label for="hidraulico_tapon2" class="material-icons">
-                    <input type="radio" name="hidraulico_tapon" id="hidraulico_tapon2" value="0" data-tooltip="No" />
+                  <label for="hidraulico_tapon2" class="material-icons" data-tooltip="No">
+                    <input type="radio" name="hidraulico_tapon" id="hidraulico_tapon2" value="0"  />
                     <span><i class="icon-dislike"></i></span>
                   </label>
                 </div>
@@ -163,11 +163,11 @@
               <div class="container">
                 <div id="radios">
                   <label for="hidraulico_visor1" class="material-icons" data-tooltip="Si">
-                    <input type="radio" name="hidraulico_visor" id="hidraulico_visor1" value="1" checked/>
+                    <input type="radio" name="hidraulico_visor" id="hidraulico_visor1" value="1"/>
                     <span><i class="icon-like"></i></span>
                   </label>
-                  <label for="hidraulico_visor2" class="material-icons">
-                    <input type="radio" name="hidraulico_visor" id="hidraulico_visor2" value="0" data-tooltip="No" />
+                  <label for="hidraulico_visor2" class="material-icons" data-tooltip="No">
+                    <input type="radio" name="hidraulico_visor" id="hidraulico_visor2" value="0"  />
                     <span><i class="icon-dislike"></i></span>
                   </label>
                 </div>
@@ -201,11 +201,11 @@
               <div class="container">
                 <div id="radios">
                   <label for="hidraulico_filtro_primario1" class="material-icons" data-tooltip="Si">
-                    <input type="radio" name="hidraulico_filtro_primario" id="hidraulico_filtro_primario1" value="1" checked/>
+                    <input type="radio" name="hidraulico_filtro_primario" id="hidraulico_filtro_primario1" value="1"/>
                     <span><i class="icon-like"></i></span>
                   </label>
-                  <label for="hidraulico_filtro_primario2" class="material-icons">
-                    <input type="radio" name="hidraulico_filtro_primario" id="hidraulico_filtro_primario2" value="0" data-tooltip="No" />
+                  <label for="hidraulico_filtro_primario2" class="material-icons" data-tooltip="No">
+                    <input type="radio" name="hidraulico_filtro_primario" id="hidraulico_filtro_primario2" value="0"  />
                     <span><i class="icon-dislike"></i></span>
                   </label>
                 </div>
@@ -239,11 +239,11 @@
               <div class="container">
                 <div id="radios">
                   <label for="hidraulico_filtro_secundario1" class="material-icons" data-tooltip="Si">
-                    <input type="radio" name="hidraulico_filtro_secundario" id="hidraulico_filtro_secundario1" value="1" checked/>
+                    <input type="radio" name="hidraulico_filtro_secundario" id="hidraulico_filtro_secundario1" value="1"/>
                     <span><i class="icon-like"></i></span>
                   </label>
-                  <label for="hidraulico_filtro_secundario2" class="material-icons">
-                    <input type="radio" name="hidraulico_filtro_secundario" id="hidraulico_filtro_secundario2" value="0" data-tooltip="No" />
+                  <label for="hidraulico_filtro_secundario2" class="material-icons" data-tooltip="No">
+                    <input type="radio" name="hidraulico_filtro_secundario" id="hidraulico_filtro_secundario2" value="0"  />
                     <span><i class="icon-dislike"></i></span>
                   </label>
                 </div>
@@ -277,11 +277,11 @@
               <div class="container">
                 <div id="radios">
                   <label for="hidraulico_cilindros_fuga1" class="material-icons" data-tooltip="Si">
-                    <input type="radio" name="hidraulico_cilindros_fuga" id="hidraulico_cilindros_fuga1" value="1" checked/>
+                    <input type="radio" name="hidraulico_cilindros_fuga" id="hidraulico_cilindros_fuga1" value="1"/>
                     <span><i class="icon-like"></i></span>
                   </label>
-                  <label for="hidraulico_cilindros_fuga2" class="material-icons">
-                    <input type="radio" name="hidraulico_cilindros_fuga" id="hidraulico_cilindros_fuga2" value="0" data-tooltip="No" />
+                  <label for="hidraulico_cilindros_fuga2" class="material-icons" data-tooltip="No">
+                    <input type="radio" name="hidraulico_cilindros_fuga" id="hidraulico_cilindros_fuga2" value="0"  />
                     <span><i class="icon-dislike"></i></span>
                   </label>
                 </div>
@@ -315,11 +315,11 @@
               <div class="container">
                 <div id="radios">
                   <label for="hidraulico_cilindros_sellos1" class="material-icons" data-tooltip="Si">
-                    <input type="radio" name="hidraulico_cilindros_sellos" id="hidraulico_cilindros_sellos1" value="1" checked/>
+                    <input type="radio" name="hidraulico_cilindros_sellos" id="hidraulico_cilindros_sellos1" value="1"/>
                     <span><i class="icon-like"></i></span>
                   </label>
-                  <label for="hidraulico_cilindros_sellos2" class="material-icons">
-                    <input type="radio" name="hidraulico_cilindros_sellos" id="hidraulico_cilindros_sellos2" value="0" data-tooltip="No" />
+                  <label for="hidraulico_cilindros_sellos2" class="material-icons" data-tooltip="No">
+                    <input type="radio" name="hidraulico_cilindros_sellos" id="hidraulico_cilindros_sellos2" value="0"  />
                     <span><i class="icon-dislike"></i></span>
                   </label>
                 </div>
