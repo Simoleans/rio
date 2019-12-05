@@ -154,6 +154,7 @@
 ///ajax de buscar maquina
   $("#form").submit(function(event) {
    $("#maquina_id").val($("#maquina_value").val());
+
     event.preventDefault();
     $.ajax({
       headers: {
@@ -166,16 +167,17 @@
     })
     .done(function(data) {
       
-      $("#submit_maquina").attr('disabled',true);
+      //$("#submit_maquina").attr('disabled',true);
       $("#maquina_send").val($("#maquina_value").val())
       if (data.count < 2) {
+        $("#maquina_id_modal").val($("#maquina_value").val());
         $('#xlarge').modal('toggle');
       }else{
         $("#row_maquina").attr('class', 'col-md-4');
         $("#form_faenas").fadeIn('slow/400/fast');
         var datos = '';
-         
-        $.each(data.origen, function(index, val) {
+         console.log(data.data)
+        $.each(data.data, function(index, val) {
 
            datos += '<tr>'+
                       '<td class="text-center">'+val.desde+'</td>'+
@@ -194,8 +196,8 @@
 // Destino
         var datosDestino = '';
         //var disabled = '';
-         console.log('id '+$("#seleccionado").val())
-        $.each(data.destino, function(index, val) {
+         // console.log('id '+$("#seleccionado").val())
+        $.each(data.data, function(index, val) {
 
         
            datosDestino += '<tr>'+
@@ -352,7 +354,30 @@ $("#sub_fecha").click(function(event) {
   
 });
 
-
+$("#productor").change(function(event) { //selec anidado de productor-campo
+    event.preventDefault();
+    var id = $(this).val();
+    $.ajax({
+      url: '{{route("searchFaenaProductor")}}',
+      type: 'POST',
+      dataType: 'JSON',
+      data: {_token: '{{csrf_token()}}',id: id},
+    })
+    .done(function(data) {
+      var campos = '';
+      $.each(data.campos, function(index, val) {
+         campos += '<option value="'+val.id+'">'+val.nombre_campo+'</option>';
+      });
+      $("#campos").html(campos);
+    })
+    .fail(function() {
+      console.log("error");
+    })
+    .always(function() {
+      console.log("complete");
+    });
+    
+  });
 
 
   ////// JS del modal de FAENA //////////
@@ -365,7 +390,9 @@ $("#sub_fecha").click(function(event) {
     data: $(this).serialize(),
   })
   .done(function(data) {
-    console.log("success");
+    if (data.status) {
+      location.reload();
+    }
   })
   .fail(function() {
     console.log("error");
@@ -388,6 +415,7 @@ $("#sub_fecha").click(function(event) {
     next_step = $(this).parent().next();
     var counter = 0;
     var counters = 0;
+    var counterss = 0;
     var input = '';
    
     //validacion de required

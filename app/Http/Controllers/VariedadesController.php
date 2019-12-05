@@ -73,9 +73,13 @@ class VariedadesController extends Controller
      * @param  \App\Variedades  $variedades
      * @return \Illuminate\Http\Response
      */
-    public function edit(Variedades $variedades)
+    public function edit(Variedades $variedades,$id)
     {
-        //
+        $frutas = Frutas::all(); 
+
+        $variedades = Variedades::findOrfail($id);
+
+        return view('variedades.edit',['variedad' => $variedades,'frutas' => $frutas]);
     }
 
     /**
@@ -85,9 +89,24 @@ class VariedadesController extends Controller
      * @param  \App\Variedades  $variedades
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Variedades $variedades)
+    public function update(Request $request, Variedades $variedades,$id)
     {
-        //
+      $variedad = Variedades::findOrfail($id);
+
+      $variedad->fill($request->all());
+
+      if ($variedad->save()) {
+         return redirect("variedades")->with([
+             'flash_message' => 'Variedad modificada correctamente.',
+             'flash_class'   => 'alert-success',
+         ]);
+     } else {
+         return redirect("variedades")->with([
+             'flash_message'   => 'Ha ocurrido un error.',
+             'flash_class'     => 'alert-danger',
+             'flash_important' => true,
+         ]);
+     }
     }
 
     /**
@@ -96,8 +115,12 @@ class VariedadesController extends Controller
      * @param  \App\Variedades  $variedades
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Variedades $variedades)
+    public function destroy(Variedades $variedades,$id)
     {
-        //
+        if (Variedades::destroy($id)) {
+            return response()->json(['status' => true]);
+        }else{
+            return response()->json(['status' => false]);
+        }
     }
 }

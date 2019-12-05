@@ -5,13 +5,14 @@
 <div class="col-md-8 offset-1">
   <div class="card">
     <div class="card-header">
-      <h4 class="card-title" id="basic-layout-form">Nueva Variedad</h4>
+      <h4 class="card-title" id="basic-layout-form">Editar Variedad</h4>
     </div>
     <hr>
     <div class="card-content">
       <div class="px-3">
-        <form class="form" action="{{route('variedades.store')}}" method="POST">
+        <form class="form" action="{{route('variedad.update',['id' => $variedad->id])}}" method="POST">
           @csrf
+          @method('PUT')
           <div class="form-body">
             <!-- <h4 class="form-section"><i class="ft-user"></i>Información Personal</h4> -->
             <div class="row">
@@ -20,7 +21,7 @@
                   <label for="projectinput3">Fruta</label>
                   <select class="form-control" name="fruta_id" id="frutas">
                     @foreach($frutas as $f)
-                      <option value="{{$f->id}}">{{$f->nombre_fruta}}</option>
+                      <option value="{{$f->id}}" {{($f->id == $variedad->fruta_id)?'selected':''}}>{{$f->nombre_fruta}}</option>
                     @endforeach
                   </select>
                   <small><a href="#" id="fruta">Crear Fruta</a></small>
@@ -31,7 +32,7 @@
               <div class="col-md-12">
                 <div class="form-group">
                   <label for="projectinput3">Nombre</label>
-                  <input type="text"  class="form-control" name="nombre_variedad" autocomplete="off" required>
+                  <input type="text"  class="form-control" name="nombre_variedad" autocomplete="off" required value="{{$variedad->nombre_variedad}}">
                 </div>
               </div>
           </div>

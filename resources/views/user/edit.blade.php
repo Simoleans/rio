@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="row">
+
   <div class="col-md-9 offset-2">
     <div class="card">
       <div class="card-header">
@@ -24,14 +24,23 @@
                 </div>
               </div>
               <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-6">
                   <div class="form-group">
                     <label for="projectinput3">E-mail</label>
                     <input type="text" id="projectinput3" class="form-control" name="email" value="{{$user->email}}">
                   </div>
                 </div>
+                <div class="col-md-6">
+                <div class="form-group">
+                  <label for="projectinput3">Rol</label>
+                  <select class="form-control" name="rol">
+                    <option value="">Seleccione...</option>
+                    <option value="1" {{($user->rol == 1)?'selected':''}}>Admin</option>
+                    <option value="0" {{($user->rol == 0)?'selected':''}}>Operador</option>
+                  </select>
+                </div>
+              </div>
             </div>
-
             <div class="form-actions">
               <a href="{{route('user.index')}}" class="btn btn-raised btn-raised btn-warning mr-1">
                  Volver
@@ -45,5 +54,5 @@
       </div>
     </div>
   </div>
-</div>
+
 @endsection

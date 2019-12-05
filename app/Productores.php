@@ -19,4 +19,9 @@ class Productores extends Model
     {
     	return $this->belongsTo('App\Regiones','region_id');
     }
+
+    public function campos()
+    {
+        return $this->hasMany('App\Campo');
+    }
 }

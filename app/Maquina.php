@@ -8,11 +8,11 @@ class Maquina extends Model
 {
     public $table = 'maquina';
 
-    public $fillable = ['user_id','marca','modelo','tipo','ano_maquina','serie','nombre'];
+    public $fillable = ['user_id','marca','modelo','tipo','ano_maquina','serie','nombre','tipo'];
 
      public function faenas() // origen
     {
-        return $this->hasMany('App\Faena','maquina_id')->where('status',1);
+        return $this->hasMany('App\Faena','maquina_id')->where('status',0);
     }
 
     public function faenasDestino() // origen

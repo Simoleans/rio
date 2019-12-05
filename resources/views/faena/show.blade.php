@@ -59,7 +59,7 @@
               </table>
           </div>
         </div>
-        <button type="button" id="delete" class="pull-right btn btn-success" data-url="{{route('faena.status',['id' => $faena->id])}}">Cambiar Status</button>
+       <!--  <button type="button" id="delete" class="pull-right btn btn-success" data-url="{{route('faena.status',['id' => $faena->id])}}">Cambiar Status</button> -->
         <!--/ Invoice Footer -->
       </div>
     </div>
@@ -93,7 +93,7 @@
         })
         .done(function(data) {
           if (data.status) {
-            window.location="{{route('user.index')}}";
+            window.location="{{route('faena.index')}}";
           }
         })
         .fail(function() {

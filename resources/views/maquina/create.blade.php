@@ -31,7 +31,11 @@
                <div class="col-md-6">
                 <div class="form-group">
                   <label for="projectinput3">Tipo</label>
-                  <input type="text" id="projectinput3" class="form-control" name="tipo">
+                  <select class="form-control" name="tipo" required="">
+                    <option value="">Seleccione...</option>
+                    <option value="Arriendo">Arriendo</option>
+                    <option value="Normal">Normal</option>
+                  </select>
                 </div>
               </div>
               <div class="col-md-6">

@@ -116,6 +116,10 @@ class TransportistaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        if (Transportista::destroy($id)) {
+            return response()->json(['status' => true]);
+        }else{
+            return response()->json(['status' => false]);
+        }
     }
 }

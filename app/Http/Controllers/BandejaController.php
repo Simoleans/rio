@@ -73,7 +73,6 @@ class BandejaController extends Controller
      */
     public function edit(Bandeja $bandeja)
     {
-        $bandeja = Bandeja::findOrfail($id);
 
         return view('bandejas.edit',['bandeja' => $bandeja]);
     }
@@ -87,7 +86,6 @@ class BandejaController extends Controller
      */
     public function update(Request $request, Bandeja $bandeja)
     {
-          $bandeja = Bandeja::findOrfail($id);
 
           $bandeja->fill($request->all());
 
@@ -113,6 +111,10 @@ class BandejaController extends Controller
      */
     public function destroy(Bandeja $bandeja)
     {
-        //
+        if (Bandeja::destroy($bandeja->id)) {
+            return response()->json(['status' => true]);
+        }else{
+            return response()->json(['status' => false]);
+        }
     }
 }

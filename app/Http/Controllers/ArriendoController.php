@@ -33,7 +33,7 @@ class ArriendoController extends Controller
     public function create()
     {
         $regiones= Regiones::all();
-        $maquinas = Maquina::where('status_maquina',1)->get();
+        $maquinas = Maquina::where('status_maquina',1)->where('tipo','Arriendo')->get();
         return view('arriendo.create',['regiones' => $regiones,'maquinas' => $maquinas]);
     }
 

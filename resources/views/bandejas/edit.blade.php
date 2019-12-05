@@ -19,7 +19,7 @@
               <div class="col-md-12">
                 <div class="form-group">
                   <label for="projectinput3">Nombre</label>
-                  <input type="text"  class="form-control" name="nombre_fruta" autocomplete="off" value="{{$bandeja->nombre_fruta}}">
+                  <input type="text"  class="form-control" name="nombre_fruta" autocomplete="off" value="{{$bandeja->nombre}}">
                 </div>
               </div>
           </div>

@@ -73,9 +73,11 @@ class TalonariosController extends Controller
      * @param  \App\Talonarios  $talonarios
      * @return \Illuminate\Http\Response
      */
-    public function edit(Talonarios $talonarios)
+    public function edit(Talonarios $talonarios,$id)
     {
-        //
+        $talonario = Talonarios::findOrfail($id);
+
+        return view('talonarios.edit',['talonario' => $talonario]);
     }
 
     /**
@@ -85,9 +87,24 @@ class TalonariosController extends Controller
      * @param  \App\Talonarios  $talonarios
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Talonarios $talonarios)
+    public function update(Request $request, Talonarios $talonarios,$id)
     {
-        //
+          $talonario = Talonarios::findOrfail($id);
+
+          $talonario->fill($request->all());
+
+          if ($talonario->save()) {
+             return redirect("talonarios")->with([
+                 'flash_message' => 'Fruta modificada correctamente.',
+                 'flash_class'   => 'alert-success',
+             ]);
+         } else {
+             return redirect("talonarios")->with([
+                 'flash_message'   => 'Ha ocurrido un error.',
+                 'flash_class'     => 'alert-danger',
+                 'flash_important' => true,
+             ]);
+         }
     }
 
     /**
@@ -96,8 +113,12 @@ class TalonariosController extends Controller
      * @param  \App\Talonarios  $talonarios
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Talonarios $talonarios)
+    public function destroy(Talonarios $talonarios,$id)
     {
-        //
+        if (Talonarios::destroy($id)) {
+            return response()->json(['status' => true]);
+        }else{
+            return response()->json(['status' => false]);
+        }
     }
 }

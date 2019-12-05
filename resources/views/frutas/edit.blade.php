@@ -25,7 +25,7 @@
           </div>
           <div class="form-actions">
             <button type="submit" class="btn btn-raised btn-raised btn-primary" id="button_sub">
-              <i class="fa fa-check-square-o"></i> Guardar
+              <i class="fa fa-check-square-o"></i> Guardarsss
             </button>
           </div>
         </form>

@@ -9,7 +9,7 @@
     </div>
     <div class="modal-body">
       <form class="form" id="storeFaena" method="POST">
-        <input type="hidden" name="maquina_id" id="maquina_id">
+        <input type="hidden" name="maquina_id" id="maquina_id_modal">
         @csrf
         <div class="form-body">
           <!-- <h4 class="form-section"><i class="ft-user"></i>Información Personal</h4> -->
@@ -17,7 +17,7 @@
             <div class="col-md-12">
               <div class="form-group">
                 <label for="projectinput1">Productor</label>
-                <select class="form-control" name="productores_id" required>
+                <select class="form-control" name="productores_id" required id="productor">
                   <option value="">Seleccione..</option>
                   @foreach($productores as $p)
                     <option value="{{$p->id}}">{{$p->r_social}}</option>
@@ -28,11 +28,8 @@
             <div class="col-md-12">
               <div class="form-group">
                 <label for="projectinput1">Campo</label>
-                <select class="form-control" name="campo_id" required="">
-                  <option value="">Seleccione..</option>
-                  @foreach($campo as $p)
-                    <option value="{{$p->id}}">{{$p->nombre_campo}}</option>
-                  @endforeach
+                <select class="form-control" name="campo_id" required="" id="campos">
+                  
                 </select>
               </div>
             </div>
@@ -99,10 +96,10 @@
         </div>
       </form>
     </div>
-    <div class="modal-footer">
+    <!-- <div class="modal-footer">
       <button type="button" class="btn grey btn-outline-secondary" data-dismiss="modal">Close</button>
       <button type="button" class="btn btn-outline-primary">Save changes</button>
-    </div>
+    </div> -->
   </div>
 </div>
 </div>

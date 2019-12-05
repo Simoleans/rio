@@ -59,12 +59,12 @@ class SagController extends Controller
         if ($sag->save() && $faenaDestino->save() && $faenaOrigen->save()) {
             
 
-            return redirect("sag")->with([
+            return redirect("sags")->with([
                 'flash_message' => 'Sag registrado correctamente.',
                 'flash_class'   => 'alert-success',
             ]);
         } else {
-            return redirect("sag")->with([
+            return redirect("sags")->with([
                 'flash_message'   => 'Ha ocurrido un error.',
                 'flash_class'     => 'alert-danger',
                 'flash_important' => true,

@@ -37,10 +37,9 @@ class FaenaController extends Controller
      */
     public function create()
     {
-        $campo = Campo::all();
         $productores = Productores::all();
         $maquina = Maquina::all();
-        return view('faena.create',['productores' => $productores , 'campo' => $campo,'maquina' => $maquina]);
+        return view('faena.create',['productores' => $productores ,'maquina' => $maquina]);
     }
 
     /**

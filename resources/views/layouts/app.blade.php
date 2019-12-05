@@ -156,7 +156,6 @@ input[type="radio"]:focus + span {
     @yield('script')
     <script type="text/javascript">
       $(".dataTable").DataTable({
-          responsive: true,
           language: {
             url:'{{asset("app-assets/vendors/js/datatable/spanish.json")}}'
           }

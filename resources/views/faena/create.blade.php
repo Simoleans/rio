@@ -18,7 +18,7 @@
               <div class="col-md-12">
                 <div class="form-group">
                   <label for="projectinput1">Productor</label>
-                  <select class="form-control" name="productores_id" required>
+                  <select class="form-control" name="productores_id" required id="productor">
                     <option value="">Seleccione..</option>
                     @foreach($productores as $p)
                       <option value="{{$p->id}}">{{$p->r_social}}</option>
@@ -29,11 +29,8 @@
               <div class="col-md-12">
                 <div class="form-group">
                   <label for="projectinput1">Campo</label>
-                  <select class="form-control" name="campo_id" required="">
-                    <option value="">Seleccione..</option>
-                    @foreach($campo as $p)
-                      <option value="{{$p->id}}">{{$p->nombre_campo}}</option>
-                    @endforeach
+                  <select class="form-control" name="campo_id" required="" id="campos">
+                   
                   </select>
                 </div>
               </div>
@@ -116,4 +113,33 @@
     </div>
   </div>
 </div>
+@endsection
+
+@section('script')
+<script type="text/javascript">
+  $("#productor").change(function(event) {
+    event.preventDefault();
+    var id = $(this).val();
+    $.ajax({
+      url: '{{route("searchFaenaProductor")}}',
+      type: 'POST',
+      dataType: 'JSON',
+      data: {_token: '{{csrf_token()}}',id: id},
+    })
+    .done(function(data) {
+      var campos = '';
+      $.each(data.campos, function(index, val) {
+         campos += '<option value="'+val.id+'">'+val.nombre_campo+'</option>';
+      });
+      $("#campos").html(campos);
+    })
+    .fail(function() {
+      console.log("error");
+    })
+    .always(function() {
+      console.log("complete");
+    });
+    
+  });
+</script>
 @endsection

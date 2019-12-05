@@ -36,7 +36,7 @@
                   <!-- <td class="text-center">{{$a->tipo}}</td> -->
                   <td class="text-center">
                     <a href="{{route('faena.show',['id' => $a->id])}}" class="btn btn-raised btn-success btn-min-width mr-1 mb-1"><i class="fa fa-eye" title="Ver"></i></a>
-                    <a href="{{route('faena.edit',['id' => $a->id])}}" class="btn btn-raised btn-warning btn-min-width mr-1 mb-1"><i class="fa fa-edit" title="Editar"></i></a>
+                    <!-- <a href="{{route('faena.edit',['id' => $a->id])}}" class="btn btn-raised btn-warning btn-min-width mr-1 mb-1"><i class="fa fa-edit" title="Editar"></i></a> -->
                   </td>
                </tr>
               @endforeach

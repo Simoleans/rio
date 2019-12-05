@@ -10,6 +10,7 @@ use App\Frutas;
 use App\Maquina;
 use App\Faena;
 use App\Arriendo;
+use App\Productores;
 
 class AjaxRequestController extends Controller
 {
@@ -54,7 +55,7 @@ class AjaxRequestController extends Controller
 
             $direccionSag = DireccionSag::where('region_id',$region)->where('comuna_id',$comuna)->get();
 
-            return response()->json(['count'=>$maquinaCount,'data' => $maquinaData,'status' => true,'direccion' => $direccionSag,'origen' => $faenasOrigen,'destino' => $faenasDestino]);   
+            return response()->json(['count'=>$maquinaCount,'data' => $faenasOrigen,'status' => true,'direccion' => $direccionSag,'origen' => $faenasOrigen,'destino' => $faenasDestino]);   
         }else{
             return response()->json(['count'=>$maquinaCount,'data' => false,'status' => false,'direccion' => false,'faenas' => $faenasOrigen,'destino' => $faenasDestino]);
         } 
@@ -63,7 +64,16 @@ class AjaxRequestController extends Controller
 
     public function storeFaena(Request $request)
     {
-        dd($request->all());
+        //dd($request->all());
+        $faena = new Faena;
+        $faena->user_id = Auth::user()->id;
+        $faena->fill($request->all());
+
+         if ($faena->save()) {
+            return response()->json(['status'=>true]);
+        } else {
+              return response()->json(['status'=>false]);
+        }
     }
 
     public function fecha_sugerida(Request $request)
@@ -128,5 +138,12 @@ class AjaxRequestController extends Controller
         } else {
             return response()->json(['status' => false]);
         }
+    }
+
+    public function searchProducFaena(Request $request)
+    {
+        $campos = Productores::findOrfail($request->id)->campos;
+
+        return response()->json(['campos' => $campos]);
     }
 }

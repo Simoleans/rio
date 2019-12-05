@@ -47,6 +47,16 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('/sags','SagController');
     Route::resource('/correos','CorreosController');
 
+    //talonarios
+    Route::get('talonario/{id}/edit','TalonariosController@edit')->name('talonario.edit');
+    Route::put('talonario/{id}/update','TalonariosController@update')->name('talonario.update');
+    Route::delete('talonario/{id}/delete','TalonariosController@destroy')->name('talonario.destroy');
+
+    //variedades
+    Route::get('variedad/{id}/edit','VariedadesController@edit')->name('variedad.edit');
+    Route::put('variedad/{id}/update','VariedadesController@update')->name('variedad.update');
+    Route::delete('variedad/{id}/delete','VariedadesController@destroy')->name('variedad.destroy');
+
     //calendario //
     Route::get('/calendario','FaenaController@calendario')->name('faenas.calendario');
 
@@ -62,6 +72,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::put('/statusFaena/{id}','AjaxRequestController@status_faena')->name('faena.status');
     Route::put('/statusMaquina/{id}','AjaxRequestController@status_maquina')->name('maquina.status');
     Route::post('/searchMaq','AjaxRequestController@searchMaquina')->name('search.maquina');
+    Route::post('/searcFaenaPr','AjaxRequestController@searchProducFaena')->name('searchFaenaProductor');
 
     //reportes PDF
     Route::get('/reportPOT','ReportesController@pot')->name('reporte.pot');
@@ -69,4 +80,6 @@ Route::group(['middleware' => 'auth'], function () {
 
     //Sag email
     Route::get('sag/mail/{id}','SagController@sendMail')->name('sag.mail');
+
+    
 });
