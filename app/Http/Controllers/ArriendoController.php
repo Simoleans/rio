@@ -48,7 +48,8 @@ class ArriendoController extends Controller
         //dd($request->all());
 
         $arriendo = new Arriendo();
-        $arriendo->fill($request->all());
+        $arriendo->maquina_id = $request->maquina_id;
+        $arriendo->horas = $request->horas;
 
         if ($arriendo->save()) {
 

@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Maquina;
 use App\Faena;
+use App\Regiones;
+use App\PropietarioMaquina;
 
 class MaquinaController extends Controller
 {
@@ -30,7 +32,8 @@ class MaquinaController extends Controller
      */
     public function create()
     {
-        return view('maquina.create');
+        $regiones= Regiones::all();
+        return view('maquina.create',['regiones' => $regiones]);
     }
 
     /**
@@ -46,7 +49,19 @@ class MaquinaController extends Controller
         $maquina->user_id = Auth::user()->id;
         $maquina->fill($request->all());
 
+
+
          if ($maquina->save()) {
+            if ($request->tipo == 'Arriendo') {
+                $propietario = new PropietarioMaquina;
+                $propietario->maquina_id    = $maquina->id;
+                $propietario->rut           = $request->rut;
+                $propietario->r_social      = $request->r_social;
+                $propietario->direccion     = $request->direccion;
+                $propietario->comuna_id     = $request->comuna_id;
+                $propietario->region_id     = $request->region_id;
+                $propietario->save();
+            }
             return redirect("maquina")->with([
                 'flash_message' => 'Maquina agregada correctamente.',
                 'flash_class'   => 'alert-success',

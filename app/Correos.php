@@ -8,7 +8,7 @@ class Correos extends Model
 {
     protected $table = "correos";
 
-     public $fillable = ['nombre','direccion','correo','region_id'];
+     public $fillable = ['nombre','direccion','correo','region_id','jefatura'];
 
   	public function region()
     {

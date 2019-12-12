@@ -8,17 +8,7 @@ class Arriendo extends Model
 {
     public $table = 'arriendo';
 
-    public $fillable = [  'marca',
-						  'modelo',
-						  'ano',
-						  'series',
-						  'horas',
-						  'nombre',
-						  'rut',
-						  'r_social',
-						  'direccion',
-						  'comuna_id',
-						  'region_id',];
+    public $fillable = ['maquina_id','horas'];
 
 	public function combustible()
 	{
@@ -28,5 +18,10 @@ class Arriendo extends Model
 	public function fotos()
 	{
 		return $this->hasMany('App\Fotos','arriendo_id');
+	}
+
+	public function maquina()
+	{
+		return $this->belongsTo('App\Maquina','maquina_id');
 	}
 }

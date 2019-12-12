@@ -41,7 +41,7 @@
             <h2>Paso 1: Datos Maquina</h2>
             <div class="form-group">
               <label for="marca">Selecciona maquina</label>
-             <select name="maquina_select" id="select_maquina" class="form-control">
+             <select name="maquina_id" id="select_maquina" class="form-control">
                <option value="">Seleccione....</option>
                @foreach($maquinas as $m)
                   <option value="{{$m->id}}">{{strtoupper($m->nombre)}}</option>
@@ -74,7 +74,7 @@
             </div>
             <input type="button" name="password" class="next btn btn-info" value="Siguiente" />
           </fieldset>
-          <fieldset>
+<!--           <fieldset>
             <h2>Paso 2: Datos Propietario</h2>
              <div class="form-group">
               <label for="rut">RUT</label>
@@ -109,7 +109,7 @@
             </div>
             <input type="button" name="previous" class="previous btn btn-warning" value="Anterior" />
             <input type="button" name="next" class="next btn btn-info" value="Siguiente" />
-          </fieldset>
+          </fieldset> -->
 
           @include('partials.forms.camaras')
           @include('partials.forms.combustible')

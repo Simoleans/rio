@@ -29,4 +29,9 @@ class Maquina extends Model
     {
         return static::where('status_maquina','1')->get();
     }
+
+    public function propietario()
+    {
+        return $this->hasOne('App\PropietarioMaquina');
+    }
 }

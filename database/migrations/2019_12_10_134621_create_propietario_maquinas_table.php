@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCorreosTable extends Migration
+class CreatePropietarioMaquinasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,18 @@ class CreateCorreosTable extends Migration
      */
     public function up()
     {
-        Schema::create('correos', function (Blueprint $table) {
+        Schema::create('propietario_maquinas', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('nombre');
+            $table->unsignedBigInteger('maquina_id');
+            $table->foreign('maquina_id')->references('id')->on('maquina');
+            $table->string('rut');
+            $table->string('r_social');
             $table->string('direccion');
-            $table->string('correo');
-            $table->string('jefatura');
             $table->unsignedBigInteger('region_id');
             $table->foreign('region_id')->references('id')->on('regiones');
+
+            $table->unsignedBigInteger('comuna_id');
+            $table->foreign('comuna_id')->references('id')->on('comunas');
             $table->timestamps();
         });
     }
@@ -32,6 +36,6 @@ class CreateCorreosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('correos');
+        Schema::dropIfExists('propietario_maquinas');
     }
 }

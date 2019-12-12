@@ -25,11 +25,11 @@
                 <ul class="no-list-style">
                   <li class="mb-2">
                     <span class="primary text-bold-500"><a><i class="ft-home font-small-3"></i> Marca</a></span>
-                    <span class="line-height-2 d-block overflow-hidden">{{$arriendo->marca}}</span>
+                    <span class="line-height-2 d-block overflow-hidden">{{$arriendo->maquina->marca}}</span>
                   </li>
                   <li class="mb-2">
                     <span class="primary text-bold-500"><a><i class="ft-home font-small-3"></i> Modelo</a></span>
-                    <span class="line-height-2 d-block overflow-hidden">{{$arriendo->modelo}}</span>
+                    <span class="line-height-2 d-block overflow-hidden">{{$arriendo->maquina->modelo}}</span>
                   </li>
                 </ul>
                 <ul class="no-list-style">
@@ -44,15 +44,15 @@
                 <ul class="no-list-style">
                   <li class="mb-2">
                     <span class="primary text-bold-500"><a><i class="ft-home font-small-3"></i> Año</a></span>
-                    <span class="line-height-2 d-block overflow-hidden">{{$arriendo->ano}}</span>
+                    <span class="line-height-2 d-block overflow-hidden">{{$arriendo->maquina->ano_maquina}}</span>
                   </li>
                   <li class="mb-2">
                     <span class="primary text-bold-500"><a><i class="ft-home font-small-3"></i> Series</a></span>
-                    <span class="line-height-2 d-block overflow-hidden">{{$arriendo->series}}</span>
+                    <span class="line-height-2 d-block overflow-hidden">{{$arriendo->maquina->serie}}</span>
                   </li>
                    <li class="mb-2">
-                    <span class="primary text-bold-500"><a><i class="ft-home font-small-3"></i> Hombre</a></span>
-                    <span class="line-height-2 d-block overflow-hidden">{{$arriendo->modelo}}</span>
+                    <span class="primary text-bold-500"><a><i class="ft-home font-small-3"></i> Nombre</a></span>
+                    <span class="line-height-2 d-block overflow-hidden">{{$arriendo->maquina->nombre}}</span>
                   </li>
                 </ul>
               </div>
@@ -63,11 +63,11 @@
                 <ul class="no-list-style">
                   <li class="mb-2">
                     <span class="primary text-bold-500"><a><i class="ft-home font-small-3"></i> RUT</a></span>
-                    <span class="line-height-2 d-block overflow-hidden">{{$arriendo->rut}}</span>
+                    <span class="line-height-2 d-block overflow-hidden">{{$arriendo->maquina->propietario->rut}}</span>
                   </li>
                   <li class="mb-2">
                     <span class="primary text-bold-500"><a><i class="ft-home font-small-3"></i> Razón Social</a></span>
-                    <span class="line-height-2 d-block overflow-hidden">{{$arriendo->r_social}}</span>
+                    <span class="line-height-2 d-block overflow-hidden">{{$arriendo->maquina->propietario->r_social}}</span>
                   </li>
                 </ul>
               </div>
@@ -75,11 +75,11 @@
                 <ul class="no-list-style">
                   <li class="mb-2">
                     <span class="primary text-bold-500"><a><i class="ft-home font-small-3"></i> Dirección</a></span>
-                    <span class="line-height-2 d-block overflow-hidden">{{$arriendo->direccion}}</span>
+                    <span class="line-height-2 d-block overflow-hidden">{{$arriendo->maquina->propietario->direccion}}</span>
                   </li>
                   <li class="mb-2">
                     <span class="primary text-bold-500"><a><i class="ft-home font-small-3"></i> Comuna</a></span>
-                    <span class="line-height-2 d-block overflow-hidden">{{$arriendo->comuna}}</span>
+                    <span class="line-height-2 d-block overflow-hidden">{{$arriendo->maquina->propietario->comuna->comuna}}</span>
                   </li>
                 </ul>
               </div>
@@ -87,7 +87,7 @@
                 <ul class="no-list-style">
                   <li class="mb-2">
                     <span class="primary text-bold-500"><a><i class="ft-home font-small-3"></i> Región</a></span>
-                    <span class="line-height-2 d-block overflow-hidden">{{$arriendo->region}}</span>
+                    <span class="line-height-2 d-block overflow-hidden">{{strtoupper($arriendo->maquina->propietario->region->region)}}</span>
                   </li>
                 </ul>
               </div>

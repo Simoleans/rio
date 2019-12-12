@@ -15,20 +15,10 @@ class Arriendo extends Migration
     {
         Schema::create('arriendo', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('marca');
-            $table->string('modelo');
-            $table->string('ano');
-            $table->string('series');
-            $table->string('horas');
-            $table->string('nombre');
-            $table->string('rut');
-            $table->string('r_social');
-            $table->string('direccion');
-            $table->unsignedBigInteger('region_id');
-            $table->foreign('region_id')->references('id')->on('regiones');
-
-            $table->unsignedBigInteger('comuna_id');
-            $table->foreign('comuna_id')->references('id')->on('comunas');
+            $table->unsignedBigInteger('maquina_id');
+            $table->foreign('maquina_id')->references('id')->on('maquina');
+            $table->string('horas')->nullable();
+           
             $table->string('status',1)->default(1);
             $table->timestamps();
         });
