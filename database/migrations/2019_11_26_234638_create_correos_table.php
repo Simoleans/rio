@@ -19,6 +19,7 @@ class CreateCorreosTable extends Migration
             $table->string('direccion');
             $table->string('correo');
             $table->string('jefatura');
+            $table->string('telefono');
             $table->unsignedBigInteger('region_id');
             $table->foreign('region_id')->references('id')->on('regiones');
             $table->timestamps();

@@ -6,8 +6,8 @@
       @include('partials.flash')
       <div class="card">
         <div class="card-header">
-          <h4 class="card-title">Correos Registrados</h4>
-          <p class="card-text">todos los correos.</p>
+          <h4 class="card-title">Oficinas Registrados</h4>
+          <p class="card-text">todos las oficinas.</p>
         </div>
         <div class="card-content">
           <div class="card-body card-dashboard table-responsive">
@@ -16,8 +16,8 @@
                 <tr>
                   <th class="text-center">Nombre</th>
                   <th class="text-center">Correo</th>
+                  <th class="text-center">Teléfono</th>
                   <th class="text-center">Región</th>
-                  <th class="text-center">Dirección</th>
 <!--                   <th class="text-center">Acción</th> -->
                 </tr>
               </thead>
@@ -26,8 +26,8 @@
                <tr>
 	               	<td class="text-center">{{$a->nombre}}</td>
 	               	<td class="text-center">{{$a->correo}}</td>
+                  <td class="text-center"><a href="tel:{{ $a->telefono }}">{{ $a->telefono }}</a></td>
                   <td class="text-center">{{$a->region->region}}</td>
-                  <td class="text-center">{{$a->direccion}}</td>
 	               	<!-- <td class="text-center">
 	               		<a href="{{route('productores.show',['id' => $a->id])}}" class="btn btn-raised btn-success btn-min-width mr-1 mb-1"><i class="fa fa-eye" title="Ver"></i></a>
 	               		<a href="{{route('productores.edit',['id' => $a->id])}}" class="btn btn-raised btn-warning btn-min-width mr-1 mb-1"><i class="fa fa-edit" title="Editar"></i></a>

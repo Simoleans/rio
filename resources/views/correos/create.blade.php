@@ -20,16 +20,22 @@
                   <input type="text" id="projectinput1" class="form-control" name="nombre">
                 </div>
               </div>
-              <div class="col-md-6">
+              <div class="col-md-12">
                 <div class="form-group">
                   <label for="projectinput3">Correo</label>
-                  <input type="text" id="projectinput3" class="form-control" name="correo">
+                  <input type="email" id="projectinput3" class="form-control" name="correo">
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="form-group">
                   <label for="pro-4">Jefatura</label>
                   <input type="text" id="pro-4" class="form-control" name="jefatura">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="s-4">Teléfono</label>
+                  <input type="number" id="s-4" class="form-control" name="telefono">
                 </div>
               </div>
             </div>
