@@ -2,17 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Fotos;
+use App\Regiones;
+use App\Maquina;
+use App\Devoluciones;
 use App\Arriendo;
+use App\Fotos;
 use App\Combustible;
 use App\Hidraulico;
 use App\Motor;
-use App\Regiones;
 use App\Aire;
 use App\Radiador;
-use App\Maquina;
-class ArriendoController extends Controller
+use Illuminate\Http\Request;
+
+class DevolucionesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -21,8 +23,8 @@ class ArriendoController extends Controller
      */
     public function index()
     {
-        $arriendos = Arriendo::where('status',1)->get();
-         return view('arriendo.index',['arriendo' => $arriendos]);
+         $devolucion = Arriendo::where('status',1)->where('tipo','devolucion')->get();
+         return view('devoluciones.index',['devolucion' => $devolucion]);
     }
 
     /**
@@ -34,7 +36,7 @@ class ArriendoController extends Controller
     {
         $regiones= Regiones::all();
         $maquinas = Maquina::where('status_maquina',1)->where('tipo','Arriendo')->get();
-        return view('arriendo.create',['regiones' => $regiones,'maquinas' => $maquinas]);
+        return view('devoluciones.create',['regiones' => $regiones,'maquinas' => $maquinas]);
     }
 
     /**
@@ -50,7 +52,7 @@ class ArriendoController extends Controller
         $arriendo = new Arriendo();
         $arriendo->maquina_id = $request->maquina_id;
         $arriendo->horas = $request->horas;
-        $arriendo->tipo = 'arriendo';
+        $arriendo->tipo = 'devolucion';
 
         if ($arriendo->save()) {
 
@@ -84,7 +86,7 @@ class ArriendoController extends Controller
                 $image = str_replace('data:image/png;base64,', '', $image);
                 $image = str_replace(' ', '+', $image);
                 $imageName = str_random(10).'.'.'png';
-                \File::put(public_path(). '/fotos/' . $imageName, base64_decode($image));
+                \File::put(public_path(). '/fotos/devolucion/' . $imageName, base64_decode($image));
 
                 $fotos = new Fotos();
                 $fotos->arriendo_id = $arriendo->id;
@@ -92,24 +94,23 @@ class ArriendoController extends Controller
                 $fotos->save();
 
             }//fin foreach
-            return redirect("arriendo")->with([
+            return redirect("devolucion")->with([
                 'flash_message' => 'Arriendo agregado correctamente.',
                 'flash_class'   => 'alert-success',
             ]);
         } else {
-            return redirect("arriendo")->with([
+            return redirect("devolucion")->with([
                 'flash_message'   => 'Ha ocurrido un error.',
                 'flash_class'     => 'alert-danger',
                 'flash_important' => true,
             ]);
         }//fin save arriendo
-
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Devoluciones  $devoluciones
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -117,16 +118,16 @@ class ArriendoController extends Controller
         $arriendo = Arriendo::findOrfail($id);
         //dd($arriendo->combustible());
 
-        return view('arriendo.show',['arriendo' => $arriendo]);
+        return view('devoluciones.show',['devolucion' => $arriendo]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Devoluciones  $devoluciones
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Devoluciones $devoluciones)
     {
         //
     }
@@ -135,10 +136,10 @@ class ArriendoController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Devoluciones  $devoluciones
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Devoluciones $devoluciones)
     {
         //
     }
@@ -146,10 +147,10 @@ class ArriendoController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Devoluciones  $devoluciones
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Devoluciones $devoluciones)
     {
         //
     }

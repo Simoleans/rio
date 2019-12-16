@@ -50,9 +50,9 @@
     <?php foreach($maquina as $a){?>
     {
       resourceId: '{{$a->id}}',
-      title: '{{$a->faena->flete}}',
-      start: '{{$a->faena->desde}}',
-      end: '{{$a->faena->hasta}}'
+      title: '{{isset($a->faena->flete)}}',
+      start: '{{isset($a->faena->desde)}}',
+      end: '{{isset($a->faena->hasta)}}'
     },
     <?php } ?>
   ]

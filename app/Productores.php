@@ -24,4 +24,9 @@ class Productores extends Model
     {
         return $this->hasMany('App\Campo');
     }
+
+    public function faenas()
+    {
+        return $this->hasMany('App\Faena');
+    }
 }

@@ -20,7 +20,7 @@ class Regiones extends Model
 
     	$comunas = Comunas::where('region_id',$region)
                     // ->orderBy('LENGTH(comuna)', 'ASC')
-                    ->orderBy('comuna', 'ASC')
+                    ->orderBy('comuna')
                     ->get();
 
       

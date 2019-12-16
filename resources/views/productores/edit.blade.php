@@ -38,13 +38,21 @@
               <div class="col-md-6">
                 <div class="form-group">
                   <label for="projectinput3">Región</label>
-                  <input type="text" id="projectinput3" class="form-control" name="region" value="{{$productor->region}}">
+                 <select class="form-control region" name="region_id">
+                   @foreach($regiones as $r)
+                    <option value="{{$r->id}}" {{($r->id == $productor->region_id)?'selected':''}}>{{$r->region}}</option>
+                   @endforeach 
+                 </select>
                 </div>
               </div>
                <div class="col-md-6">
                 <div class="form-group">
                   <label for="projectinput3">Comuna</label>
-                  <input type="text" id="projectinput3" class="form-control" name="comuna" value="{{$productor->comuna}}">
+                  <select class="form-control comunas" name="comuna_id">
+                    @foreach($productor->region->comunas as $c)
+                      <option value="{{$c->id}}" {{($c->id == $productor->comuna_id)?'selected':''}}>{{$c->comuna}}</option>
+                    @endforeach
+                  </select>
                 </div>
               </div>
                <div class="col-md-6">

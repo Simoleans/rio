@@ -28,6 +28,10 @@
                   </li>
                   <li><a href="{{route('arriendo.create')}}" class="menu-item">Crear Arriendo</a>
                   </li>
+                  <li><a href="{{route('devolucion.index')}}" class="menu-item">Ver Devoluciones</a>
+                  </li>
+                  <li><a href="{{route('devolucion.create')}}" class="menu-item">Crear Devolución</a>
+                  </li>
                 </ul>
               </li>
               <li class="has-sub nav-item"><a href="#"><i class="ft-check-circle"></i><span data-i18n="" class="menu-title">POT</span></a>

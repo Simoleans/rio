@@ -18,7 +18,7 @@ class Campo extends Migration
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->unsignedBigInteger('productores_id');
-            $table->foreign('productores_id')->references('id')->on('productores');
+            $table->foreign('productores_id')->references('id')->on('productores')->onDelete('cascade');;
             $table->string('nombre_campo');
             $table->string('csg');
 

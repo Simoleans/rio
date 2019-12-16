@@ -30,7 +30,7 @@ class CampoController extends Controller
     public function create()
     {
         $productores = Productores::all();
-        $regiones = Regiones::all();
+        $regiones = Regiones::orderBy('region')->get();
 
         return view('campo.create',['productores' => $productores,'regiones' => $regiones]);
     }
@@ -81,7 +81,9 @@ class CampoController extends Controller
      */
     public function edit(Campo $campo)
     {
-        //
+        $productores = Productores::all();
+        $regiones = Regiones::all();
+        return view('campo.edit',['campo' => $campo,'regiones' => $regiones, 'productores' => $productores]);
     }
 
     /**
@@ -93,7 +95,22 @@ class CampoController extends Controller
      */
     public function update(Request $request, Campo $campo)
     {
-        //
+         
+
+         $campo->fill($request->all());
+
+         if ($campo->save()) {
+            return redirect("campo")->with([
+                'flash_message' => 'Campo modificado correctamente.',
+                'flash_class'   => 'alert-success',
+            ]);
+        } else {
+            return redirect("campo")->with([
+                'flash_message'   => 'Ha ocurrido un error.',
+                'flash_class'     => 'alert-danger',
+                'flash_important' => true,
+            ]);
+        }
     }
 
     /**

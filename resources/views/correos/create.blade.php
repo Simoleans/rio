@@ -5,7 +5,7 @@
 <div class="col-md-8 offset-2">
   <div class="card">
     <div class="card-header">
-      <h4 class="card-title" id="basic-layout-form">Nuevo Correo</h4>
+      <h4 class="card-title" id="basic-layout-form">Nueva Oficina</h4>
     </div>
     <div class="card-content">
       <div class="px-3">

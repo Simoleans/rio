@@ -18,7 +18,7 @@ class Faena extends Migration
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->unsignedBigInteger('productores_id');
-            $table->foreign('productores_id')->references('id')->on('productores');
+            $table->foreign('productores_id')->references('id')->on('productores')->onDelete('cascade');;
             $table->unsignedBigInteger('maquina_id');
             $table->foreign('maquina_id')->references('id')->on('maquina');
             $table->unsignedBigInteger('campo_id');

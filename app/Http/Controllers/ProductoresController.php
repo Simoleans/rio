@@ -68,7 +68,9 @@ class ProductoresController extends Controller
      */
     public function show($id)
     {
-        //
+        $productor = Productores::findOrfail($id);
+
+        return view('productores.show',['productor' => $productor]);
     }
 
     /**
@@ -80,8 +82,9 @@ class ProductoresController extends Controller
     public function edit($id)
     {
         $productor  = Productores::findOrfail($id);
+        $regiones = Regiones::orderBy('region')->get();
 
-        return view('productores.edit',['productor' => $productor]);
+        return view('productores.edit',['productor' => $productor,'regiones' => $regiones]);
     }
 
     /**
@@ -119,6 +122,6 @@ class ProductoresController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Productores::destroy($id);
     }
 }
