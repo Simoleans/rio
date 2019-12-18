@@ -20,10 +20,28 @@
                   <input type="text" id="projectinput1" class="form-control" name="nombre">
                 </div>
               </div>
-              <div class="col-md-12">
+              <div class="col-md-6">
                 <div class="form-group">
-                  <label for="projectinput3">Correo</label>
-                  <input type="email" id="projectinput3" class="form-control" name="correo">
+                  <label for="projectinput3">Correo 1</label>
+                  <input type="email" id="projectinput3" class="form-control" name="correo1" required="">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="projectinput3">Correo 2</label>
+                  <input type="email" id="projectinput3" class="form-control" name="correo2">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="projectinput3">Correo 3</label>
+                  <input type="email" id="projectinput3" class="form-control" name="correo3">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="projectinput3">Correo 4</label>
+                  <input type="email" id="projectinput3" class="form-control" name="correo4">
                 </div>
               </div>
               <div class="col-md-6">

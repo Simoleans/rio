@@ -17,6 +17,11 @@ class CorreosPersonas extends Model
 
     public function persona()
     {
-    	return $this->belongsTo('App\Correos','correos_id');
+    	return $this->belongsToMany('App\Correos','correos_id');
+    }
+
+    public function comuna()
+    {
+        return $this->belongsTo('App\Comunas','comunas_id');
     }
 }

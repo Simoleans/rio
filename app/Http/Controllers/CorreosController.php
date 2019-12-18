@@ -72,9 +72,15 @@ class CorreosController extends Controller
      * @param  \App\Correos  $correos
      * @return \Illuminate\Http\Response
      */
-    public function show(Correos $correos)
+    public function show($id)
     {
-        //
+        $correos= Correos::findOrfail($id);
+
+        $comunas = CorreosPersonas::where('correos_id',$correos->id)->get();
+
+        
+
+        return view('correos.show',['correo' => $correos,'comunas' => $comunas]);
     }
 
     /**

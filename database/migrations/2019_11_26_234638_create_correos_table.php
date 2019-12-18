@@ -17,7 +17,10 @@ class CreateCorreosTable extends Migration
             $table->bigIncrements('id');
             $table->string('nombre');
             $table->string('direccion');
-            $table->string('correo');
+            $table->string('correo1')->nullable();
+            $table->string('correo2')->nullable();
+            $table->string('correo3')->nullable();
+            $table->string('correo4')->nullable();
             $table->string('jefatura');
             $table->string('telefono');
             $table->unsignedBigInteger('region_id');

@@ -24,7 +24,7 @@
               <tbody>
               @foreach($correos as $a)
                <tr>
-	               	<td class="text-center">{{$a->nombre}}</td>
+	               	<td class="text-center"><a href="{{route('correos.show',['correo' =>$a->id])}}">{{$a->nombre}}</a></td>
 	               	<td class="text-center">{{$a->correo}}</td>
                   <td class="text-center"><a href="tel:{{ $a->telefono }}">{{ $a->telefono }}</a></td>
                   <td class="text-center">{{$a->region->region}}</td>
