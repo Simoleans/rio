@@ -18,7 +18,6 @@ class Arriendo extends Migration
             $table->unsignedBigInteger('maquina_id');
             $table->foreign('maquina_id')->references('id')->on('maquina');
             $table->string('horas')->nullable();
-            $table->string('tipo');
             $table->string('status',1)->default(1);
             $table->timestamps();
         });

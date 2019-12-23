@@ -13,6 +13,8 @@ use App\Motor;
 use App\Aire;
 use App\Radiador;
 use Illuminate\Http\Request;
+use Spatie\Browsershot\Browsershot;
+use PDF;
 
 class DevolucionesController extends Controller
 {
@@ -49,35 +51,34 @@ class DevolucionesController extends Controller
     {
         //dd($request->all());
 
-        $arriendo = new Arriendo();
+        $arriendo = new Devoluciones();
         $arriendo->maquina_id = $request->maquina_id;
         $arriendo->horas = $request->horas;
-        $arriendo->tipo = 'devolucion';
 
         if ($arriendo->save()) {
 
             $combustible = new Combustible;
-            $combustible->arriendo_id = $arriendo->id;
+            $combustible->devolucion_id = $arriendo->id;
             $combustible->fill($request->all());
             $combustible->save();
 
             $hidraulico = new Hidraulico();
-            $hidraulico->arriendo_id = $arriendo->id;
+            $hidraulico->devolucion_id = $arriendo->id;
             $hidraulico->fill($request->all());
             $hidraulico->save();
 
             $motor = new Motor();
-            $motor->arriendo_id = $arriendo->id;
+            $motor->devolucion_id = $arriendo->id;
             $motor->fill($request->all());
             $motor->save();
 
             $aire = new Aire();
-            $aire->arriendo_id = $arriendo->id;
+            $aire->devolucion_id = $arriendo->id;
             $aire->fill($request->all());
             $aire->save();
 
             $radiador = new Radiador();
-            $radiador->arriendo_id = $arriendo->id;
+            $radiador->devolucion_id = $arriendo->id;
             $radiador->fill($request->all());
             $radiador->save();
 
@@ -153,5 +154,11 @@ class DevolucionesController extends Controller
     public function destroy(Devoluciones $devoluciones)
     {
         //
+    }
+
+    public function reporte()
+    {
+        $pdf = PDF::loadView('pdf.devolucion');
+        return $pdf->stream('invoice.pdf');
     }
 }

@@ -44,11 +44,11 @@ class AjaxRequestController extends Controller
 
 
         $maquina = Faena::maquinaExists($request->maquina_id);
-
+        $maquinaCount = Faena::maquinaCount($request->maquina_id);
         if ($maquina) {
 
             $maquinaData = Faena::maquinaData($request->maquina_id);
-            $maquinaCount = Faena::maquinaCount($request->maquina_id);
+            
         //dd($maquinaCount);
             $comuna = $maquinaData->productor->comuna->id;
             $region=  $maquinaData->productor->region->id;

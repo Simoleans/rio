@@ -154,7 +154,6 @@
 ///ajax de buscar maquina
   $("#form").submit(function(event) {
    $("#maquina_id").val($("#maquina_value").val());
-
     event.preventDefault();
     $.ajax({
       headers: {
@@ -169,7 +168,7 @@
       
       //$("#submit_maquina").attr('disabled',true);
       $("#maquina_send").val($("#maquina_value").val())
-      if (data.count < 2) {
+      if (data.count < 1) {
         $("#maquina_id_modal").val($("#maquina_value").val());
         $('#xlarge').modal('toggle');
       }else{

@@ -47,6 +47,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('/sags','SagController');
     Route::resource('/correos','CorreosController');
     Route::resource('/devolucion','DevolucionesController');
+    route::get('/reporteDev','DevolucionesController@reporte')->name('reporte.devolucion');
 
     //talonarios
     Route::get('talonario/{id}/edit','TalonariosController@edit')->name('talonario.edit');
