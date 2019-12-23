@@ -2,7 +2,7 @@
 <html>
 <head>
 	<title></title>
-	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" media="all">
+	<link rel="stylesheet" type="text/css" href="{{public_path('app-assets/css/app.css')}}" media="all">
 </head> 
 <body>
 <div class="content">

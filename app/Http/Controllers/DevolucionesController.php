@@ -158,7 +158,9 @@ class DevolucionesController extends Controller
 
     public function reporte()
     {
-        $pdf = PDF::loadView('pdf.devolucion');
-        return $pdf->stream('invoice.pdf');
+        // $pdf = PDF::loadView('pdf.devolucion');
+        // return $pdf->stream('invoice.pdf');
+
+        return view('pdf.devolucion');
     }
 }

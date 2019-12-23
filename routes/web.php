@@ -27,6 +27,8 @@ Route::post('auth', 'LoginController@login')->name('auth');
 Route::get('/logout', 'LoginController@logout')->name('logout');
 Route::resource('/user', 'UserController');
 
+  route::get('/reporteDev','DevolucionesController@reporte')->name('reporte.devolucion');
+
 Route::group(['middleware' => 'auth'], function () {
     //middleware auth
     Route::get('/dashboard', 'LoginController@index')->name('dashboard');
@@ -47,7 +49,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('/sags','SagController');
     Route::resource('/correos','CorreosController');
     Route::resource('/devolucion','DevolucionesController');
-    route::get('/reporteDev','DevolucionesController@reporte')->name('reporte.devolucion');
+  
 
     //talonarios
     Route::get('talonario/{id}/edit','TalonariosController@edit')->name('talonario.edit');
