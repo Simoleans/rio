@@ -27,7 +27,7 @@ Route::post('auth', 'LoginController@login')->name('auth');
 Route::get('/logout', 'LoginController@logout')->name('logout');
 Route::resource('/user', 'UserController');
 
-  route::get('/reporteDev','DevolucionesController@reporte')->name('reporte.devolucion');
+  route::get('/reporteDev/{id}','DevolucionesController@reporte')->name('reporte.devolucion');
 
 Route::group(['middleware' => 'auth'], function () {
     //middleware auth

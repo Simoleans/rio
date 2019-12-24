@@ -15,6 +15,8 @@ class CreateDevolucionesTable extends Migration
     {
         Schema::create('devoluciones', function (Blueprint $table) {
             $table->bigIncrements('id');
+             $table->unsignedBigInteger('arriendo_id');
+            $table->foreign('arriendo_id')->references('id')->on('arriendo');
             $table->unsignedBigInteger('maquina_id');
             $table->foreign('maquina_id')->references('id')->on('maquina');
             $table->string('horas')->nullable();

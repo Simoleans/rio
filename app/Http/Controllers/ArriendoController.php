@@ -53,6 +53,10 @@ class ArriendoController extends Controller
 
         if ($arriendo->save()) {
 
+            $maquina = Maquina::findOrfail($request->maquina_id);
+            $maquina->status_maquina = 2; // arrendada
+            $maquina->save();
+            
             $combustible = new Combustible;
             $combustible->arriendo_id = $arriendo->id;
             $combustible->fill($request->all());

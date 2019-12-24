@@ -16,7 +16,7 @@
       <div class="card">
         <div class="card-header">
           <h5>Maquina <!-- <button type="button" id="cambiar_status" class="pull-right btn btn-danger" data-url="{{route('arriendo.eliminar',['id' => $devolucion->id])}}">Eliminar</button> -->
-            <a href="{{route('reporte.devolucion')}}" id="reporte" class="pull-right btn btn-danger" >Reporte</a>
+            <a href="{{route('reporte.devolucion',['id' => $devolucion->id])}}" id="reporte" class="pull-right btn btn-danger"><i class="fa fa-print"></i> Reporte</a>
           </h5>
 
         </div>
@@ -237,7 +237,7 @@
             <div class="row">
               @foreach($devolucion->fotos as $f)
               <figure class="col-lg-3 col-md-6 col-12">
-                <img class="img-thumbnail img-fluid" src="{{asset('fotos/devolucion/'.$f->foto)}}" itemprop="thumbnail" alt="Image description" />
+                <img class="img-thumbnail img-fluid" src="{{asset('fotos/devolucion'.'/'.$f->foto)}}" itemprop="thumbnail" alt="Image description" />
               </figure>
               @endforeach
             </div>

@@ -38,7 +38,7 @@ class AjaxRequestController extends Controller
 
     public function searchFaena(Request $request)
     {
-        $faenasOrigen = Maquina::findOrfail($request->maquina_id)->faenas;
+        $faenasOrigen = Faena::with(['productor','campo'])->where('maquina_id',$request->maquina_id)->get();
 
         $faenasDestino = Maquina::findOrfail($request->maquina_id)->faenas;
 

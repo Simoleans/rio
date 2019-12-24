@@ -34,4 +34,9 @@ class Maquina extends Model
     {
         return $this->hasOne('App\PropietarioMaquina');
     }
+
+    public function arriendo()
+    {
+        return $this->belongsTo('App\Arriendo');
+    }
 }

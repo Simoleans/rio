@@ -67,8 +67,9 @@
                 <table class="table table-striped table-bordered default-ordering dataTable">
                   <thead>
                     <tr>
+                      <th class="text-center">Productor</th>
+                      <th class="text-center">Campo</th>
                       <th class="text-center">Desde</th>
-                      <th class="text-center">Hasta</th>
                       <th class="text-center">Acción</th>
                     </tr>
                   </thead>
@@ -88,8 +89,9 @@
                 <table class="table table-striped table-bordered default-ordering dataTable">
                   <thead>
                     <tr>
+                      <th class="text-center">Productor</th>
+                      <th class="text-center">Campo</th>
                       <th class="text-center">Desde</th>
-                      <th class="text-center">Hasta</th>
                       <th class="text-center">Acción</th>
                     </tr>
                   </thead>
@@ -179,8 +181,9 @@
         $.each(data.data, function(index, val) {
 
            datos += '<tr>'+
+                      '<td class="text-center">'+val.productor.r_social+'</td>'+
+                      '<td class="text-center">'+val.campo.nombre_campo+'</td>'+
                       '<td class="text-center">'+val.desde+'</td>'+
-                      '<td class="text-center">'+val.hasta+'</td>'+
                       '<td class="text-center">'+
                         '<button type="button" data-id="'+val.id+'" data-fechaOr="'+val.desde+'" style="color: #FFFF"  class="btn btn-raised btn-success btn-min-width mr-1 mb-1 origen_faena">SELECCIONAR</button>'+
                       '</td>'+
@@ -200,8 +203,9 @@
 
         
            datosDestino += '<tr>'+
+                      '<td class="text-center">'+val.productor.r_social+'</td>'+
+                      '<td class="text-center">'+val.campo.nombre_campo+'</td>'+
                       '<td class="text-center">'+val.desde+'</td>'+
-                      '<td class="text-center">'+val.hasta+'</td>'+
                       '<td class="text-center">'+
                         '<button type="button" data-id="'+val.id+'" data-fechaDes="'+val.desde+'" style="color: #FFFF"  class="btn btn-raised btn-success btn-min-width mr-1 mb-1 destino_faena">SELECCIONAR</button>'+
                       '</td>'+

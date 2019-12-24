@@ -19,12 +19,13 @@ class AddDevolucionField extends Migration
             Schema::dropIfExists('aire');
             Schema::dropIfExists('radiador');
             Schema::dropIfExists('motor');
+            Schema::dropIfExists('fotos');
             Schema::enableForeignKeyConstraints();
        
 
         Schema::create('combustible', function (Blueprint $table) {
           $table->bigIncrements('id');
-          $table->unsignedBigInteger('arriendo_id');
+          $table->unsignedBigInteger('arriendo_id')->nullable();
           $table->foreign('arriendo_id')->references('id')->on('arriendo');
           $table->unsignedBigInteger('devolucion_id')->nullable();
           $table->foreign('devolucion_id')->references('id')->on('devoluciones');
@@ -49,7 +50,7 @@ class AddDevolucionField extends Migration
 
          Schema::create('motor', function (Blueprint $table) {
               $table->bigIncrements('id');
-              $table->unsignedBigInteger('arriendo_id');
+              $table->unsignedBigInteger('arriendo_id')->nullable();
               $table->foreign('arriendo_id')->references('id')->on('arriendo');
               $table->unsignedBigInteger('devolucion_id')->nullable();
               $table->foreign('devolucion_id')->references('id')->on('devoluciones');
@@ -78,7 +79,7 @@ class AddDevolucionField extends Migration
 
          Schema::create('hidraulico', function (Blueprint $table) {
               $table->bigIncrements('id');
-              $table->unsignedBigInteger('arriendo_id');
+              $table->unsignedBigInteger('arriendo_id')->nullable();
               $table->foreign('arriendo_id')->references('id')->on('arriendo');
               $table->unsignedBigInteger('devolucion_id')->nullable();
               $table->foreign('devolucion_id')->references('id')->on('devoluciones');
@@ -107,7 +108,7 @@ class AddDevolucionField extends Migration
 
           Schema::create('aire', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('arriendo_id');
+            $table->unsignedBigInteger('arriendo_id')->nullable();
             $table->foreign('arriendo_id')->references('id')->on('arriendo');
             $table->unsignedBigInteger('devolucion_id')->nullable();
             $table->foreign('devolucion_id')->references('id')->on('devoluciones');
@@ -122,7 +123,7 @@ class AddDevolucionField extends Migration
 
         Schema::create('radiador', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('arriendo_id');
+            $table->unsignedBigInteger('arriendo_id')->nullable();
             $table->foreign('arriendo_id')->references('id')->on('arriendo');
             $table->unsignedBigInteger('devolucion_id')->nullable();
             $table->foreign('devolucion_id')->references('id')->on('devoluciones');
@@ -136,6 +137,16 @@ class AddDevolucionField extends Migration
             $table->string('rad_ob_refrigerante_est')->nullable();
             $table->string('rad_refiregerante_niv');
             $table->string('rad_ob_refrigerante_niv')->nullable();
+            $table->timestamps();
+        });
+
+        Schema::create('fotos', function (Blueprint $table) {
+            $table->bigIncrements('id');
+             $table->unsignedBigInteger('devolucion_id')->nullable();
+            $table->foreign('devolucion_id')->references('id')->on('devoluciones');
+            $table->unsignedBigInteger('arriendo_id')->nullable();
+            $table->foreign('arriendo_id')->references('id')->on('arriendo');
+            $table->string('foto');
             $table->timestamps();
         });
     }
@@ -153,6 +164,7 @@ class AddDevolucionField extends Migration
             Schema::dropIfExists('aire');
             Schema::dropIfExists('radiador');
             Schema::dropIfExists('motor');
+            Schema::dropIfExists('fotos');
 
          Schema::enableForeignKeyConstraints();
 
@@ -265,6 +277,14 @@ class AddDevolucionField extends Migration
             $table->string('rad_ob_refrigerante_est')->nullable();
             $table->string('rad_refiregerante_niv');
             $table->string('rad_ob_refrigerante_niv')->nullable();
+            $table->timestamps();
+        });
+
+        Schema::create('fotos', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->unsignedBigInteger('arriendo_id');
+            $table->foreign('arriendo_id')->references('id')->on('arriendo');
+            $table->string('foto');
             $table->timestamps();
         });
     }

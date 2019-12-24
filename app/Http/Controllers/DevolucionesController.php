@@ -13,7 +13,6 @@ use App\Motor;
 use App\Aire;
 use App\Radiador;
 use Illuminate\Http\Request;
-use Spatie\Browsershot\Browsershot;
 use PDF;
 
 class DevolucionesController extends Controller
@@ -25,7 +24,7 @@ class DevolucionesController extends Controller
      */
     public function index()
     {
-         $devolucion = Arriendo::where('status',1)->where('tipo','devolucion')->get();
+         $devolucion = Devoluciones::where('status',1)->get();
          return view('devoluciones.index',['devolucion' => $devolucion]);
     }
 
@@ -37,7 +36,7 @@ class DevolucionesController extends Controller
     public function create()
     {
         $regiones= Regiones::all();
-        $maquinas = Maquina::where('status_maquina',1)->where('tipo','Arriendo')->get();
+        $maquinas = Maquina::where('status_maquina',2)->get();
         return view('devoluciones.create',['regiones' => $regiones,'maquinas' => $maquinas]);
     }
 
@@ -50,35 +49,44 @@ class DevolucionesController extends Controller
     public function store(Request $request)
     {
         //dd($request->all());
+        //buscar que arriendo tiene esa maquina
+        $arriendo = Arriendo::where('maquina_id',$request->maquina_id)->first();
 
-        $arriendo = new Devoluciones();
-        $arriendo->maquina_id = $request->maquina_id;
-        $arriendo->horas = $request->horas;
+        //dd($arriendo->id);
 
-        if ($arriendo->save()) {
+        $devolucion = new Devoluciones();
+        $devolucion->arriendo_id = $arriendo->id;
+        $devolucion->maquina_id = $request->maquina_id;
+        $devolucion->horas = $request->horas;
+
+        if ($devolucion->save()) {
+
+            $maquina = Maquina::findOrfail($request->maquina_id);
+            $maquina->status_maquina = 1; // devuelta
+            $maquina->save();
 
             $combustible = new Combustible;
-            $combustible->devolucion_id = $arriendo->id;
+            $combustible->devolucion_id = $devolucion->id;
             $combustible->fill($request->all());
             $combustible->save();
 
             $hidraulico = new Hidraulico();
-            $hidraulico->devolucion_id = $arriendo->id;
+            $hidraulico->devolucion_id = $devolucion->id;
             $hidraulico->fill($request->all());
             $hidraulico->save();
 
             $motor = new Motor();
-            $motor->devolucion_id = $arriendo->id;
+            $motor->devolucion_id = $devolucion->id;
             $motor->fill($request->all());
             $motor->save();
 
             $aire = new Aire();
-            $aire->devolucion_id = $arriendo->id;
+            $aire->devolucion_id = $devolucion->id;
             $aire->fill($request->all());
             $aire->save();
 
             $radiador = new Radiador();
-            $radiador->devolucion_id = $arriendo->id;
+            $radiador->devolucion_id = $devolucion->id;
             $radiador->fill($request->all());
             $radiador->save();
 
@@ -90,7 +98,7 @@ class DevolucionesController extends Controller
                 \File::put(public_path(). '/fotos/devolucion/' . $imageName, base64_decode($image));
 
                 $fotos = new Fotos();
-                $fotos->arriendo_id = $arriendo->id;
+                $fotos->devolucion_id = $devolucion->id;
                 $fotos->foto = $imageName;
                 $fotos->save();
 
@@ -116,7 +124,7 @@ class DevolucionesController extends Controller
      */
     public function show($id)
     {
-        $arriendo = Arriendo::findOrfail($id);
+        $arriendo = Devoluciones::findOrfail($id);
         //dd($arriendo->combustible());
 
         return view('devoluciones.show',['devolucion' => $arriendo]);
@@ -156,11 +164,12 @@ class DevolucionesController extends Controller
         //
     }
 
-    public function reporte()
+    public function reporte($id)
     {
         // $pdf = PDF::loadView('pdf.devolucion');
         // return $pdf->stream('invoice.pdf');
+         $devolucion = Devoluciones::findOrfail($id);
 
-        return view('pdf.devolucion');
+        return view('pdf.devolucion',['devolucion'=>$devolucion]);
     }
 }
