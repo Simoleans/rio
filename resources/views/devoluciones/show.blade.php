@@ -16,7 +16,7 @@
       <div class="card">
         <div class="card-header">
           <h5>Maquina <!-- <button type="button" id="cambiar_status" class="pull-right btn btn-danger" data-url="{{route('arriendo.eliminar',['id' => $devolucion->id])}}">Eliminar</button> -->
-            <a href="{{route('reporte.devolucion',['id' => $devolucion->id])}}" id="reporte" class="pull-right btn btn-danger"><i class="fa fa-print"></i> Reporte</a>
+            <a href="{{route('reporte.devolucion',['id' => $devolucion->id])}}" id="reporte" target="_blank" class="pull-right btn btn-danger"><i class="fa fa-print"></i> Reporte</a>
           </h5>
 
         </div>

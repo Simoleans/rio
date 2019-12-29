@@ -13,6 +13,11 @@ class Devoluciones extends Model
 		return $this->hasOne('App\Combustible','devolucion_id');
 	}
 
+	public function hidraulico()
+	{
+		return $this->hasOne('App\Hidraulico','devolucion_id');
+	}
+
 	public function maquina()
 	{
 		return $this->belongsTo('App\Maquina','maquina_id');

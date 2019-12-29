@@ -3,79 +3,199 @@
 <head>
 	<title></title>
 	<link rel="stylesheet" type="text/css" href="{{asset('app-assets/css/app.css')}}" media="all">
+  <link rel="stylesheet" type="text/css" href='{{asset("app-assets/fonts/feather/style.min.css")}}'>
 </head> 
+<style type="text/css">
+ 
+table {
+     width:300px;
+     table-layout:fixed;
+}
+td {
+     word-wrap:break-word;
+}
+</style>
 <body>
 <div class="main-content">
   <div class="content-wrapper">
   	<h3>Arriendo Maquina {{strtoupper($devolucion->arriendo->maquina->nombre)}}</h3>
     <div class="card-content">
       <div class="card-body">
-        <h3><strong>Combustible</strong></h3>
-        <hr>
+        
         <div class="row">
-          <div class="col-12 col-md-6 col-lg-4">
-            <ul class="no-list-style">
-              <li class="mb-2">
-                <span class="text-bold-500 primary"><a> Combustible Tanque:</a></span>
-                <span class="d-block overflow-hidden">{{$devolucion->arriendo->combustible->combustible_tanque == 1?'Si':'No'}}</span>
-              </li>
-              <li class="mb-2">
-                <span class="text-bold-500 primary"><a> Observación (Combustible Tanque):</a></span>
-                <span class="d-block overflow-hidden">{{$devolucion->arriendo->combustible->combustible_ob_tanque?$devolucion->arriendo->combustible->combustible_ob_tanque:'N/T'}}</span>
-              </li>
-              <li class="mb-2">
-                <span class="text-bold-500 primary"><a>Medidor Nivel (Combustible):</a></span>
-                <span class="d-block overflow-hidden">{{$devolucion->arriendo->combustible->combustible_medidor_nivel == 1?'Si':'No'}}</span>
-              </li>
-              <li class="mb-2">
-                <span class="text-bold-500 primary"><a> Observación (Medidor Nivel):</a></span>
-                 <span class="d-block overflow-hidden">{{$devolucion->arriendo->combustible->combustible_ob_medidor_nivel?$devolucion->arriendo->combustible->combustible_ob_medidor_nivel:'N/T'}}</span>
-            </ul>
+          <div class="col-md-11">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>COMBUSTIBLE</th><br>
+                  <th class="text-center">Arriendo<br><small>Estado</small></th>
+                  <th class="text-center">Observación</th>
+                  <th class="text-center">Devolución<br><small>Estado</small></th>
+                  <th class="text-center">Observación</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Tanque</td>
+                  <td class="text-center"><span class="d-block overflow-hidden"><i class="{{$devolucion->arriendo->combustible->combustible_tanque == 1?'ft-check-circle text-success':'ft-x text-danger'}}"></i></span></td>
+                  <td class="text-center">{{$devolucion->arriendo->combustible->combustible_ob_tanque?$devolucion->arriendo->combustible->combustible_ob_tanque:'N/T'}}</td>
+                  <td class="text-center"><span class="d-block overflow-hidden"><i class="{{$devolucion->combustible->combustible_tanque == 1?'ft-check-circle text-success':'ft-x text-danger'}}"></i></span></td>
+                  <td class="text-center">{{$devolucion->combustible->combustible_ob_tanque?$devolucion->combustible->combustible_ob_tanque:'N/T'}}</td>
+                </tr>
+                <tr>
+                  <td>Medidor N.</td>
+                  <td class="text-center"><span class="d-block overflow-hidden"><i class="{{$devolucion->arriendo->combustible->combustible_medidor_nivel == 1?'ft-check-circle text-success':'ft-x text-danger'}}"></i></span></td>
+                  <td class="text-center">{{$devolucion->arriendo->combustible->combustible_ob_medidor_nivel?$devolucion->arriendo->combustible->combustible_ob_medidor_nivel:'N/T'}}</td>
+                  <td class="text-center"><span class="d-block overflow-hidden"><i class="{{$devolucion->combustible->combustible_medidor_nivel == 1?'ft-check-circle text-success':'ft-x text-danger'}}"></i></span></td>
+                  <td class="text-center">{{$devolucion->combustible->combustible_ob_medidor_nivel?$devolucion->combustible->combustible_ob_medidor_nivel:'N/T'}}</td>
+                </tr>
+                <tr>
+                  <td>Tapón</td>
+                  <td class="text-center"><span class="d-block overflow-hidden"><i class="{{$devolucion->arriendo->combustible->combustible_tapon == 1?'ft-check-circle text-success':'ft-x text-danger'}}"></i></span></td>
+                  <td class="text-center">{{$devolucion->arriendo->combustible->combustible_ob_tapon?$devolucion->arriendo->combustible->combustible_ob_tapon:'N/T'}}</td>
+                  <td class="text-center"><span class="d-block overflow-hidden"><i class="{{$devolucion->combustible->combustible_tapon == 1?'ft-check-circle text-success':'ft-x text-danger'}}"></i></span></td>
+                  <td class="text-center">{{$devolucion->combustible->combustible_ob_tapon?$devolucion->combustible->combustible_ob_tapon:'N/T'}}</td>
+                </tr>
+                <tr>
+                  <td>Fugas</td>
+                  <td class="text-center"><span class="d-block overflow-hidden"><i class="{{$devolucion->arriendo->combustible->combustible_fugas == 1?'ft-check-circle text-success':'ft-x text-danger'}}"></i></span></td>
+                  <td class="text-center">{{$devolucion->arriendo->combustible->cobustible_ob_fugas?$devolucion->arriendo->combustible->cobustible_ob_fugas:'N/T'}}</td>
+                  <td class="text-center"><span class="d-block overflow-hidden"><i class="{{$devolucion->combustible->combustible_fugas == 1?'ft-check-circle text-success':'ft-x text-danger'}}"></i></span></td>
+                  <td class="text-center">{{$devolucion->combustible->cobustible_ob_fugas?$devolucion->combustible->cobustible_ob_fugas:'N/T'}}</td>
+                </tr>
+                <tr>
+                  <td>Cebador</td>
+                  <td class="text-center"><span class="d-block overflow-hidden"><i class="{{$devolucion->arriendo->combustible->combustible_cebador == 1?'ft-check-circle text-success':'ft-x text-danger'}}"></i></span></td>
+                  <td class="text-center">{{$devolucion->arriendo->combustible->combustible_ob_cebador?$devolucion->arriendo->combustible->combustible_ob_cebador:'N/T'}}</td>
+                  <td class="text-center"><span class="d-block overflow-hidden"><i class="{{$devolucion->combustible->combustible_cebador == 1?'ft-check-circle text-success':'ft-x text-danger'}}"></i></span></td>
+                  <td class="text-center">{{$devolucion->combustible->combustible_ob_cebador?$devolucion->combustible->combustible_ob_cebador:'N/T'}}</td>
+                </tr>
+                <tr>
+                  <td>Filtro Primario</td>
+                  <td class="text-center"><span class="d-block overflow-hidden"><i class="{{$devolucion->arriendo->combustible->combustible_filtro_primario == 1?'ft-check-circle text-success':'ft-x text-danger'}}"></i></span></td>
+                  <td class="text-center">{{$devolucion->arriendo->combustible->combustible_ob_filtro_primario?$devolucion->arriendo->combustible->combustible_ob_filtro_primario:'N/T'}}</td>
+                  <td class="text-center"><span class="d-block overflow-hidden"><i class="{{$devolucion->combustible->combustible_filtro_primario == 1?'ft-check-circle text-success':'ft-x text-danger'}}"></i></span></td>
+                  <td class="text-center">{{$devolucion->combustible->combustible_ob_filtro_primario?$devolucion->combustible->combustible_ob_filtro_primario:'N/T'}}</td>
+                </tr>
+                <tr>
+                  <td>Filtro Secundario</td>
+                  <td class="text-center"><span class="d-block overflow-hidden"><i class="{{$devolucion->arriendo->combustible->combustible_filtro_secundario == 1?'ft-check-circle text-success':'ft-x text-danger'}}"></i></span></td>
+                  <td class="text-center">{{$devolucion->arriendo->combustible->combustible_ob_filtro_secundario?$devolucion->arriendo->combustible->combustible_ob_filtro_secundario:'N/T'}}</td>
+                  <td class="text-center"><span class="d-block overflow-hidden"><i class="{{$devolucion->combustible->combustible_filtro_secundario == 1?'ft-check-circle text-success':'ft-x text-danger'}}"></i></span></td>
+                  <td class="text-center">{{$devolucion->combustible->combustible_ob_filtro_secundario?$devolucion->combustible->combustible_ob_filtro_secundario:'N/T'}}</td>
+                </tr>
+              </tbody>
+               <thead>
+                <tr>
+                  <th>HIDRÁULICO</th><br>
+                  <th class="text-center">Arriendo<br><small>Estado</small></th>
+                  <th class="text-center">Observación</th>
+                  <th class="text-center">Devolución<br><small>Estado</small></th>
+                  <th class="text-center">Observación</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Bombas</td>
+                  <td class="text-center"><span class="d-block overflow-hidden"><i class="{{$devolucion->arriendo->hidraulico->hidraulico_bombas == 1?'ft-check-circle text-success':'ft-x text-danger'}}"></i></span></td>
+                  <td class="text-center">{{$devolucion->arriendo->combustible->hidraulico_ob_bombas?$devolucion->arriendo->combustible->hidraulico_ob_bombas:'N/T'}}</td>
+                  <td class="text-center"><span class="d-block overflow-hidden"><i class="{{$devolucion->hidraulico->hidraulico_bombas == 1?'ft-check-circle text-success':'ft-x text-danger'}}"></i></span></td>
+                  <td class="text-center">{{$devolucion->combustible->hidraulico_ob_bombas?$devolucion->combustible->hidraulico_ob_bombas:'N/T'}}</td>
+                </tr>
+                <tr>
+                  <td>Tanque</td>
+                  <td class="text-center"><span class="d-block overflow-hidden"><i class="{{$devolucion->arriendo->hidraulico->hidraulico_tanque == 1?'ft-check-circle text-success':'ft-x text-danger'}}"></i></span></td>
+                  <td class="text-center">{{$devolucion->arriendo->hidraulico->hidraulico_ob_tanque?$devolucion->arriendo->hidraulico->hidraulico_ob_tanque:'N/T'}}</td>
+                  <td class="text-center"><span class="d-block overflow-hidden"><i class="{{$devolucion->hidraulico->hidraulico_tanque == 1?'ft-check-circle text-success':'ft-x text-danger'}}"></i></span></td>
+                  <td class="text-center">{{$devolucion->hidraulico->hidraulico_ob_tanque?$devolucion->hidraulico->hidraulico_ob_tanque:'N/T'}}</td>
+                </tr>
+                <tr>
+                  <td>Nivel</td>
+                  <td class="text-center"><span class="d-block overflow-hidden"><i class="{{$devolucion->arriendo->hidraulico->hidraulico_nivel == 1?'ft-check-circle text-success':'ft-x text-danger'}}"></i></span></td>
+                  <td class="text-center">{{$devolucion->arriendo->hidraulico->hidraulico_ob_nivel?$devolucion->arriendo->hidraulico->hidraulico_ob_nivel:'N/T'}}</td>
+                  <td class="text-center"><span class="d-block overflow-hidden"><i class="{{$devolucion->hidraulico->hidraulico_nivel == 1?'ft-check-circle text-success':'ft-x text-danger'}}"></i></span></td>
+                  <td class="text-center">{{$devolucion->hidraulico->hidraulico_ob_nivel?$devolucion->hidraulico->hidraulico_ob_nivel:'N/T'}}</td>
+                </tr>
+                <tr>
+                  <td>Tapón</td>
+                  <td class="text-center"><span class="d-block overflow-hidden"><i class="{{$devolucion->arriendo->hidraulico->hidraulico_tapon == 1?'ft-check-circle text-success':'ft-x text-danger'}}"></i></span></td>
+                  <td class="text-center">{{$devolucion->arriendo->hidraulico->hidraulico_ob_tapon?$devolucion->arriendo->hidraulico->hidraulico_ob_tapon:'N/T'}}</td>
+                  <td class="text-center"><span class="d-block overflow-hidden"><i class="{{$devolucion->hidraulico->hidraulico_tapon == 1?'ft-check-circle text-success':'ft-x text-danger'}}"></i></span></td>
+                  <td class="text-center">{{$devolucion->hidraulico->hidraulico_ob_tapon?$devolucion->hidraulico->hidraulico_ob_tapon:'N/T'}}</td>
+                </tr>
+                <tr>
+                  <td>Visor</td>
+                  <td class="text-center"><span class="d-block overflow-hidden"><i class="{{$devolucion->arriendo->hidraulico->hidraulico_visor == 1?'ft-check-circle text-success':'ft-x text-danger'}}"></i></span></td>
+                  <td class="text-center">{{$devolucion->arriendo->hidraulico->hidraulico_ob_visor?$devolucion->arriendo->hidraulico->hidraulico_ob_visor:'N/T'}}</td>
+                  <td class="text-center"><span class="d-block overflow-hidden"><i class="{{$devolucion->hidraulico->hidraulico_visor == 1?'ft-check-circle text-success':'ft-x text-danger'}}"></i></span></td>
+                  <td class="text-center">{{$devolucion->hidraulico->hidraulico_ob_visor?$devolucion->hidraulico->hidraulico_ob_visor:'N/T'}}</td>
+                </tr>
+                <tr>
+                  <td>Filtro Primario</td>
+                  <td class="text-center"><span class="d-block overflow-hidden"><i class="{{$devolucion->arriendo->combustible->combustible_filtro_primario == 1?'ft-check-circle text-success':'ft-x text-danger'}}"></i></span></td>
+                  <td class="text-center">{{$devolucion->arriendo->combustible->combustible_ob_filtro_primario?$devolucion->arriendo->combustible->combustible_ob_filtro_primario:'N/T'}}</td>
+                  <td class="text-center"><span class="d-block overflow-hidden"><i class="{{$devolucion->combustible->combustible_filtro_primario == 1?'ft-check-circle text-success':'ft-x text-danger'}}"></i></span></td>
+                  <td class="text-center">{{$devolucion->combustible->combustible_ob_filtro_primario?$devolucion->combustible->combustible_ob_filtro_primario:'N/T'}}</td>
+                </tr>
+                <tr>
+                  <td>Filtro Secundario</td>
+                  <td class="text-center"><span class="d-block overflow-hidden"><i class="{{$devolucion->arriendo->combustible->combustible_filtro_secundario == 1?'ft-check-circle text-success':'ft-x text-danger'}}"></i></span></td>
+                  <td class="text-center">{{$devolucion->arriendo->combustible->combustible_ob_filtro_secundario?$devolucion->arriendo->combustible->combustible_ob_filtro_secundario:'N/T'}}</td>
+                  <td class="text-center"><span class="d-block overflow-hidden"><i class="{{$devolucion->combustible->combustible_filtro_secundario == 1?'ft-check-circle text-success':'ft-x text-danger'}}"></i></span></td>
+                  <td class="text-center">{{$devolucion->combustible->combustible_ob_filtro_secundario?$devolucion->combustible->combustible_ob_filtro_secundario:'N/T'}}</td>
+                </tr>
+                <tr>
+                  <td>Cilindros Fugas</td>
+                  <td class="text-center"><span class="d-block overflow-hidden"><i class="{{$devolucion->arriendo->combustible->combustible_filtro_secundario == 1?'ft-check-circle text-success':'ft-x text-danger'}}"></i></span></td>
+                  <td class="text-center">{{$devolucion->arriendo->combustible->combustible_ob_filtro_secundario?$devolucion->arriendo->combustible->combustible_ob_filtro_secundario:'N/T'}}</td>
+                  <td class="text-center"><span class="d-block overflow-hidden"><i class="{{$devolucion->combustible->combustible_filtro_secundario == 1?'ft-check-circle text-success':'ft-x text-danger'}}"></i></span></td>
+                  <td class="text-center">{{$devolucion->combustible->combustible_ob_filtro_secundario?$devolucion->combustible->combustible_ob_filtro_secundario:'N/T'}}</td>
+                </tr>
+                <tr>
+                  <td>Cilindros Sellos</td>
+                  <td class="text-center"><span class="d-block overflow-hidden"><i class="{{$devolucion->arriendo->combustible->combustible_filtro_secundario == 1?'ft-check-circle text-success':'ft-x text-danger'}}"></i></span></td>
+                  <td class="text-center">{{$devolucion->arriendo->combustible->combustible_ob_filtro_secundario?$devolucion->arriendo->combustible->combustible_ob_filtro_secundario:'N/T'}}</td>
+                  <td class="text-center"><span class="d-block overflow-hidden"><i class="{{$devolucion->combustible->combustible_filtro_secundario == 1?'ft-check-circle text-success':'ft-x text-danger'}}"></i></span></td>
+                  <td class="text-center">{{$devolucion->combustible->combustible_ob_filtro_secundario?$devolucion->combustible->combustible_ob_filtro_secundario:'N/T'}}</td>
+                </tr>
+              </tbody>
+               <thead>
+                <tr>
+                  <th>AIRE</th><br>
+                  <th class="text-center">Arriendo<br><small>Estado</small></th>
+                  <th class="text-center">Observación</th>
+                  <th class="text-center">Devolución<br><small>Estado</small></th>
+                  <th class="text-center">Observación</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Filtro Primario</td>
+                  <td class="text-center"><span class="d-block overflow-hidden"><i class="{{$devolucion->arriendo->hidraulico->hidraulico_bombas == 1?'ft-check-circle text-success':'ft-x text-danger'}}"></i></span></td>
+                  <td class="text-center">{{$devolucion->arriendo->combustible->hidraulico_ob_bombas?$devolucion->arriendo->combustible->hidraulico_ob_bombas:'N/T'}}</td>
+                  <td class="text-center"><span class="d-block overflow-hidden"><i class="{{$devolucion->hidraulico->hidraulico_bombas == 1?'ft-check-circle text-success':'ft-x text-danger'}}"></i></span></td>
+                  <td class="text-center">{{$devolucion->combustible->hidraulico_ob_bombas?$devolucion->combustible->hidraulico_ob_bombas:'N/T'}}</td>
+                </tr>
+                <tr>
+                  <td>Filtro Secundario</td>
+                  <td class="text-center"><span class="d-block overflow-hidden"><i class="{{$devolucion->arriendo->hidraulico->hidraulico_tanque == 1?'ft-check-circle text-success':'ft-x text-danger'}}"></i></span></td>
+                  <td class="text-center">{{$devolucion->arriendo->hidraulico->hidraulico_ob_tanque?$devolucion->arriendo->hidraulico->hidraulico_ob_tanque:'N/T'}}</td>
+                  <td class="text-center"><span class="d-block overflow-hidden"><i class="{{$devolucion->hidraulico->hidraulico_tanque == 1?'ft-check-circle text-success':'ft-x text-danger'}}"></i></span></td>
+                  <td class="text-center">{{$devolucion->hidraulico->hidraulico_ob_tanque?$devolucion->hidraulico->hidraulico_ob_tanque:'N/T'}}</td>
+                </tr>
+                <tr>
+                  <td>Portafiltro</td>
+                  <td class="text-center"><span class="d-block overflow-hidden"><i class="{{$devolucion->arriendo->hidraulico->hidraulico_nivel == 1?'ft-check-circle text-success':'ft-x text-danger'}}"></i></span></td>
+                  <td class="text-center">{{$devolucion->arriendo->hidraulico->hidraulico_ob_nivel?$devolucion->arriendo->hidraulico->hidraulico_ob_nivel:'N/T'}}</td>
+                  <td class="text-center"><span class="d-block overflow-hidden"><i class="{{$devolucion->hidraulico->hidraulico_nivel == 1?'ft-check-circle text-success':'ft-x text-danger'}}"></i></span></td>
+                  <td class="text-center">{{$devolucion->hidraulico->hidraulico_ob_nivel?$devolucion->hidraulico->hidraulico_ob_nivel:'N/T'}}</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
-          <div class="col-12 col-md-6 col-lg-4">
-            <ul class="no-list-style">
-              <li class="mb-2">
-                <span class="text-bold-500 primary"><a> Tapón (Combustible):</a></span>
-                <span class="d-block overflow-hidden">{{$devolucion->arriendo->combustible->combustible_tapon == 1?'Si':'No'}}</span>
-              </li>
-              <li class="mb-2">
-                <span class="text-bold-500 primary"><a> Tapón (Observación):</a></span>
-                <span class="d-block overflow-hidden">{{$devolucion->arriendo->combustible->combustible_ob_tanque?$devolucion->arriendo->combustible->combustible_ob_tanque:'N/T'}}</span>
-              </li>
-              <li class="mb-2">
-                <span class="text-bold-500 primary"><a> Cebador (Combustible):</a></span>
-                <a class="d-block overflow-hidden">{{$devolucion->arriendo->combustible->combustible_cebador == 1?'Si':'No'}}</a>
-              </li>
-               <li class="mb-2">
-                <span class="text-bold-500 primary"><a> Cebador (Observación):</a></span>
-                <span class="d-block overflow-hidden">{{$devolucion->arriendo->combustible->combustible_ob_cebador?$devolucion->arriendo->combustible->combustible_ob_cebador:'N/T'}}</span>
-              </li>
-            </ul>
-          </div>
-          <div class="col-12 col-md-6 col-lg-4">
-            <ul class="no-list-style">
-              <li class="mb-2">
-                <span class="text-bold-500 primary"><a> Filtro Primario:</a></span>
-                <span class="d-block overflow-hidden">{{$devolucion->arriendo->combustible->combustible_filtro_primario == 1?'Si':'No'}}</span>
-              </li>
-              <li class="mb-2">
-                <span class="text-bold-500 primary"><a> Filtro Primario (Observación):</a></span>
-               <span class="d-block overflow-hidden">{{$devolucion->arriendo->combustible->combustible_ob_filtro_primario?$devolucion->arriendo->combustible->combustible_ob_filtro_primario:'N/T'}}</span>
-              </li>
-              <li class="mb-2">
-                <span class="text-bold-500 primary"><a> Filtro Secundario:</a></span>
-                <span class="d-block overflow-hidden">{{$devolucion->arriendo->combustible->combustible_filtro_secundario == 1?'Si':'No'}}</span>
-              </li>
-               <li class="mb-2">
-                <span class="text-bold-500 primary"><a> Filtro Secundario (Observación):</a></span>
-               <span class="d-block overflow-hidden">{{$devolucion->arriendo->combustible->combustible_ob_filtro_secundario?$devolucion->arriendo->combustible->combustible_ob_filtro_secundario:'N/T'}}</span>
-              </li>
-            </ul>
-          </div>
-        </div> <!-- fin row -->
-        <hr>
+        </div>
+        
       </div>
-    </div>
     <section id="photos">
 	  <div class="row">
 	    <div class="col-12">
@@ -124,6 +244,7 @@
               <li class="mb-2">
                 <span class="text-bold-500 primary"><a> Observación (Medidor Nivel):</a></span>
                  <span class="d-block overflow-hidden">{{$devolucion->combustible->combustible_ob_medidor_nivel?$devolucion->combustible->combustible_ob_medidor_nivel:'N/T'}}</span>
+              </li>
             </ul>
           </div>
           <div class="col-12 col-md-6 col-lg-4">
@@ -201,7 +322,7 @@
 
 
 <script src="{{asset('app-assets/vendors/js/core/jquery-3.2.1.min.js')}}" type="text/javascript"></script>
-<script type="text/javascript">
+<!-- <script type="text/javascript">
  
 
  (function(a) {
@@ -216,4 +337,4 @@
 	function closePrintView() {
 	        document.location.href = '{{route("devolucion.index")}}';
 	    }
-</script>
+</script> -->
