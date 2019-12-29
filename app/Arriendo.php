@@ -20,6 +20,21 @@ class Arriendo extends Model
 		return $this->hasOne('App\Hidraulico');
 	}
 
+	public function aire()
+	{
+		return $this->hasOne('App\Aire');
+	}
+
+	public function motor()
+	{
+		return $this->hasOne('App\Motor');
+	}
+
+	public function radiador()
+	{
+		return $this->hasOne('App\Radiador');
+	}
+
 	public function fotos()
 	{
 		return $this->hasMany('App\Fotos','arriendo_id');
