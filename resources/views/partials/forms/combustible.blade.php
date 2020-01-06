@@ -12,7 +12,7 @@
               <div class="container">
                 <div id="radios">
                   <label for="Si" class="material-icons" data-tooltip="Si">
-                    <input type="radio" name="mode" id="Si" value="1" required/>
+                    <input type="radio" name="mode"  id="Si" value="1" required/>
                     <span><i class="icon-like"></i></span>
                   </label>
                   <label for="No" class="material-icons" data-tooltip="No">

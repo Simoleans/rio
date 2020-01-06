@@ -15,8 +15,10 @@ class Correos extends Model
     	return $this->belongsTo('App\Regiones','region_id');
     }
 
-    public function comunas()
+    public function persona()
     {
-    	return $this->hasMany('App\CorreosPersonas','correos_id');
+    	return $this->hasOne('App\CorreosPersonas','correos_id');
     }
+
+
 }

@@ -28,10 +28,10 @@
 	               	<td class="text-center">{{$a->correo}}</td>
                   <td class="text-center"><a href="tel:{{ $a->telefono }}">{{ $a->telefono }}</a></td>
                   <td class="text-center">{{$a->region->region}}</td>
-	               	<!-- <td class="text-center">
-	               		<a href="{{route('productores.show',['id' => $a->id])}}" class="btn btn-raised btn-success btn-min-width mr-1 mb-1"><i class="fa fa-eye" title="Ver"></i></a>
-	               		<a href="{{route('productores.edit',['id' => $a->id])}}" class="btn btn-raised btn-warning btn-min-width mr-1 mb-1"><i class="fa fa-edit" title="Editar"></i></a>
-	               	</td> -->
+	               	<td class="text-center">
+	               		<!-- <a href="{{route('productores.show',['id' => $a->id])}}" class="btn btn-raised btn-success btn-min-width mr-1 mb-1"><i class="fa fa-eye" title="Ver"></i></a> -->
+	               		<a href="{{route('correos.edit',['id' => $a->id])}}" class="btn btn-raised btn-warning btn-min-width mr-1 mb-1"><i class="fa fa-edit" title="Editar"></i></a>
+	               	</td>
                </tr>
 			        @endforeach
               </tbody>

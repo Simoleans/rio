@@ -73,6 +73,7 @@ input[type="radio"] + span {
   font-family: 'Material Icons';
   color: #B3CEFB;
   border-radius: 50%;
+  font-size: 32px;
   padding: 12px;
   transition: all 0.4s;
   -webkit-transition: all 0.4s;

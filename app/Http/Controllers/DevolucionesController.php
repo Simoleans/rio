@@ -170,6 +170,8 @@ class DevolucionesController extends Controller
         // return $pdf->stream('invoice.pdf');
          $devolucion = Devoluciones::findOrfail($id);
 
+         
+
         return view('pdf.devolucion',['devolucion'=>$devolucion]);
     }
 }

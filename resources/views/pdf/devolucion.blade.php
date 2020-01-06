@@ -181,7 +181,7 @@ td {
                 <tr>
                   <td>Filtro Primario</td>
                   <td class="text-center"><span class="d-block overflow-hidden"><i class="{{$devolucion->arriendo->aire->air_filtro_pri == 1?'ft-check-circle text-success':'ft-x text-danger'}}"></i></span></td>
-                  <td class="text-center">{{$devolucion->arriendo->combustible->air_ob_filtro_pri?$devolucion->arriendo->aire->air_ob_filtro_pri:'N/T'}}</td>
+                  <td class="text-center">{{$devolucion->arriendo->aire->air_ob_filtro_pri?$devolucion->arriendo->aire->air_ob_filtro_pri:'N/T'}}</td>
                   <td class="text-center"><span class="d-block overflow-hidden"><i class="{{$devolucion->aire->air_filtro_pri == 1?'ft-check-circle text-success':'ft-x text-danger'}}"></i></span></td>
                   <td class="text-center">{{$devolucion->aire->air_ob_filtro_pri?$devolucion->aire->air_ob_filtro_pri:'N/T'}}</td>
                 </tr>

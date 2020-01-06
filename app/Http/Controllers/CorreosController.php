@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Regiones;
 use App\Correos;
+use App\Comunas;
 use App\CorreosPersonas;
 use Illuminate\Http\Request;
 
@@ -79,7 +80,6 @@ class CorreosController extends Controller
         $comunas = CorreosPersonas::where('correos_id',$correos->id)->get();
 
         
-
         return view('correos.show',['correo' => $correos,'comunas' => $comunas]);
     }
 
@@ -89,9 +89,15 @@ class CorreosController extends Controller
      * @param  \App\Correos  $correos
      * @return \Illuminate\Http\Response
      */
-    public function edit(Correos $correos)
+    public function edit($id)
     {
-        //
+        $correo = Correos::findOrfail($id);
+        $regiones = Regiones::all();
+        $comuna = Comunas::where('region_id',$correo->region_id)->get();
+
+        //dd($correo->persona->comunas_id);
+
+        return view('correos.edit',['correo' => $correo,'regiones' => $regiones,'comunas' => $comuna]);
     }
 
     /**
