@@ -57,6 +57,7 @@ class CreateOtrosTable extends Migration
             $table->string('bocina')->nullable();
             $table->string('ob_bocina')->nullable();
             $table->string('bip_retroceso')->nullable();
+            $table->string('ob_bip_retroceso')->nullable();
             $table->string('iluminacion')->nullable();
             $table->string('ob_iluminacion')->nullable();
             $table->string('neumaticos_llantas')->nullable();

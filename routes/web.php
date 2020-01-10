@@ -50,6 +50,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('/correos','CorreosController');
     Route::resource('/devolucion','DevolucionesController');
     Route::resource('/reporte','ReporteController');
+
+    /* reporte */
+    Route::post('/reporteExcel','ReporteController@excel')->name('reporte.excel');
   
 
     //talonarios

@@ -117,6 +117,7 @@
           @include('partials.forms.aire')
           @include('partials.forms.motor')
           @include('partials.forms.radiador')
+          @include('partials.forms.otros')
 
         </form>
       </div>

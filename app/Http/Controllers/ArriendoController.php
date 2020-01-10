@@ -12,6 +12,7 @@ use App\Regiones;
 use App\Aire;
 use App\Radiador;
 use App\Maquina;
+use App\Otros;
 class ArriendoController extends Controller
 {
     /**
@@ -81,6 +82,11 @@ class ArriendoController extends Controller
             $radiador->arriendo_id = $arriendo->id;
             $radiador->fill($request->all());
             $radiador->save();
+
+           $otros = new Otros();
+           $otros->arriendo_id = $arriendo->id;
+           $otros->fill($request->all());
+           $otros->save();
 
             foreach ($request->image as $img) {
                 $image = $img;  // your base64 encoded

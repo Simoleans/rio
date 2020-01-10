@@ -12,6 +12,7 @@ use App\Hidraulico;
 use App\Motor;
 use App\Aire;
 use App\Radiador;
+use App\Otros;
 use Illuminate\Http\Request;
 use PDF;
 
@@ -89,6 +90,11 @@ class DevolucionesController extends Controller
             $radiador->devolucion_id = $devolucion->id;
             $radiador->fill($request->all());
             $radiador->save();
+
+               $otros = new Otros();
+               $otros->devolucion_id = $devolucion->id;
+               $otros->fill($request->all());
+               $otros->save();
 
             foreach ($request->image as $img) {
                 $image = $img;  // your base64 encoded

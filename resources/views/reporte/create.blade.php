@@ -10,15 +10,21 @@
     <hr>
     <div class="card-content">
       <div class="px-3">
-        <form class="form" action="{{route('faena.store')}}" method="POST">
+        <form class="form" action="{{route('reporte.store')}}" method="POST">
           @csrf
+          <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
           <div class="form-body">
             <!-- <h4 class="form-section"><i class="ft-user"></i>Información Personal</h4> -->
             <div class="row">
               <div class="col-md-12">
                 <div class="form-group">
                   <label for="projectinput1">Talonario (Inicio)</label>
-                  <h3>{{Auth::user()->talonario->inicio}}</h3>
+                  @if(isset(Auth::user()->talonario->inicio))
+                    <h3>{{Auth::user()->talonario->inicio}}</h3>
+                  @else
+                    <br>
+                    <a class="btn btn-success" href="{{route('talonarios.create')}}"><i class="fa fa-plus"></i> Registrar Talonario</a>
+                  @endif
                 </div>
               </div>
               <div class="col-md-6">

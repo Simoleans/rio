@@ -182,5 +182,5 @@
     </div>
   </div> <!-- fin row -->
   <input type="button" name="previous" class="previous btn btn-warning"  value="Anterior" />
-  <input type="submit" name="submit" class="submit btn btn-success" value="Guardar" />
+  <input type="button" name="next" class="next btn btn-info"  value="Confirmar" />
 </fieldset>

@@ -35,6 +35,12 @@ class Arriendo extends Model
 		return $this->hasOne('App\Radiador');
 	}
 
+	public function otros()
+	{
+		return $this->hasOne('App\Otros');
+	}
+
+
 	public function fotos()
 	{
 		return $this->hasMany('App\Fotos','arriendo_id');

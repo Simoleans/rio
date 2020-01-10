@@ -19,7 +19,14 @@ td {
     html, body {
         height: 99%;    
     }
+
+    .pagebreak {
+        clear: both;
+        page-break-after: always;
+    }
 }
+
+
 </style>
 <body>
 <div class="main-content">
@@ -344,82 +351,220 @@ td {
                 </tr>
               </tbody>   
             </table>
+           
+            <table class="table">
+               <thead>
+                <tr>
+                  <th>OTROS</th><br>
+                  <th class="text-center">Arriendo<br><small>Estado</small></th>
+                  <th class="text-center">Observación</th>
+                  <th class="text-center">Devolución<br><small>Estado</small></th>
+                  <th class="text-center">Observación</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Limpieza General</td>
+                  <td class="text-center"><span class="d-block overflow-hidden"><i class="{{$devolucion->arriendo->otros->limpieza_general == 1?'ft-check-circle text-success':'ft-x text-danger'}}"></i></span></td>
+                  <td class="text-center">{{$devolucion->arriendo->otros->ob_limpieza_general?$devolucion->arriendo->otros->ob_limpieza_general:'N/T'}}</td>
+                  <td class="text-center"><span class="d-block overflow-hidden"><i class="{{$devolucion->otros->limpieza_general == 1?'ft-check-circle text-success':'ft-x text-danger'}}"></i></span></td>
+                  <td class="text-center">{{$devolucion->otros->ob_limpieza_general?$devolucion->otros->ob_limpieza_general:'N/T'}}</td>
+                </tr>
+                <tr>
+                  <td>Latas</td>
+                  <td class="text-center"><span class="d-block overflow-hidden"><i class="{{$devolucion->arriendo->otros->latas == 1?'ft-check-circle text-success':'ft-x text-danger'}}"></i></span></td>
+                  <td class="text-center">{{$devolucion->arriendo->otros->ob_latas?$devolucion->arriendo->otros->ob_latas:'N/T'}}</td>
+                  <td class="text-center"><span class="d-block overflow-hidden"><i class="{{$devolucion->otros->latas == 1?'ft-check-circle text-success':'ft-x text-danger'}}"></i></span></td>
+                  <td class="text-center">{{$devolucion->otros->ob_latas?$devolucion->otros->ob_latas:'N/T'}}</td>
+                </tr>
+                <tr>
+                  <td>Mangueras</td>
+                  <td class="text-center"><span class="d-block overflow-hidden"><i class="{{$devolucion->arriendo->otros->mangueras == 1?'ft-check-circle text-success':'ft-x text-danger'}}"></i></span></td>
+                  <td class="text-center">{{$devolucion->arriendo->otros->ob_mangueras?$devolucion->arriendo->otros->ob_mangueras:'N/T'}}</td>
+                  <td class="text-center"><span class="d-block overflow-hidden"><i class="{{$devolucion->otros->mangueras == 1?'ft-check-circle text-success':'ft-x text-danger'}}"></i></span></td>
+                  <td class="text-center">{{$devolucion->otros->ob_mangueras?$devolucion->otros->ob_mangueras:'N/T'}}</td>
+                </tr>
+                <tr>
+                  <td>Cableado General</td>
+                  <td class="text-center"><span class="d-block overflow-hidden"><i class="{{$devolucion->arriendo->otros->cableado_general == 1?'ft-check-circle text-success':'ft-x text-danger'}}"></i></span></td>
+                  <td class="text-center">{{$devolucion->arriendo->otros->ob_cableado_general?$devolucion->arriendo->otros->ob_cableado_general:'N/T'}}</td>
+                  <td class="text-center"><span class="d-block overflow-hidden"><i class="{{$devolucion->otros->cableado_general == 1?'ft-check-circle text-success':'ft-x text-danger'}}"></i></span></td>
+                  <td class="text-center">{{$devolucion->otros->ob_cableado_general?$devolucion->otros->ob_cableado_general:'N/T'}}</td>
+                </tr>
+                <tr>
+                  <td>Paletas Resortes</td>
+                  <td class="text-center"><span class="d-block overflow-hidden"><i class="{{$devolucion->arriendo->otros->paletas_resortes == 1?'ft-check-circle text-success':'ft-x text-danger'}}"></i></span></td>
+                  <td class="text-center">{{$devolucion->arriendo->otros->ob_paletas_resortes?$devolucion->arriendo->otros->ob_paletas_resortes:'N/T'}}</td>
+                  <td class="text-center"><span class="d-block overflow-hidden"><i class="{{$devolucion->otros->paletas_resortes == 1?'ft-check-circle text-success':'ft-x text-danger'}}"></i></span></td>
+                  <td class="text-center">{{$devolucion->otros->ob_paletas_resortes?$devolucion->otros->ob_paletas_resortes:'N/T'}}</td>
+                </tr>
+                <tr>
+                  <td>Agitadores Palillos</td>
+                  <td class="text-center"><span class="d-block overflow-hidden"><i class="{{$devolucion->arriendo->otros->agitadores_palillos == 1?'ft-check-circle text-success':'ft-x text-danger'}}"></i></span></td>
+                  <td class="text-center">{{$devolucion->arriendo->otros->ob_agitadores_palillos?$devolucion->arriendo->otros->ob_agitadores_palillos:'N/T'}}</td>
+                  <td class="text-center"><span class="d-block overflow-hidden"><i class="{{$devolucion->otros->agitadores_palillos == 1?'ft-check-circle text-success':'ft-x text-danger'}}"></i></span></td>
+                  <td class="text-center">{{$devolucion->otros->ob_agitadores_palillos?$devolucion->otros->ob_agitadores_palillos:'N/T'}}</td>
+                </tr>
+                <tr>
+                  <td>Rodamientos</td>
+                  <td class="text-center"><span class="d-block overflow-hidden"><i class="{{$devolucion->arriendo->otros->rodamientos == 1?'ft-check-circle text-success':'ft-x text-danger'}}"></i></span></td>
+                  <td class="text-center">{{$devolucion->arriendo->otros->ob_rodamientos?$devolucion->arriendo->otros->ob_rodamientos:'N/T'}}</td>
+                  <td class="text-center"><span class="d-block overflow-hidden"><i class="{{$devolucion->otros->rodamientos == 1?'ft-check-circle text-success':'ft-x text-danger'}}"></i></span></td>
+                  <td class="text-center">{{$devolucion->otros->ob_rodamientos?$devolucion->otros->ob_rodamientos:'N/T'}}</td>
+                </tr>
+                <tr>
+                  <td>Correas Poleas</td>
+                  <td class="text-center"><span class="d-block overflow-hidden"><i class="{{$devolucion->arriendo->otros->correas_poleas == 1?'ft-check-circle text-success':'ft-x text-danger'}}"></i></span></td>
+                  <td class="text-center">{{$devolucion->arriendo->otros->ob_correas_poleas?$devolucion->arriendo->otros->ob_correas_poleas:'N/T'}}</td>
+                  <td class="text-center"><span class="d-block overflow-hidden"><i class="{{$devolucion->otros->correas_poleas == 1?'ft-check-circle text-success':'ft-x text-danger'}}"></i></span></td>
+                  <td class="text-center">{{$devolucion->otros->ob_correas_poleas?$devolucion->otros->ob_correas_poleas:'N/T'}}</td>
+                </tr>
+                <tr>
+                  <td>Cintas Bandas</td>
+                  <td class="text-center"><span class="d-block overflow-hidden"><i class="{{$devolucion->arriendo->otros->cintas_bandas == 1?'ft-check-circle text-success':'ft-x text-danger'}}"></i></span></td>
+                  <td class="text-center">{{$devolucion->arriendo->otros->ob_cintas_bandas?$devolucion->arriendo->otros->ob_cintas_bandas:'N/T'}}</td>
+                  <td class="text-center"><span class="d-block overflow-hidden"><i class="{{$devolucion->otros->cintas_bandas == 1?'ft-check-circle text-success':'ft-x text-danger'}}"></i></span></td>
+                  <td class="text-center">{{$devolucion->otros->ob_cintas_bandas?$devolucion->otros->ob_cintas_bandas:'N/T'}}</td>
+                </tr>
+                <tr>
+                  <td>Sopladores</td>
+                  <td class="text-center"><span class="d-block overflow-hidden"><i class="{{$devolucion->arriendo->otros->sopladores == 1?'ft-check-circle text-success':'ft-x text-danger'}}"></i></span></td>
+                  <td class="text-center">{{$devolucion->arriendo->otros->ob_sopladores?$devolucion->arriendo->otros->ob_sopladores:'N/T'}}</td>
+                  <td class="text-center"><span class="d-block overflow-hidden"><i class="{{$devolucion->otros->sopladores == 1?'ft-check-circle text-success':'ft-x text-danger'}}"></i></span></td>
+                  <td class="text-center">{{$devolucion->otros->ob_sopladores?$devolucion->otros->ob_sopladores:'N/T'}}</td>
+                </tr>
+                <tr>
+                  <td>Piso Techo</td>
+                  <td class="text-center"><span class="d-block overflow-hidden"><i class="{{$devolucion->arriendo->otros->piso_techo == 1?'ft-check-circle text-success':'ft-x text-danger'}}"></i></span></td>
+                  <td class="text-center">{{$devolucion->arriendo->otros->ob_piso_techo?$devolucion->arriendo->otros->ob_piso_techo:'N/T'}}</td>
+                  <td class="text-center"><span class="d-block overflow-hidden"><i class="{{$devolucion->otros->piso_techo == 1?'ft-check-circle text-success':'ft-x text-danger'}}"></i></span></td>
+                  <td class="text-center">{{$devolucion->otros->ob_piso_techo?$devolucion->otros->ob_piso_techo:'N/T'}}</td>
+                </tr>
+                <tr>
+                  <td>Asiento</td>
+                  <td class="text-center"><span class="d-block overflow-hidden"><i class="{{$devolucion->arriendo->otros->asiento == 1?'ft-check-circle text-success':'ft-x text-danger'}}"></i></span></td>
+                  <td class="text-center">{{$devolucion->arriendo->otros->ob_asiento?$devolucion->arriendo->otros->ob_asiento:'N/T'}}</td>
+                  <td class="text-center"><span class="d-block overflow-hidden"><i class="{{$devolucion->otros->asiento == 1?'ft-check-circle text-success':'ft-x text-danger'}}"></i></span></td>
+                  <td class="text-center">{{$devolucion->otros->ob_asiento?$devolucion->otros->ob_asiento:'N/T'}}</td>
+                </tr>
+                <tr>
+                  <td>Palanca Mando</td>
+                  <td class="text-center"><span class="d-block overflow-hidden"><i class="{{$devolucion->arriendo->otros->palanca_mando == 1?'ft-check-circle text-success':'ft-x text-danger'}}"></i></span></td>
+                  <td class="text-center">{{$devolucion->arriendo->otros->ob_palanca_mando?$devolucion->arriendo->otros->ob_palanca_mando:'N/T'}}</td>
+                  <td class="text-center"><span class="d-block overflow-hidden"><i class="{{$devolucion->otros->palanca_mando == 1?'ft-check-circle text-success':'ft-x text-danger'}}"></i></span></td>
+                  <td class="text-center">{{$devolucion->otros->ob_palanca_mando?$devolucion->otros->ob_palanca_mando:'N/T'}}</td>
+                </tr>
+                <tr>
+                  <td>Panel Interruptores</td>
+                  <td class="text-center"><span class="d-block overflow-hidden"><i class="{{$devolucion->arriendo->otros->panel_interruptores == 1?'ft-check-circle text-success':'ft-x text-danger'}}"></i></span></td>
+                  <td class="text-center">{{$devolucion->arriendo->otros->ob_panel_interruptores?$devolucion->arriendo->otros->ob_panel_interruptores:'N/T'}}</td>
+                  <td class="text-center"><span class="d-block overflow-hidden"><i class="{{$devolucion->otros->panel_interruptores == 1?'ft-check-circle text-success':'ft-x text-danger'}}"></i></span></td>
+                  <td class="text-center">{{$devolucion->otros->ob_panel_interruptores?$devolucion->otros->ob_panel_interruptores:'N/T'}}</td>
+                </tr>
+                <tr>
+                  <td>Batería</td>
+                  <td class="text-center"><span class="d-block overflow-hidden"><i class="{{$devolucion->arriendo->otros->bateria == 1?'ft-check-circle text-success':'ft-x text-danger'}}"></i></span></td>
+                  <td class="text-center">{{$devolucion->arriendo->otros->ob_bateria?$devolucion->arriendo->otros->ob_bateria:'N/T'}}</td>
+                  <td class="text-center"><span class="d-block overflow-hidden"><i class="{{$devolucion->otros->bateria == 1?'ft-check-circle text-success':'ft-x text-danger'}}"></i></span></td>
+                  <td class="text-center">{{$devolucion->otros->ob_bateria?$devolucion->otros->ob_bateria:'N/T'}}</td>
+                </tr>
+                <tr>
+                  <td>Interruptor Batería</td>
+                  <td class="text-center"><span class="d-block overflow-hidden"><i class="{{$devolucion->arriendo->otros->interruptor_bateria == 1?'ft-check-circle text-success':'ft-x text-danger'}}"></i></span></td>
+                  <td class="text-center">{{$devolucion->arriendo->otros->ob_interruptor_bateria?$devolucion->arriendo->otros->ob_interruptor_bateria:'N/T'}}</td>
+                  <td class="text-center"><span class="d-block overflow-hidden"><i class="{{$devolucion->otros->interruptor_bateria == 1?'ft-check-circle text-success':'ft-x text-danger'}}"></i></span></td>
+                  <td class="text-center">{{$devolucion->otros->ob_interruptor_bateria?$devolucion->otros->ob_interruptor_bateria:'N/T'}}</td>
+                </tr>
+                <tr>
+                  <td>Caja Fusibles</td>
+                  <td class="text-center"><span class="d-block overflow-hidden"><i class="{{$devolucion->arriendo->otros->rodamientos == 1?'ft-check-circle text-success':'ft-x text-danger'}}"></i></span></td>
+                  <td class="text-center">{{$devolucion->arriendo->otros->ob_rodamientos?$devolucion->arriendo->otros->ob_rodamientos:'N/T'}}</td>
+                  <td class="text-center"><span class="d-block overflow-hidden"><i class="{{$devolucion->otros->rodamientos == 1?'ft-check-circle text-success':'ft-x text-danger'}}"></i></span></td>
+                  <td class="text-center">{{$devolucion->otros->ob_rodamientos?$devolucion->otros->ob_rodamientos:'N/T'}}</td>
+                </tr>
+                <tr>
+                  <td>Sensores De Inclinación</td>
+                  <td class="text-center"><span class="d-block overflow-hidden"><i class="{{$devolucion->arriendo->otros->sensores_inclinacion == 1?'ft-check-circle text-success':'ft-x text-danger'}}"></i></span></td>
+                  <td class="text-center">{{$devolucion->arriendo->otros->ob_sensores_inclinacion?$devolucion->arriendo->otros->ob_sensores_inclinacion:'N/T'}}</td>
+                  <td class="text-center"><span class="d-block overflow-hidden"><i class="{{$devolucion->otros->sensores_inclinacion == 1?'ft-check-circle text-success':'ft-x text-danger'}}"></i></span></td>
+                  <td class="text-center">{{$devolucion->otros->ob_sensores_inclinacion?$devolucion->otros->ob_sensores_inclinacion:'N/T'}}</td>
+                </tr>
+                <tr>
+                  <td>Bocina</td>
+                  <td class="text-center"><span class="d-block overflow-hidden"><i class="{{$devolucion->arriendo->otros->bocina == 1?'ft-check-circle text-success':'ft-x text-danger'}}"></i></span></td>
+                  <td class="text-center">{{$devolucion->arriendo->otros->ob_bocina?$devolucion->arriendo->otros->ob_bocina:'N/T'}}</td>
+                  <td class="text-center"><span class="d-block overflow-hidden"><i class="{{$devolucion->otros->bocina == 1?'ft-check-circle text-success':'ft-x text-danger'}}"></i></span></td>
+                  <td class="text-center">{{$devolucion->otros->ob_bocina?$devolucion->otros->ob_bocina:'N/T'}}</td>
+                </tr>
+                <tr>
+                  <td>Bip Retroceso</td>
+                  <td class="text-center"><span class="d-block overflow-hidden"><i class="{{$devolucion->arriendo->otros->bip_retroceso == 1?'ft-check-circle text-success':'ft-x text-danger'}}"></i></span></td>
+                  <td class="text-center">{{$devolucion->arriendo->otros->ob_bip_retroceso?$devolucion->arriendo->otros->ob_bip_retroceso:'N/T'}}</td>
+                  <td class="text-center"><span class="d-block overflow-hidden"><i class="{{$devolucion->otros->bip_retroceso == 1?'ft-check-circle text-success':'ft-x text-danger'}}"></i></span></td>
+                  <td class="text-center">{{$devolucion->otros->ob_bip_retroceso?$devolucion->otros->ob_bip_retroceso:'N/T'}}</td>
+                </tr>
+                <tr>
+                  <td>Iluminación</td>
+                  <td class="text-center"><span class="d-block overflow-hidden"><i class="{{$devolucion->arriendo->otros->iluminacion == 1?'ft-check-circle text-success':'ft-x text-danger'}}"></i></span></td>
+                  <td class="text-center">{{$devolucion->arriendo->otros->ob_iluminacion?$devolucion->arriendo->otros->ob_iluminacion:'N/T'}}</td>
+                  <td class="text-center"><span class="d-block overflow-hidden"><i class="{{$devolucion->otros->iluminacion == 1?'ft-check-circle text-success':'ft-x text-danger'}}"></i></span></td>
+                  <td class="text-center">{{$devolucion->otros->ob_iluminacion?$devolucion->otros->ob_iluminacion:'N/T'}}</td>
+                </tr>
+                <tr>
+                  <td>Neumaticos/Llantas</td>
+                  <td class="text-center"><span class="d-block overflow-hidden"><i class="{{$devolucion->arriendo->otros->neumaticos_llantas == 1?'ft-check-circle text-success':'ft-x text-danger'}}"></i></span></td>
+                  <td class="text-center">{{$devolucion->arriendo->otros->ob_neumaticos_llantas?$devolucion->arriendo->otros->ob_neumaticos_llantas:'N/T'}}</td>
+                  <td class="text-center"><span class="d-block overflow-hidden"><i class="{{$devolucion->otros->neumaticos_llantas == 1?'ft-check-circle text-success':'ft-x text-danger'}}"></i></span></td>
+                  <td class="text-center">{{$devolucion->otros->ob_neumaticos_llantas?$devolucion->otros->ob_neumaticos_llantas:'N/T'}}</td>
+                </tr>
+                <tr>
+                  <td>Motor Ruedas</td>
+                  <td class="text-center"><span class="d-block overflow-hidden"><i class="{{$devolucion->arriendo->otros->motor_ruedas == 1?'ft-check-circle text-success':'ft-x text-danger'}}"></i></span></td>
+                  <td class="text-center">{{$devolucion->arriendo->otros->ob_motor_ruedas?$devolucion->arriendo->otros->ob_motor_ruedas:'N/T'}}</td>
+                  <td class="text-center"><span class="d-block overflow-hidden"><i class="{{$devolucion->otros->motor_ruedas == 1?'ft-check-circle text-success':'ft-x text-danger'}}"></i></span></td>
+                  <td class="text-center">{{$devolucion->otros->ob_motor_ruedas?$devolucion->otros->ob_motor_ruedas:'N/T'}}</td>
+                </tr>
+              </tbody>   
+            </table>
+
           </div>
         </div>
       </div>
-      
-
+       <div class="pagebreak"> </div>
+<br><br>
     <section id="photos">
   	  <div class="row">
   	    <div class="col-6">
           <table class="table table-borderless">
           <thead>
             <tr>
-              <th>Arriendo</th>
+              <th class="text-center"><h3>Arriendo</h3></th>
             </tr>
           </thead>
           <tbody>
             @foreach($devolucion->arriendo->fotos as $f)
               <tr> 
-                  <td><img class="img-thumbnail img-fluid" src="{{asset('fotos'.'/'.$f->foto)}}" itemprop="thumbnail" alt="Image description" /></td>        
+                  <td class="text-center"><img class="img-thumbnail img-fluid rounded mx-auto d-block" src="{{asset('fotos'.'/'.$f->foto)}}" itemprop="thumbnail" alt="Image description" /></td>        
               </tr>
             @endforeach
           </tbody>
           </table>
-  	     <!--  <div class="card">
-  	        <div class="card-content">
-  	          <div class="card-body">
-  	          	 <h3><strong>Fotos Arriendo</strong></h3>
-  	            <div class="row">
-  	              @foreach($devolucion->arriendo->fotos as $f)
-  	              <figure class="col-md-6">
-  	                <img class="img-thumbnail img-fluid" src="{{asset('fotos'.'/'.$f->foto)}}" itemprop="thumbnail" alt="Image description" />
-  	              </figure>
-  	              @endforeach
-                   @foreach($devolucion->fotos as $f)
-                  <figure class="col-md-6">
-                    <img class="img-thumbnail img-fluid" src="{{asset('fotos/devolucion'.'/'.$f->foto)}}" itemprop="thumbnail" alt="Image description" />
-                  </figure>
-                  @endforeach
-  	            </div>
-  	          </div>
-  	        </div>
-  	      </div> -->
   	    </div>
         <div class="col-6">
           <table class="table table-borderless">
           <thead>
             <tr>
-              <th>Devolución</th>
+              <th class="text-center"><h3>Devolución</h3></th>
             </tr>
           </thead>
           <tbody>
             @foreach($devolucion->fotos as $f)
               <tr>
-                  <td><img class="img-thumbnail img-fluid" src="{{asset('fotos/devolucion'.'/'.$f->foto)}}" itemprop="thumbnail" alt="Image description" /></td>    
+                  <td><img class="img-thumbnail img-fluid rounded mx-auto d-block" src="{{asset('fotos/devolucion'.'/'.$f->foto)}}" itemprop="thumbnail" alt="Image description" /></td>    
               </tr>
             @endforeach
           </tbody>
           </table>
-         <!--  <div class="card">
-            <div class="card-content">
-              <div class="card-body">
-                 <h3><strong>Fotos Arriendo</strong></h3>
-                <div class="row">
-                  @foreach($devolucion->arriendo->fotos as $f)
-                  <figure class="col-md-6">
-                    <img class="img-thumbnail img-fluid" src="{{asset('fotos'.'/'.$f->foto)}}" itemprop="thumbnail" alt="Image description" />
-                  </figure>
-                  @endforeach
-                   @foreach($devolucion->fotos as $f)
-                  <figure class="col-md-6">
-                    <img class="img-thumbnail img-fluid" src="{{asset('fotos/devolucion'.'/'.$f->foto)}}" itemprop="thumbnail" alt="Image description" />
-                  </figure>
-                  @endforeach
-                </div>
-              </div>
-            </div>
-          </div> -->
         </div>
   	  </div>
   	</section>
