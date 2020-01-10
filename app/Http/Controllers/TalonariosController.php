@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use App\Talonarios;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -27,7 +28,9 @@ class TalonariosController extends Controller
      */
     public function create()
     {
-        return view('talonarios.create');
+        $operadores = User::operadores();
+       
+        return view('talonarios.create',['operadores' => $operadores]);
     }
 
     /**

@@ -35,4 +35,23 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Si el usuario es operador
+     * @return string
+     */
+    public function isOperador()
+    {
+       return $this->rol == 1;
+    }
+
+    public static function operadores()
+    {
+        return static::where('rol',1)->get();
+    }
+
+    public function talonario()
+    {
+        return $this->hasOne('App\Talonarios','user_id');
+    }
 }

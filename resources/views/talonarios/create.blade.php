@@ -15,6 +15,17 @@
           <div class="form-body">
             <!-- <h4 class="form-section"><i class="ft-user"></i>Información Personal</h4> -->
             <div class="row">
+               <div class="col-md-12">
+                <div class="form-group">
+                  <label for="operador">Operador</label>
+                  <select class="form-control" name="user_id">
+                    <option value="">Seleccione...</option>
+                    @foreach($operadores as $o)
+                      <option value="{{$o->id}}">{{ strtoupper($o->nombre) }}</option>
+                    @endforeach
+                  </select>
+                </div>
+              </div>
               <div class="col-md-12">
                 <div class="form-group">
                   <label for="projectinput3">Nombre</label>

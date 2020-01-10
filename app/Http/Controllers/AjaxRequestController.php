@@ -146,4 +146,18 @@ class AjaxRequestController extends Controller
 
         return response()->json(['campos' => $campos]);
     }
+
+    public function buscarFaena(Request $request)
+    {
+        $faena = Faena::with(['productor','campo','maquina'])->where('id',$request->faena_id)->first();
+
+        return response()->json($faena);
+    }
+
+     public function searchVariedad(Request $request)
+    {
+        $variedades = Frutas::findOrfail($request->fruta_id)->variedades;
+
+        return response()->json(['data' => $variedades]);
+    }
 }

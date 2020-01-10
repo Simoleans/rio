@@ -34,8 +34,8 @@
                   <label for="projectinput3">Rol</label>
                   <select class="form-control" name="rol">
                     <option value="">Seleccione...</option>
-                    <option value="1">Admin</option>
-                    <option value="0">Operador</option>
+                    <option value="0">Admin</option>
+                    <option value="1">Operador</option>
                   </select>
                 </div>
               </div>

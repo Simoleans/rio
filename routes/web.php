@@ -49,6 +49,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('/sags','SagController');
     Route::resource('/correos','CorreosController');
     Route::resource('/devolucion','DevolucionesController');
+    Route::resource('/reporte','ReporteController');
   
 
     //talonarios
@@ -77,6 +78,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::put('/statusMaquina/{id}','AjaxRequestController@status_maquina')->name('maquina.status');
     Route::post('/searchMaq','AjaxRequestController@searchMaquina')->name('search.maquina');
     Route::post('/searcFaenaPr','AjaxRequestController@searchProducFaena')->name('searchFaenaProductor');
+    Route::post('/buscarFaena','AjaxRequestController@buscarFaena')->name('faena.buscar');
+    Route::post('/buscarVariedad','AjaxRequestController@searchVariedad')->name('variedad.search');
 
     //reportes PDF
     Route::get('/reportPOT','ReportesController@pot')->name('reporte.pot');

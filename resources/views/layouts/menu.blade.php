@@ -81,7 +81,7 @@
              <ul class="menu-content">
                <li><a href="{{route('arriendo.index')}}" class="menu-item">Lista de Reports</a>
                </li>
-               <li><a href="{{route('arriendo.create')}}" class="menu-item">Crear Reports</a>
+               <li><a href="{{route('reporte.create')}}" class="menu-item">Crear Reports</a>
                </li>
              </ul>
            </li>
