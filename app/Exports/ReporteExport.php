@@ -38,12 +38,18 @@ class ReporteExport implements FromView, ShouldAutoSize, WithEvents
     {
         return [
             AfterSheet::class    => function(AfterSheet $event) {
-                $cellRange = 'A1:M1'; // All headers
-                $event->sheet->getStyle('A2:K537')->getAlignment()->setWrapText(true);
-                //fondo del header
-                // $event->sheet->getStyle($cellRange)->getFill()
-                // ->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)
-                // ->getStartColor()->setARGB('FFE699');
+               
+              // //bordes en todo el excel
+              //  $styleBorder = [
+              //           'borders' => [
+              //               'allBorders' => [
+              //                   'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THICK,
+              //                   'color' => ['argb' => '000000'],
+              //               ],
+              //           ],
+              //       ];
+              //   $event->sheet->getStyle('A2:K537')->applyFromArray($styleBorder)->getAlignment()->setWrapText(true);
+
 
                 //fondo de la celda de la suma de KG
                 $event->sheet->getStyle('I3')->getFill()
@@ -53,7 +59,8 @@ class ReporteExport implements FromView, ShouldAutoSize, WithEvents
                 
                 
 
-
+                // Todo el diseño del header
+                $cellRange = 'A1:K1'; // All headers
                 $styleArray = [
                         'font' => [
                             'bold' => true,
@@ -61,11 +68,13 @@ class ReporteExport implements FromView, ShouldAutoSize, WithEvents
                         'alignment' => [
                             'horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_RIGHT,
                         ],
+                       
                         'borders' => [
-                            'top' => [
-                                'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN,
+                                'allBorders' => [
+                                    'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THICK,
+                                    'color' => ['argb' => '000000'],
+                                ],
                             ],
-                        ],
                         'fill' => [
                             'fillType' => \PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID,
                             'rotation' => 90,
@@ -75,9 +84,9 @@ class ReporteExport implements FromView, ShouldAutoSize, WithEvents
                             
                         ],
                     ];
-
+                $event->sheet->getColumnDimension('E')->setAutoSize(true);
 				$event->sheet->getDelegate()->getStyle($cellRange)->applyFromArray($styleArray)->getFont()->setSize(14);
-                 //$event->sheet->getDelegate()->getStyle($cellRange)->getFont()->setSize(17);
+                //fin header
 
 
             },
