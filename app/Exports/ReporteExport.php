@@ -52,7 +52,7 @@ class ReporteExport implements FromView, ShouldAutoSize, WithEvents
 
 
                 //fondo de la celda de la suma de KG
-                $event->sheet->getStyle('I3')->getFill()
+                $event->sheet->getStyle('K1')->getFill()
                 ->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)
                 ->getStartColor()->setARGB('FEF11B');
 
@@ -60,7 +60,7 @@ class ReporteExport implements FromView, ShouldAutoSize, WithEvents
                 
 
                 // Todo el diseño del header
-                $cellRange = 'A1:K1'; // All headers
+                $cellRange = 'A2:M2'; // All headers
                 $styleArray = [
                         'font' => [
                             'bold' => true,

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Reporte extends Model
 {
 
-public $fillable = ['user_id',
+public $fillable = ['nro_talonario','talonario_id','user_id',
 					'faena_id',
 		            'fruta_id',
 		            'variedades_id',
@@ -30,6 +30,11 @@ public function faena()
 public function frutas()
 {
 	return $this->belongsTo('App\Frutas','fruta_id');
+}
+
+public function talonario()
+{
+	return $this->belongsTo('App\Talonarios','talonario_id')->where('status',1);
 }
 
 public function variedad()

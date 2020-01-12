@@ -49,13 +49,15 @@
       @include('partials.flash')
       <div class="card">
         <div class="card-header">
-          <h4 class="card-title">Reportes</h4>
+          <h4 class="card-title">Reportes<a class="btn btn-success float-right" href="{{route('reporte.create')}}"><i class="fa fa-plus"></i> Registrar Reporte</a></h4>
+
         </div>
         <div class="card-content">
           <div class="card-body card-dashboard table-responsive">
             <table class="table table-striped table-bordered default-ordering dataTable">
               <thead>
                 <tr>
+                  <th class="text-center">Nro. Talonario</th>
                   <th class="text-center">Productor</th>
                   <th class="text-center">Campo</th>
                   <th class="text-center">Maquina</th>
@@ -66,6 +68,7 @@
               <tbody>
               @foreach($reportes as $a)
                <tr>
+                  <td class="text-center">{{ $a->nro_talonario ? $a->nro_talonario : 'N/T'  }}</td>
                   <td class="text-center">{{$a->faena->productor->r_social}}</td>
                   <td class="text-center">{{$a->faena->campo->nombre_campo}}</td>
                   <td class="text-center">{{$a->faena->maquina->nombre}}</td>

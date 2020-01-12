@@ -20,7 +20,9 @@
                 <div class="form-group">
                   <label for="projectinput1">Talonario (Inicio)</label>
                   @if(isset(Auth::user()->talonario->inicio))
-                    <h3>{{Auth::user()->talonario->inicio}}</h3>
+                    <h3 id="nro_tal">{{$nro_talonario}} <button class="btn btn-warning" id="btn_void"><i class="fa fa-times"></i></button></h3>
+                    <input type="hidden" name="nro_talonario" value="{{$nro_talonario}}" id="nro_talonario">
+                    <input type="hidden" name="talonario_id" value="{{ Auth::user()->talonario->id }}">
                   @else
                     <br>
                     <a class="btn btn-success" href="{{route('talonarios.create')}}"><i class="fa fa-plus"></i> Registrar Talonario</a>
@@ -143,6 +145,18 @@
 
 @section('script')
 <script type="text/javascript">
+
+  $("#btn_void").click(function(event) {
+    $("#nro_talonario").val('');
+    $("#nro_tal").html('Vacío <button type="button" class="btn btn-warning" id="btn_refresh"><i class="fa fa-refresh"></i></button>')
+  });
+
+
+  $
+  $("#nro_tal").on('click', '#btn_refresh', function(event) {
+    event.preventDefault();
+    location.reload()
+  });
   $("#faena").change(function(event) {
     event.preventDefault();
     var id = $(this).val();

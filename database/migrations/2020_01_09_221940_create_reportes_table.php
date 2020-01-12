@@ -15,6 +15,9 @@ class CreateReportesTable extends Migration
     {
         Schema::create('reportes', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->integer('nro_talonario')->nullable();
+            $table->unsignedBigInteger('talonario_id')->nullable();
+            $table->foreign('talonario_id')->references('id')->on('talonarios');
             $table->unsignedBigInteger('user_id')->nullable();
             $table->foreign('user_id')->references('id')->on('users');
             $table->unsignedBigInteger('faena_id')->nullable();
@@ -28,7 +31,7 @@ class CreateReportesTable extends Migration
             $table->foreign('bandeja_id')->references('id')->on('bandejas');
             $table->string('cantidad_bandeja');
             $table->string('kg');
-            $table->string('cantidad_combustible');
+            $table->string('cantidad_combustible')->nullable();
             $table->string('hectareas');
             $table->string('observacion')->nullable();
             $table->timestamps();

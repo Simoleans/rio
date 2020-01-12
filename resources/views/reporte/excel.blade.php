@@ -1,6 +1,25 @@
 <table>
+    <thead>
+        <tr>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>{{ number_format($reporte->sum('kg'),0,",",".") }} Kg</td>
+            <td></td>
+            <td></td>
+        </tr>
+    </thead>
     <thead style="background-color: red !important;">
     <tr>
+        <th>Talonario</th>
+        <th>Nro. Talonario</th>
         <th>Operador</th>
         <th>Maquina</th>
         <th>Razón Social</th>
@@ -17,6 +36,8 @@
     <tbody>
     @foreach($reporte as $r)
         <tr>
+            <td>{{ strtoupper($r->user->talonario->nombre) }}</td>
+            <td>{{ strtoupper($r->nro_talonario ? $r->nro_talonario : 'N/T' ) }}</td>
             <td>{{ strtoupper($r->user->nombre) }}</td>
             <td>{{ strtoupper($r->faena->maquina->nombre) }}</td>
             <td>{{ strtoupper($r->faena->productor->r_social) }}</td>
@@ -31,19 +52,5 @@
         </tr>
     @endforeach
     </tbody>
-    <tfoot>
-        <tr>
-            <td>-</td>
-            <td>-</td>
-            <td>-</td>
-            <td>-</td>
-            <td>-</td>
-            <td>-</td>
-            <td>-</td>
-            <td>-</td>
-            <td>{{ number_format($reporte->sum('kg'),0,",",".") }} Kg</td>
-            <td>-</td>
-            <td>-</td>
-        </tr>
-    </tfoot>
+    
 </table>

@@ -52,6 +52,6 @@ class User extends Authenticatable
 
     public function talonario()
     {
-        return $this->hasOne('App\Talonarios','user_id');
+        return $this->hasOne('App\Talonarios','user_id')->where('status',1);
     }
 }
