@@ -10,7 +10,7 @@
     <hr>
     <div class="card-content">
       <div class="px-3">
-        <form class="form" action="{{route('reporte.store')}}" method="POST">
+        <form class="form" action="{{route('reportes.store')}}" method="POST">
           @csrf
           <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
           <div class="form-body">

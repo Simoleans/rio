@@ -32,15 +32,24 @@ class ReporteController extends Controller
      */
     public function create()
     {
-        $faena = Faena::all();
-        $frutas = Frutas::all();
-        $bandejas = Bandeja::all();
-
+         $faena = Faena::all();
+         $frutas = Frutas::all();
+         $bandejas = Bandeja::all();
+        
          $lastId = Reporte::latest()->first();
+         if ($lastId) {
+            
+        //dd($lastId);
          $t = Talonarios::findOrfail($lastId->talonario_id);// me traigo el talonario del ultimo registro
+         //dd($t);
          $inicio = isset(Auth::user()->talonario->inicio) ? Auth::user()->talonario->inicio : true; // Si no existe, ponlo true
          $fin = isset(Auth::user()->talonario->fin) ? Auth::user()->talonario->fin : true; // Si no existe, ponlo true
 
+         if (!$lastId) {
+            
+            $codigo = $inicio;
+            $resultado = $codigo;
+        }
         if (!$lastId->nro_talonario) { // si el ultimo es nulo, trae el numero antes del null
 
          //si el primero del talonario es null   
@@ -60,12 +69,15 @@ class ReporteController extends Controller
          }
 
          
-
+ }else{
+    $inicio = isset(Auth::user()->talonario->inicio) ? Auth::user()->talonario->inicio : true; // Si no existe, ponlo true
+         $fin = isset(Auth::user()->talonario->fin) ? Auth::user()->talonario->fin : true; // Si no existe, ponlo true
         
          if (!$lastId) {
             
             $codigo = $inicio;
             $resultado = $codigo;
+ 
         } else {
             $codigo = (str_pad((int) $nro_talonario2, STR_PAD_LEFT));
             $resultado = $codigo + 1;
@@ -81,7 +93,7 @@ class ReporteController extends Controller
                 $talonario->save();
                 //fin editar status
                 
-            return redirect("reporte")->with([
+            return redirect("reportes")->with([
                 'flash_message' => 'Ya el talonario llego a su fin.',
                 'flash_class'   => 'alert-danger',
             ]);
@@ -89,7 +101,7 @@ class ReporteController extends Controller
             return view('reporte.create',['frutas' => $frutas, 'faenas' => $faena,'bandejas' => $bandejas,'nro_talonario' => $resultado]);
         }
 
-        
+      }  
     }
 
     /**

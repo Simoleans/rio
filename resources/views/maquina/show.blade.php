@@ -36,7 +36,7 @@
                       <td class="text-right">{{$maquina->serie}}</td>
                     </tr>
                     <tr>
-                      <td>Serie:</td>
+                      <td>Status:</td>
                       <td class="text-right"><span class="badge badge-{{($maquina->status_maquina == 1?'success':'danger')}}">{{($maquina->status_maquina == 1?'Activa':'Desactivada')}}</span></span></td>
                     </tr>
                   </tbody>

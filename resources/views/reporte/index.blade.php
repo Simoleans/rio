@@ -11,7 +11,7 @@
         </div>
         <div class="card-content">
           <div class="card-body card-dashboard table-responsive">
-            <form class="form" action="{{route('reporte.excel')}}" method="POST">
+            <form class="form" action="{{route('reportes.excel')}}" method="POST">
               @csrf
               <div class="form-body">
                 <!-- <h4 class="form-section"><i class="ft-user"></i>Información Personal</h4> -->
@@ -49,7 +49,7 @@
       @include('partials.flash')
       <div class="card">
         <div class="card-header">
-          <h4 class="card-title">Reportes<a class="btn btn-success float-right" href="{{route('reporte.create')}}"><i class="fa fa-plus"></i> Registrar Reporte</a></h4>
+          <h4 class="card-title">Reportes<a class="btn btn-success float-right" href="{{route('reportes.create')}}"><i class="fa fa-plus"></i> Registrar Reporte</a></h4>
 
         </div>
         <div class="card-content">
@@ -75,7 +75,7 @@
                   <td class="text-center">{{$a->kg}} Kg.</td>
                   <!-- <td class="text-center">{{$a->tipo}}</td> -->
                   <td class="text-center">
-                    <a href="{{route('reporte.show',['reporte' => $a->id])}}" class="btn btn-raised btn-success btn-min-width mr-1 mb-1"><i class="fa fa-eye" title="Ver"></i></a>
+                    <a href="{{route('reportes.show',['reporte' => $a->id])}}" class="btn btn-raised btn-success btn-min-width mr-1 mb-1"><i class="fa fa-eye" title="Ver"></i></a>
                     <!-- <a href="{{route('faena.edit',['id' => $a->id])}}" class="btn btn-raised btn-warning btn-min-width mr-1 mb-1"><i class="fa fa-edit" title="Editar"></i></a> -->
                   </td>
                </tr>

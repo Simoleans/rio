@@ -33,7 +33,70 @@ td {
   <div class="content-wrapper">
   	<h3>Arriendo Maquina {{strtoupper($devolucion->arriendo->maquina->nombre)}}</h3>
     <div class="card-content">
-      <div class="card-body"> 
+      <div class="card-body">
+      <div class="row">
+        <div class="col-md-3">
+          <h2>Maquina</h2>
+          <table class="table table-borderless table-sm">
+              <tbody>
+                 <tr>
+                  <td>Nombre:</td>
+                  <td class="text-right">{{$devolucion->maquina->nombre}}</td>
+                </tr>
+                <tr>
+                  <td>Marca:</td>
+                  <td class="text-right">{{$devolucion->maquina->marca}}</td>
+                </tr>
+                <tr>
+                  <td>Modelo</td>
+                  <td class="text-right">{{$devolucion->maquina->modelo}}</td>
+                </tr>
+                <tr>
+                  <td>Tipo:</td>
+                  <td class="text-right">{{$devolucion->maquina->tipo}}</td>
+                </tr>
+                <tr>
+                  <td>Año:</td>
+                  <td class="text-right">{{$devolucion->maquina->ano_maquina}}</td>
+                </tr>
+                <tr>
+                  <td>Serie:</td>
+                  <td class="text-right">{{$devolucion->maquina->serie}}</td>
+                </tr>
+                
+              </tbody>
+            </table>
+        </div>
+        <div class="col-md-3 offset-4">
+          <h2>Propietario</h2>
+          <table class="table table-borderless table-sm">
+              <tbody>
+                 <tr>
+                  <td>RUT:</td>
+                  <td>{{$devolucion->maquina->propietario->rut}}</td>
+                </tr>
+                <tr>
+                  <td>Razón Social:</td>
+                  <td>{{$devolucion->maquina->propietario->r_social}}</td>
+                </tr>
+                <tr>
+                  <td>Dirección:</td>
+                  <td>{{$devolucion->maquina->propietario->direccion}}</td>
+                </tr>
+                <tr>
+                  <td>Región:</td>
+                  <td>{{$devolucion->maquina->propietario->region->region}}</td>
+                </tr>
+                <tr>
+                  <td>Comuna:</td>
+                  <td>{{$devolucion->maquina->propietario->comuna->comuna}}</td>
+                </tr>
+               
+              </tbody>
+            </table>
+        </div>
+      </div> 
+     
         <div class="row">
           <div class="col-md-11">
             <table class="table">
