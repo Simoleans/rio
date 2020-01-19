@@ -16,23 +16,32 @@
             <div class="form-body">
               <h4 class="form-section"><i class="ft-user"></i>Información Personal</h4>
               <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-6">
                   <div class="form-group">
-                    <label for="projectinput1">Nombre</label>
+                    <label for="nombre">Nombre</label>
                     <input type="text" id="projectinput1" class="form-control" name="nombre" value="{{$user->nombre}}">
                   </div>
                 </div>
-              </div>
-              <div class="row">
                 <div class="col-md-6">
                   <div class="form-group">
-                    <label for="projectinput3">E-mail</label>
+                    <label for="email">E-mail</label>
                     <input type="text" id="projectinput3" class="form-control" name="email" value="{{$user->email}}">
                   </div>
                 </div>
+                 <div class="col-md-6">
+                <div class="form-group">
+                  <label for="maquina">Maquina</label>
+                  <select class="form-control" name="maquina_id">
+                    <option value="">Seleccione...</option>
+                    @foreach($maquinas as $m)
+                      <option value="{{ $m->id}}">{{ strtoupper($m->nombre) }}</option>
+                    @endforeach  
+                  </select>
+                </div>
+              </div>
                 <div class="col-md-6">
                 <div class="form-group">
-                  <label for="projectinput3">Rol</label>
+                  <label for="rol">Rol</label>
                   <select class="form-control" name="rol">
                     <option value="">Seleccione...</option>
                     <option value="1" {{($user->rol == 1)?'selected':''}}>Admin</option>
@@ -40,7 +49,7 @@
                   </select>
                 </div>
               </div>
-            </div>
+              </div>
             <div class="form-actions">
               <a href="{{route('user.index')}}" class="btn btn-raised btn-raised btn-warning mr-1">
                  Volver

@@ -28,11 +28,11 @@
     <link rel="stylesheet" type="text/css" href='{{asset("app-assets/vendors/css/prism.min.css")}}'>
     <link rel="stylesheet" type="text/css" href='{{asset("app-assets/vendors/css/chartist.min.css")}}'>
     <link rel="stylesheet" type="text/css" href="{{asset('app-assets/vendors/css/tables/datatable/datatables.min.css')}}">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/css/inputmask.min.css" rel="stylesheet"/>
-    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.1.0/fullcalendar.min.css' />
-    <link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap-datepicker.css')}}">
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <link rel="stylesheet" type="text/css" href="https://unpkg.com/fullcalendar-scheduler@1.10.0/dist/scheduler.min.css">
+    <link href="{{ asset('css/inputmask.min.css') }}" type="text/css" rel="stylesheet"/>
+    <link rel='stylesheet' href="{{ asset('css/fullcalendar.min.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap-datepicker.css') }}">
+    <link rel="stylesheet"  href="{{ asset('css/jquery-ui.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/scheduler.min.css') }}">
     
 
 

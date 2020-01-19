@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use App\Maquina;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -82,8 +83,9 @@ class UserController extends Controller
     public function edit($id)
     {
          $user = User::findOrfail($id);
+         $maquina = Maquina::all();
 
-        return view('user.edit',['user' => $user]);
+        return view('user.edit',['user' => $user,'maquinas' => $maquina]);
     }
 
     /**
