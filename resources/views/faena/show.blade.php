@@ -59,7 +59,7 @@
               </table>
           </div>
         </div>
-       <!--  <button type="button" id="delete" class="pull-right btn btn-success" data-url="{{route('faena.status',['id' => $faena->id])}}">Cambiar Status</button> -->
+        <button type="button" id="delete" class="pull-right btn btn-danger">Cancelar Faena</button>
         <!--/ Invoice Footer -->
       </div>
     </div>
@@ -79,17 +79,18 @@
       //text: "You won't be able to revert this!",
       icon: 'warning',
       showCancelButton: true,
-      confirmButtonColor: '#0CC27E',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Si, Cambiar'
+      confirmButtonColor: '#d33',
+      cancelButtonColor: '#04D64E',
+      confirmButtonText: 'Si, Cancelar',
+      cancelButtonText: 'Salir'
     }).then((result) => {
       if (result.value) {
 
         $.ajax({
-          url: url,
-          type: 'DELETE',
+          url: "{{ route('faena.status') }}",
+          type: 'POST',
           dataType: 'json',
-          data: {_token: '{{csrf_token()}}'},
+          data: {id: @json($faena->id) ,_token: '{{csrf_token()}}'},
         })
         .done(function(data) {
           if (data.status) {

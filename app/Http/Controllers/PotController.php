@@ -54,6 +54,7 @@ class PotController extends Controller
         $pot->documento= $name;
 
          if ($pot->save()) {
+            storeNotification('pot',route('pot.show',['id' => $pot->id]));
             $request->documento->storeAs('documentos',$name);
             return redirect("pot/create")->with([
                 'flash_message' => 'Documento guardado correctamente.',

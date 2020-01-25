@@ -47,6 +47,7 @@ class ProductoresController extends Controller
         $productores->fill($request->all());
 
          if ($productores->save()) {
+            storeNotification('productor',route('productores.show',['id' => $productores->id]));
             return redirect("productores")->with([
                 'flash_message' => 'Productores agregada correctamente.',
                 'flash_class'   => 'alert-success',

@@ -45,6 +45,11 @@ class User extends Authenticatable
        return $this->rol == 1;
     }
 
+    public function isAdmin()
+    {
+       return $this->rol == 0;
+    }
+
     public static function operadores()
     {
         return static::where('rol',1)->get();

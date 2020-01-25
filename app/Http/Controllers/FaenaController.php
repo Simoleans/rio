@@ -18,7 +18,7 @@ class FaenaController extends Controller
      */
     public function index()
     {
-        $faena = Faena::all();
+        $faena = Faena::where('status','!=',0)->get();
 
         return view('faena.index',['faena' => $faena]);
     }
@@ -56,6 +56,7 @@ class FaenaController extends Controller
         $faena->fill($request->all());
 
          if ($faena->save()) {
+            storeNotification('faena',route('faena.show',['id' => $faena->id]));
             return redirect("faena")->with([
                 'flash_message' => 'Faena agregada correctamente.',
                 'flash_class'   => 'alert-success',
@@ -78,8 +79,6 @@ class FaenaController extends Controller
     public function show($id)
     {
         $faena = Faena::findOrfail($id);
-
-        
 
         return view('faena.show',['faena' => $faena]);
     }

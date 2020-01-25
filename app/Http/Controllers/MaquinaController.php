@@ -53,6 +53,7 @@ class MaquinaController extends Controller
 
          if ($maquina->save()) {
             if ($request->tipo == 'Arriendo') {
+                storeNotification('Inspeccionar Maquina',route('maquina.show',['id' => $maquina->id]));
                 $propietario = new PropietarioMaquina;
                 $propietario->maquina_id    = $maquina->id;
                 $propietario->rut           = $request->rut;

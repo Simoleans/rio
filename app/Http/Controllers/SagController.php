@@ -58,7 +58,7 @@ class SagController extends Controller
 
         if ($sag->save() && $faenaDestino->save() && $faenaOrigen->save()) {
             
-
+            storeNotification('sag',route('sags.show',['id' => $sag->id]));
             return redirect("sags")->with([
                 'flash_message' => 'Sag registrado correctamente.',
                 'flash_class'   => 'alert-success',

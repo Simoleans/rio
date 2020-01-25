@@ -333,14 +333,14 @@ $("#sub_fecha").click(function(event) {
          
         $.each(data.destino, function(index, val) {
 
-           datosDestino += '<tr>'+
+            datosDestino += '<tr>'+
+                      '<td class="text-center">'+val.productor.r_social+'</td>'+
+                      '<td class="text-center">'+val.campo.nombre_campo+'</td>'+
                       '<td class="text-center">'+val.desde+'</td>'+
-                      '<td class="text-center">'+val.hasta+'</td>'+
                       '<td class="text-center">'+
                         '<button type="button" data-id="'+val.id+'" data-fechaDes="'+val.desde+'" style="color: #FFFF"  class="btn btn-raised btn-success btn-min-width mr-1 mb-1 destino_faena">SELECCIONAR</button>'+
                       '</td>'+
                     '</tr>'
-
         });
         //$('.dataTable').DataTable();
         $('.dataTable').DataTable().destroy();

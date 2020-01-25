@@ -18,7 +18,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-touch-fullscreen" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
-    <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,700,900|Montserrat:300,400,500,600,700,800,900" rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,700,900|Montserrat:300,400,500,600,700,800,900" rel="stylesheet"> -->
     <!-- BEGIN VENDOR CSS-->
     <!-- font icons-->
     <link rel="stylesheet" type="text/css" href='{{asset("app-assets/fonts/feather/style.min.css")}}'>
@@ -214,6 +214,37 @@ input[type="radio"]:focus + span {
         })
         .always(function() {
           console.log("complete");
+        });
+        
+      });
+
+      $(".notification_click").click(function(event) {
+        event.preventDefault();
+        var id = $(this).data("id");
+
+        var url = $(this).attr('href');
+
+        $.ajax({
+          headers: {
+               'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+           },
+          url: '{{ route("notifications.status") }}',
+          type: 'POST',
+          dataType: 'JSON',
+           data: {id : id, _token: '{{csrf_token()}}'}, 
+        })
+        .done(function(data) {
+          if (data.status) {
+            window.location.href = url;
+          }else{
+            alert("Error!");
+          }
+        })
+        .fail(function() {
+          //console.log("error");
+        })
+        .always(function() {
+          //console.log("complete");
         });
         
       });

@@ -53,7 +53,9 @@ Route::group(['middleware' => 'auth'], function () {
 
     /* reporte */
     Route::post('/reporteExcel','ReporteController@excel')->name('reporte.excel');
-  
+    
+    /* notificacion */
+    Route::post('notificacion/status','NotificacionController@status')->name('notifications.status');
 
     //talonarios
     Route::get('talonario/{id}/edit','TalonariosController@edit')->name('talonario.edit');
@@ -77,7 +79,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/sagMaquina','AjaxRequestController@searchFaena')->name('searchFaena.search');
     Route::post('/storeFaena','AjaxRequestController@storeFaena')->name('storeFaena.store');
     Route::post('/fechaSug','AjaxRequestController@fecha_sugerida')->name('fechaS.store');
-    Route::put('/statusFaena/{id}','AjaxRequestController@status_faena')->name('faena.status');
+    Route::post('/statusFaena','AjaxRequestController@status_faena')->name('faena.status');
     Route::put('/statusMaquina/{id}','AjaxRequestController@status_maquina')->name('maquina.status');
     Route::post('/searchMaq','AjaxRequestController@searchMaquina')->name('search.maquina');
     Route::post('/searcFaenaPr','AjaxRequestController@searchProducFaena')->name('searchFaenaProductor');

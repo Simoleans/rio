@@ -32966,7 +32966,7 @@ datetime .form-group {
   width: 400px; }
   .notification-dropdown .noti-list {
     position: relative;
-    height: 290px; }
+    height: auto; }
   .notification-dropdown.dropdown-menu {
     padding: 0; }
   .notification-dropdown .noti-text {

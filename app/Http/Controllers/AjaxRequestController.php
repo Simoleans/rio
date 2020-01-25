@@ -38,7 +38,7 @@ class AjaxRequestController extends Controller
 
     public function searchFaena(Request $request)
     {
-        $faenasOrigen = Faena::with(['productor','campo'])->where('maquina_id',$request->maquina_id)->get();
+        $faenasOrigen = Faena::with(['productor','campo'])->where('maquina_id',$request->maquina_id)->where('status','!=',0)->get();
 
         $faenasDestino = Maquina::findOrfail($request->maquina_id)->faenas;
 
@@ -80,26 +80,27 @@ class AjaxRequestController extends Controller
     {
          $faena = Faena::findOrfail($request->id);
 
-        
-
          $faena->desde = $request->fecha;
 
          if ($faena->save()) {
-             $faenasDestino = Maquina::findOrfail($request->maquina_id)->faenasDestino;
+             $faenasDestino =Faena::with(['productor','campo'])->where('maquina_id',$faena->maquina_id)->where('status','!=',0)->get();
             return response()->json(['destino' => $faenasDestino,'status' => true,'msg' => 'Se ha modificado la fecha correctamente']);
         } else {
             return response()->json(['destino' => $faenasDestino,'status' => false,'msg' => '¡Error!']);
         }
     }
 
-    public function status_faena($id)
+    public function status_faena(Request $request)
     {
          $faena = Faena::findOrfail($request->id);
-         // $faena->status = 
+         $faena->status = 0;
 
-         // if ($faena->) {
-         //     # code...
-         // }
+         if ($faena->save()) {
+            storeNotification('Faena Cancelada',route('faena.index'));
+             return response()->json(['status' => true]);
+         }else{
+            return response()->json(['status' => false]);
+         }
     }
 
     public function status_maquina($id)
@@ -149,7 +150,7 @@ class AjaxRequestController extends Controller
 
     public function buscarFaena(Request $request)
     {
-        $faena = Faena::with(['productor','campo','maquina'])->where('id',$request->faena_id)->first();
+        $faena = Faena::with(['productor','campo','maquina'])->where('id',$request->faena_id)->where('status','!=',0)->first();
 
         return response()->json($faena);
     }

@@ -18,7 +18,7 @@ class AddMaquinaUser extends Migration
         Schema::enableForeignKeyConstraints();
 
         Schema::table('users', function (Blueprint $table) {
-            $table->unsignedBigInteger('maquina_id')->nullable()->after('id');;
+            $table->unsignedBigInteger('maquina_id')->nullable()->after('id');
             $table->foreign('maquina_id')->references('id')->on('maquina');
         });
     }
@@ -35,6 +35,8 @@ class AddMaquinaUser extends Migration
         Schema::enableForeignKeyConstraints();
 
         Schema::table('users', function (Blueprint $table) {
+            
+            $table->dropForeign('users_maquina_id_foreign')->references('id')->on('maquina');
             $table->dropColumn('maquina_id');
         });
     }
