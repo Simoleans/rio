@@ -22,6 +22,14 @@
                   </li>
                 </ul>
               </li>
+              <li class="has-sub nav-item"><a href="#"><i class="icon-user-follow"></i><span data-i18n="" class="menu-title">Estacionamiento</span></a>
+                <ul class="menu-content">
+                  <li><a href="{{route('estacionamiento.index')}}" class="menu-item">Ver Estacionamientos</a>
+                  </li>
+                  <li><a href="{{route('estacionamiento.create')}}" class="menu-item">Crear Estacionamiento</a>
+                  </li>
+                </ul>
+              </li>
                <li class="has-sub nav-item"><a href="#"><i class="ft-check-circle"></i><span data-i18n="" class="menu-title">Arriendo</span></a>
                 <ul class="menu-content">
                   <li><a href="{{route('arriendo.index')}}" class="menu-item">Ver Arriendos</a>
