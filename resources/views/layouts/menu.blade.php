@@ -22,7 +22,7 @@
                   </li>
                 </ul>
               </li>
-              <li class="has-sub nav-item"><a href="#"><i class="icon-user-follow"></i><span data-i18n="" class="menu-title">Estacionamiento</span></a>
+              <li class="has-sub nav-item"><a href="#"><i class="fa fa-car"></i><span data-i18n="" class="menu-title">Estacionamiento</span></a>
                 <ul class="menu-content">
                   <li><a href="{{route('estacionamiento.index')}}" class="menu-item">Ver Estacionamientos</a>
                   </li>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Estacionamiento;
 use App\Regiones;
+use App\Maquina;
 use Illuminate\Http\Request;
 
 class EstacionamientoController extends Controller
@@ -15,7 +16,7 @@ class EstacionamientoController extends Controller
      */
     public function index()
     {
-        //
+        return view('estacionamiento.index',['estacionamientos' => Estacionamiento::all()]);
     }
 
     /**
@@ -26,8 +27,9 @@ class EstacionamientoController extends Controller
     public function create()
     {
          $regiones = Regiones::all();
+         $maquina = Maquina::where('status_maquina',1)->get();
 
-         return view('estacionamiento.create',['regiones' => $regiones]);
+         return view('estacionamiento.create',['regiones' => $regiones,'maquinas' => $maquina]);
     }
 
     /**
@@ -38,7 +40,23 @@ class EstacionamientoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //dd($request->all());
+        $estacionamiento = new Estacionamiento;
+        $estacionamiento->fill($request->all());
+
+        if ($estacionamiento->save()) {
+            
+            return redirect("estacionamiento")->with([
+                'flash_message' => 'Estacionamiento agregado correctamente.',
+                'flash_class'   => 'alert-success',
+            ]);
+        } else {
+            return redirect("estacionamiento")->with([
+                'flash_message'   => 'Ha ocurrido un error.',
+                'flash_class'     => 'alert-danger',
+                'flash_important' => true,
+            ]);
+        }
     }
 
     /**
@@ -49,7 +67,7 @@ class EstacionamientoController extends Controller
      */
     public function show(Estacionamiento $estacionamiento)
     {
-        //
+        return view('estacionamiento.show',['estacionamiento' => $estacionamiento]);
     }
 
     /**

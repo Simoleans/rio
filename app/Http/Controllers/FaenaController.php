@@ -18,7 +18,7 @@ class FaenaController extends Controller
      */
     public function index()
     {
-        $faena = Faena::where('status','!=',0)->get();
+        $faena = Faena::where('status',0)->get();
 
         return view('faena.index',['faena' => $faena]);
     }

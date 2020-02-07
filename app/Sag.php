@@ -12,7 +12,8 @@ class Sag extends Model
 						'faena_dest_id',
 						'hora_ori',
 						'hora_dest',
-						'maquina_id'];
+						'maquina_id',
+						'estacionamiento_id'];
 
 	public function faenaOrigen()
 	{
@@ -34,5 +35,10 @@ class Sag extends Model
 	public function maquina()
 	{
 		return $this->belongsTo('App\Maquina','maquina_id');
+	}
+
+	public function estacionamiento()
+	{
+		return $this->belongsTo('App\Estacionamiento','estacionamiento_id');
 	}
 }

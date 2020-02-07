@@ -15,6 +15,8 @@ class CreateEstacionamientosTable extends Migration
     {
         Schema::create('estacionamientos', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedBigInteger('maquina_id');
+            $table->foreign('maquina_id')->references('id')->on('maquina');
             $table->string('r_social');
             $table->string('rut');
             $table->string('localidad');

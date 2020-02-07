@@ -8,7 +8,7 @@
       <div class="card">
         <div class="card-header">
           <h4 class="card-title">SAG´s Registrados</h4>
-          <p class="card-text">todos los sag.</p>
+          <p class="card-text">Todos los sag.</p>
         </div>
         <div class="card-content">
           <div class="card-body card-dashboard table-responsive">
@@ -25,7 +25,7 @@
               <tbody>
               @foreach($sags as $a)
                <tr>
-	               	<td class="text-center">{{$a->faenaOrigen->productor->r_social}}</td>
+	               	<td class="text-center">{{isset($a->faenaOrigen->productor->r_social)? $a->faenaOrigen->productor->r_social : 'N/T'}}</td>
 	               	<td class="text-center">{{$a->hora_ori}}</td>
                   <td class="text-center">{{$a->faenaDestino->productor->r_social}}</td>
                   <td class="text-center">{{$a->hora_dest}}</td>

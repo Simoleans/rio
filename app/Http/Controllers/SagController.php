@@ -6,6 +6,7 @@ use App\Sag;
 use App\Campo;
 use App\Maquina;
 use App\Productores;
+use App\Estacionamiento;
 use App\Faena;
 use App\Mail\SagMail;
 use Illuminate\Http\Request;
@@ -46,19 +47,45 @@ class SagController extends Controller
      */
     public function store(Request $request)
     {
-        //dd($request->all());
+        dd($request->all());
         $sag = new Sag;
         $sag->fill($request->all());
+
+        if ($request->estacionamiento_id) {
+
+            $estacionamiento = Estacionamiento::findOrfail($request->estacionamiento_id);
+            $maquina = Maquina::findOrfail($estacionamiento->maquina->id);
+
+            $maquina->status_estacionamiento = 1;
+             //dd($maquina->status_estacionamiento);
+            $maquina->save();
+           
+            
+        
+        }
         //cambiar status faenas
-            $faenaOrigen= Faena::findOrfail($request->faena_ori_id);
-            $faenaOrigen->status = 2;
-        //cambiar status faena destino
+        if ($request->faena_ori_id) {
+             $faenaOrigen= Faena::findOrfail($request->faena_ori_id);
+             $faenaOrigen->status = 2;
+             $faenaOrigen->save();
+
+        }
+
+        if ($request->faena_dest_id) {
+            //cambiar status faena destino
             $faenaDestino = Faena::findOrfail($request->faena_dest_id);
             $faenaDestino->status = 1;
+            $faenaDestino->save();
+        }
+           
+       
 
-        if ($sag->save() && $faenaDestino->save() && $faenaOrigen->save()) {
+            //dd($faenaOrigen,$faenaDestino);
+
+        if ($sag->save()) {
             
             storeNotification('sag',route('sags.show',['id' => $sag->id]));
+
             return redirect("sags")->with([
                 'flash_message' => 'Sag registrado correctamente.',
                 'flash_class'   => 'alert-success',

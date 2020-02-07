@@ -20,6 +20,17 @@
                   <input type="text" id="rut" class="form-control rut" name="rut">
                 </div>
               </div>
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label for="maquina_id">Maquina</label>
+                  <select class="form-control" name="maquina_id">
+                    <option value="">Seleccione...</option>
+                    @foreach($maquinas as $m)
+                      <option value="{{ $m->id }}">{{ strtoupper($m->nombre) }}</option>
+                    @endforeach
+                  </select>
+                </div>
+              </div>
             </div>
             <div class="row">
               <div class="col-md-12">

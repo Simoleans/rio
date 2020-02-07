@@ -54,15 +54,39 @@
           <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
         </div>
         <form id="regiration_form" novalidate action="{{route('sags.store')}}"  method="POST">
+          @csrf
           <input type="hidden" name="faena_ori_id" id="faena_ori_id">
           <input type="hidden" name="faena_dest_id" id="faena_dest_id">
           <input type="hidden" name="fecha_ori" id="fecha_ori">
+          <input type="hidden" name="estacionamiento_id" id="origen_estacionamiento_id">
           <input type="hidden" name="fecha_dest" id="fecha_dest">
           <input type="hidden" name="maquina_id" id="maquina_id">
           <input type="hidden" name="seleccionado" id="seleccionado">
-          @csrf
-          <fieldset>
-            <h2>Paso 1: Faena Origen</h2>
+          
+          <fieldset  id="origen_estacionamiento_tabla" style="display: none;">
+            <h2>Paso 1: Origen Estacionamiento</h2>
+              <div class="card-body card-dashboard table-responsive tabla_faenas_estacionamiento">
+                <table class="table table-striped table-bordered default-ordering dataTable">
+                  <thead>
+                    <tr>
+                      <th class="text-center">RUT</th>
+                      <th class="text-center">R. Social</th>
+                      <th class="text-center">Dirección</th>
+                      <th class="text-center">Acción</th>
+                    </tr>
+                  </thead>
+                  <tbody id="table_origen_estacionamiento">
+                  </tbody>
+                </table>
+                  <div class="form-group" id="hora_origen" style="display: none;">
+                    <label for="hora_origen">Hora Origen(Obligatorio)</label>
+                   <input type="time" name="hora_ori"  class="form-control" required>
+                  </div>
+              </div>
+          <input type="button" name="button" class="next btn btn-info" value="Siguiente" />
+          </fieldset>
+          <fieldset id="origen_faena" style="display: none;">
+            <h2>Paso 1: Origen </h2>
               <div class="card-body card-dashboard table-responsive tabla_faenas">
                 <table class="table table-striped table-bordered default-ordering dataTable">
                   <thead>
@@ -98,6 +122,17 @@
                   <tbody id="table_destino">
                   </tbody>
                 </table>
+                  <div class="form-group" id="hora_destino" style="display: none;">
+                    <label for="hora_origen">Hora Destino(Obligatorio)</label>
+                   <input type="time" name="hora_dest"  class="form-control" required>
+                  </div>
+              </div>
+            <input type="button" name="button" class="next btn btn-info" value="Siguiente" />
+          </fieldset>
+          <fieldset>
+            <h2>Paso 3: Final</h2>
+              <div class="card-body card-dashboard table-responsive tabla_faenas">
+                
                   <div class="form-group" id="hora_destino" style="display: none;">
                     <label for="hora_origen">Hora Destino(Obligatorio)</label>
                    <input type="time" name="hora_dest"  class="form-control" required>
@@ -167,6 +202,16 @@
       data: $(this).serialize(),
     })
     .done(function(data) {
+
+      if (data.estacionamiento) {
+        
+        $("#origen_estacionamiento_tabla").fadeIn('slow/400/fast');
+        $("#origen_faena").remove();
+        //alert("dds");
+      }else{
+        $("#origen_faena").fadeIn('slow/400/fast');
+        $("#origen_estacionamiento_tabla").remove();
+      }
       
       //$("#submit_maquina").attr('disabled',true);
       $("#maquina_send").val($("#maquina_value").val())
@@ -177,23 +222,45 @@
         $("#row_maquina").attr('class', 'col-md-4');
         $("#form_faenas").fadeIn('slow/400/fast');
         var datos = '';
-         console.log(data.data)
-        $.each(data.data, function(index, val) {
+     
 
-           datos += '<tr>'+
-                      '<td class="text-center">'+val.productor.r_social+'</td>'+
-                      '<td class="text-center">'+val.campo.nombre_campo+'</td>'+
-                      '<td class="text-center">'+val.desde+'</td>'+
+        if (data.estacionamiento) { //si existe estacionamiento
+       
+
+           var estacionamientos = '<tr>'+
+                      '<td class="text-center">'+data.estacionamiento.rut+'</td>'+
+                      '<td class="text-center">'+data.estacionamiento.r_social+'</td>'+
+                      '<td class="text-center">'+data.estacionamiento.direccion+'</td>'+
                       '<td class="text-center">'+
-                        '<button type="button" data-id="'+val.id+'" data-fechaOr="'+val.desde+'" style="color: #FFFF"  class="btn btn-raised btn-success btn-min-width mr-1 mb-1 origen_faena">SELECCIONAR</button>'+
+                        '<button type="button" data-id="'+data.estacionamiento.id+'" style="color: #FFFF"  class="btn btn-raised btn-success btn-min-width mr-1 mb-1 origen_estacionamiento_button">SELECCIONAR</button>'+
                       '</td>'+
                     '</tr>'
 
-        });
-        //$('.dataTable').DataTable();
-        $('.dataTable').DataTable().destroy();
-        $("#table_origen").html(datos);
-        $('.dataTable').DataTable();
+       
+          //$('.dataTable').DataTable();
+          $('.dataTable').DataTable().destroy();
+          $("#table_origen_estacionamiento").html(estacionamientos);
+          $('.dataTable').DataTable();
+        }else{
+
+           $.each(data.data, function(index, val) {
+
+             datos += '<tr>'+
+                        '<td class="text-center">'+val.productor.r_social+'</td>'+
+                        '<td class="text-center">'+val.campo.nombre_campo+'</td>'+
+                        '<td class="text-center">'+val.desde+'</td>'+
+                        '<td class="text-center">'+
+                          '<button type="button" data-id="'+val.id+'" data-fechaOr="'+val.desde+'" style="color: #FFFF"  class="btn btn-raised btn-success btn-min-width mr-1 mb-1 origen_faena">SELECCIONAR</button>'+
+                        '</td>'+
+                      '</tr>'
+
+          });
+          //$('.dataTable').DataTable();
+          $('.dataTable').DataTable().destroy();
+          $("#table_origen").html(datos);
+          $('.dataTable').DataTable();
+        }
+        
 
 // Destino
         var datosDestino = '';
@@ -239,6 +306,27 @@
 
     $("#fecha_ori").val(fecha)
     $("#faena_ori_id").val(id);
+    //Esta parte es para el seleccionar faenas al darle un boton el otro se desactive
+    var boton_disabled = $("#table_origen").find('button[type=button]:disabled');
+    $("#seleccionado").val(id); // el id del origen para que este seleccionado en destino
+    if(boton_disabled.length > 0){ // validacion de click en "seleccionar"
+      boton_disabled.attr('disabled',false);
+    }
+    //fin
+    
+    $(this).attr('disabled','disabled');
+   
+    $("#hora_origen").fadeIn('slow/400/fast', function() {
+       $(this).removeAttr('style');
+    });
+  });
+
+  $(".tabla_faenas_estacionamiento").on('click', '.origen_estacionamiento_button', function(event) {
+    event.preventDefault();
+
+    var id = $(this).data('id');
+
+    $("#origen_estacionamiento_id").val(id)
     //Esta parte es para el seleccionar faenas al darle un boton el otro se desactive
     var boton_disabled = $("#table_origen").find('button[type=button]:disabled');
     $("#seleccionado").val(id); // el id del origen para que este seleccionado en destino

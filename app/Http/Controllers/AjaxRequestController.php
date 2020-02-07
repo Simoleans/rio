@@ -38,9 +38,22 @@ class AjaxRequestController extends Controller
 
     public function searchFaena(Request $request)
     {
-        $faenasOrigen = Faena::with(['productor','campo'])->where('maquina_id',$request->maquina_id)->where('status','!=',0)->get();
+        $faenasOrigen = Faena::with(['productor','campo'])->where('maquina_id',$request->maquina_id)->where('status',0)->get();
 
         $faenasDestino = Maquina::findOrfail($request->maquina_id)->faenas;
+
+        $maq = Maquina::findOrfail($request->maquina_id);
+
+        if ($maq->status_estacionamiento == 0) {
+            $estacionamientoStatus = Maquina::findOrfail($request->maquina_id)->estacionamiento;
+        }else{
+            $estacionamientoStatus = false;
+        }
+
+        
+
+
+
 
 
         $maquina = Faena::maquinaExists($request->maquina_id);
@@ -55,9 +68,9 @@ class AjaxRequestController extends Controller
 
             $direccionSag = DireccionSag::where('region_id',$region)->where('comuna_id',$comuna)->get();
 
-            return response()->json(['count'=>$maquinaCount,'data' => $faenasOrigen,'status' => true,'direccion' => $direccionSag,'origen' => $faenasOrigen,'destino' => $faenasDestino]);   
+            return response()->json(['count'=>$maquinaCount,'data' => $faenasOrigen,'status' => true,'direccion' => $direccionSag,'origen' => $faenasOrigen,'destino' => $faenasDestino , 'estacionamiento' => $estacionamientoStatus]);   
         }else{
-            return response()->json(['count'=>$maquinaCount,'data' => false,'status' => false,'direccion' => false,'faenas' => $faenasOrigen,'destino' => $faenasDestino]);
+            return response()->json(['count'=>$maquinaCount,'data' => false,'status' => false,'direccion' => false,'faenas' => $faenasOrigen,'destino' => $faenasDestino , 'estacionamiento' => $estacionamientoStatus]);
         } 
         
     }
