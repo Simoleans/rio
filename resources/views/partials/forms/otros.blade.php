@@ -267,6 +267,43 @@
        <div class="card card-outline-info text-center box-shadow-0">
         <div class="card">
           <div class="card-header">
+            <h4 class="card-title">Cremallera Dirección</h4>
+          </div>
+           <div class="card-content">
+            <div class="card-body">
+              <div class="container">
+                <div id="radios">
+                  <label for="cremallera_direccion" class="material-icons" data-tooltip="Si">
+                    <input type="radio" name="cremallera_direccion" id="cremallera_direccion" value="1" required/>
+                    <span><i class="icon-like"></i></span>
+                  </label>
+                  <label for="cremallera_direccion1" class="material-icons" data-tooltip="No">
+                    <input type="radio" name="cremallera_direccion" id="cremallera_direccion1" value="0" required/>
+                    <span><i class="icon-dislike"></i></span>
+                  </label>
+                </div>
+              </div>
+               <hr>
+              <br>
+              <small>Observacion</small>
+              <textarea class="form-control" name="ob_cremallera_direccion"></textarea>
+            </div>
+            <!--  <input type="button" name="next" class="next btn btn-info" value="Confirmar"/> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> <!-- fin row -->
+  <input type="button" name="previous" class="previous btn btn-warning"  value="Anterior" />
+  <input type="button" name="next" class="next btn btn-info"  value="Confirmar" />
+</fieldset>
+<fieldset>
+  <h2>Paso 15: Otros</h2>
+  <div class="row">
+    <div class="col-md-12">
+       <div class="card card-outline-info text-center box-shadow-0">
+        <div class="card">
+          <div class="card-header">
             <h4 class="card-title">Correas Poleas</h4>
           </div>
            <div class="card-content">

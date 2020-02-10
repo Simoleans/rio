@@ -47,7 +47,7 @@ class SagController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->all());
+       //dd($request->all());
         $sag = new Sag;
         $sag->fill($request->all());
 

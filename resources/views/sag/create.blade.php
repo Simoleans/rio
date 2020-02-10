@@ -123,8 +123,8 @@
                   </tbody>
                 </table>
                   <div class="form-group" id="hora_destino" style="display: none;">
-                    <label for="hora_origen">Hora Destino(Obligatorio)</label>
-                   <input type="time" name="hora_dest"  class="form-control" required>
+                    <label for="hora_dest">Hora Destino(Obligatorio)</label>
+                   <input type="time" name="hora_dest"  id="hora_dest" class="form-control" required>
                   </div>
               </div>
             <input type="button" name="button" class="next btn btn-info" value="Siguiente" />
@@ -133,10 +133,7 @@
             <h2>Paso 3: Final</h2>
               <div class="card-body card-dashboard table-responsive tabla_faenas">
                 
-                  <div class="form-group" id="hora_destino" style="display: none;">
-                    <label for="hora_origen">Hora Destino(Obligatorio)</label>
-                   <input type="time" name="hora_dest"  class="form-control" required>
-                  </div>
+                 
               </div>
             <input type="button" name="previous" class="previous btn btn-warning" value="Anterior" />
             <input type="submit" name="submit" class="submit btn btn-success" value="Guardar" />

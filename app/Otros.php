@@ -53,5 +53,7 @@ class Otros extends Model
             'neumaticos_llantas',
             'ob_neumaticos_llantas',
             'motor_ruedas',
-            'ob_motor_ruedas',];
+            'ob_motor_ruedas',
+            'cremallera_direccion',
+            'ob_cremallera_direccion'];
 }
